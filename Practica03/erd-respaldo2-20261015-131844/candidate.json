@@ -1,0 +1,465 @@
+{
+  "schema_version": 1,
+  "diagram_type": "erd",
+  "meta": {
+    "title": "Modelo EER del catÃ¡logo y usuarios",
+    "locale": "es",
+    "output": "modelo-eer-respaldo2.html",
+    "quality_profile": "standard",
+    "views": [
+      {
+        "id": "catalogo",
+        "label": "CatÃ¡logo",
+        "focus": [
+          "tb_products",
+          "tb_categories",
+          "tbd_products_categories"
+        ],
+        "note": "Productos y categorÃ­as enlazados con una entidad asociativa."
+      },
+      {
+        "id": "usuarios",
+        "label": "Usuarios",
+        "focus": [
+          "tb_users",
+          "tb_carts",
+          "tbd_users_wishlist_products"
+        ],
+        "note": "Cuenta, carrito Ãºnico y productos guardados."
+      },
+      {
+        "id": "auditoria",
+        "label": "AuditorÃ­a y proveedores",
+        "focus": [
+          "tb_logs",
+          "tbd_products_users_providers"
+        ],
+        "note": "Registro de operaciones y tabla de proveedores sin FKs declaradas."
+      }
+    ]
+  },
+  "layout": {
+    "mode": "grid",
+    "gapX": 95,
+    "gapY": 44
+  },
+  "entities": [
+    {
+      "id": "tb_users",
+      "label": "tb_users",
+      "tag": "Cuentas",
+      "row": 0,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int NN AI",
+          "key": "pk"
+        },
+        {
+          "name": "email",
+          "type": "varchar(100) NN",
+          "key": "uk"
+        },
+        {
+          "name": "nick",
+          "type": "varchar(50) NN",
+          "key": "uk"
+        },
+        {
+          "name": "password",
+          "type": "varchar(255) NN"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NN D=CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime NULL"
+        },
+        {
+          "name": "last_login",
+          "type": "datetime NULL"
+        },
+        {
+          "name": "status",
+          "type": "bit(1) D=b'1'"
+        }
+      ],
+      "width": 430
+    },
+    {
+      "id": "tb_carts",
+      "label": "tb_carts",
+      "tag": "Cuentas",
+      "row": 1,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned NN AI",
+          "key": "pk"
+        },
+        {
+          "name": "user_ID",
+          "type": "int NN FK",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "status",
+          "type": "bit(1) D=b'1'"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NN D=CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime NULL U=CURRENT_TIMESTAMP"
+        }
+      ],
+      "width": 430
+    },
+    {
+      "id": "tbd_users_wishlist_products",
+      "label": "tbd_users_wishlist_products",
+      "tag": "Cuentas",
+      "row": 2,
+      "col": 0,
+      "width": 490,
+      "attributes": [
+        {
+          "name": "user_ID",
+          "type": "int NN PK/FK",
+          "key": [
+            "pk",
+            "fk"
+          ],
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "product_ID",
+          "type": "int NN PK/FK",
+          "key": [
+            "pk",
+            "fk"
+          ],
+          "references": "tb_products.ID"
+        },
+        {
+          "name": "status",
+          "type": "bit(1) NN D=b'1'"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NN D=CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime NN D=CURRENT_TIMESTAMP U=CURRENT_TIMESTAMP"
+        }
+      ]
+    },
+    {
+      "id": "tb_products",
+      "label": "tb_products",
+      "tag": "CatÃ¡logo",
+      "row": 0,
+      "col": 1,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int NN AI",
+          "key": "pk"
+        },
+        {
+          "name": "SKU",
+          "type": "varchar(50) NN",
+          "key": "uk"
+        },
+        {
+          "name": "name",
+          "type": "varchar(100) NN"
+        },
+        {
+          "name": "description",
+          "type": "text NN"
+        },
+        {
+          "name": "current_price",
+          "type": "decimal(10,2) NN"
+        },
+        {
+          "name": "current_stock",
+          "type": "int NN"
+        },
+        {
+          "name": "status",
+          "type": "varchar(20) NN"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NN D=CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime NULL"
+        }
+      ],
+      "width": 430
+    },
+    {
+      "id": "tb_categories",
+      "label": "tb_categories",
+      "tag": "CatÃ¡logo",
+      "row": 1,
+      "col": 1,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned NN AI",
+          "key": "pk"
+        },
+        {
+          "name": "name",
+          "type": "varchar(120) NN",
+          "key": "uk"
+        },
+        {
+          "name": "description",
+          "type": "text NULL"
+        },
+        {
+          "name": "sup_id_category",
+          "type": "int unsigned NULL FK",
+          "key": "fk",
+          "references": "tb_categories.ID"
+        },
+        {
+          "name": "status",
+          "type": "bit(1) NN D=b'1'"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NN D=CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime NN U=CURRENT_TIMESTAMP"
+        }
+      ],
+      "width": 430
+    },
+    {
+      "id": "tbd_products_categories",
+      "label": "tbd_products_categories",
+      "tag": "CatÃ¡logo",
+      "row": 2,
+      "col": 1,
+      "width": 430,
+      "attributes": [
+        {
+          "name": "product_id",
+          "type": "int NN PK/FK",
+          "key": [
+            "pk",
+            "fk"
+          ],
+          "references": "tb_products.ID"
+        },
+        {
+          "name": "category_id",
+          "type": "int unsigned NN PK/FK",
+          "key": [
+            "pk",
+            "fk"
+          ],
+          "references": "tb_categories.ID"
+        },
+        {
+          "name": "status",
+          "type": "varchar(20) NN D='ACTIVE'"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NN D=CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime NULL U=CURRENT_TIMESTAMP"
+        }
+      ]
+    },
+    {
+      "id": "tb_logs",
+      "label": "tb_logs",
+      "tag": "AuditorÃ­a",
+      "row": 0,
+      "col": 2,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int NN AI",
+          "key": "pk"
+        },
+        {
+          "name": "table_name",
+          "type": "varchar(80) NN"
+        },
+        {
+          "name": "table_operation",
+          "type": "enum('Create','Read','Update','Delete') NULL"
+        },
+        {
+          "name": "db_user",
+          "type": "varchar(80) NN"
+        },
+        {
+          "name": "table_description",
+          "type": "text NN"
+        },
+        {
+          "name": "operation_date",
+          "type": "datetime NN D=CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "operation_status",
+          "type": "bit(1) D=b'1'"
+        }
+      ],
+      "width": 450
+    },
+    {
+      "id": "tbd_products_users_providers",
+      "label": "tbd_products_users_providers",
+      "tag": "Catálogo",
+      "row": 3,
+      "col": 1,
+      "width": 450,
+      "attributes": [
+        {
+          "name": "user_id",
+          "type": "int NN PK",
+          "key": "pk"
+        },
+        {
+          "name": "product_id",
+          "type": "int NN PK",
+          "key": "pk"
+        },
+        {
+          "name": "type_ownership",
+          "type": "enum('Owner','Reseller','Distributor') NULL"
+        },
+        {
+          "name": "status",
+          "type": "bit(1) D=b'1'"
+        },
+        {
+          "name": "available_date",
+          "type": "datetime NULL"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime D=CURRENT_TIMESTAMP"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime D=CURRENT_TIMESTAMP U=CURRENT_TIMESTAMP"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "cart_user",
+      "from": "tb_carts",
+      "to": "tb_users",
+      "label": "pertenece a Â· user_ID Ãºnico",
+      "fromCardinality": "one",
+      "toCardinality": "one",
+      "toOptional": true,
+      "identifying": false,
+      "variant": "dashed"
+    },
+    {
+      "id": "wishlist_user",
+      "from": "tbd_users_wishlist_products",
+      "to": "tb_users",
+      "label": "FK user_ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "identifying": true
+    },
+    {
+      "id": "wishlist_product",
+      "from": "tbd_users_wishlist_products",
+      "to": "tb_products",
+      "label": "FK product_ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "identifying": true
+    },
+    {
+      "id": "product_category_product",
+      "from": "tbd_products_categories",
+      "to": "tb_products",
+      "label": "FK product_id",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "identifying": true
+    },
+    {
+      "id": "product_category_category",
+      "from": "tbd_products_categories",
+      "to": "tb_categories",
+      "label": "FK category_id",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "identifying": true
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Lectura de columnas",
+      "items": [
+        "El tipo incluye nulabilidad, AUTO_INCREMENT, DEFAULT y ON UPDATE cuando aparecen en el DDL.",
+        "PK, FK y UK se marcan ademÃ¡s con insignias; las claves compuestas seÃ±alan sus columnas participantes.",
+        "Las restricciones e Ã­ndices conservan el nombre SQL junto a la columna correspondiente."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Alcance del respaldo",
+      "items": [
+        "Se muestran las ocho tablas físicas con sus 53 columnas.",
+        "tbd_products_users_providers no declara claves forÃ¡neas en el respaldo; sus nombres user_id y product_id no bastan para afirmar relaciones.",
+        "tb_logs tampoco declara FK: table_name es texto de auditorÃ­a, no una referencia relacional."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Motor y automatizaciÃ³n",
+      "items": [
+        "Las tablas usan InnoDB, utf8mb4 y collation utf8mb4_0900_ai_ci.",
+        "El respaldo contiene triggers y vistas ademÃ¡s de tablas; este diagrama representa el modelo EER de tablas y FKs declaradas. Los triggers no se modelan como entidades."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Convenciones y restricciones",
+      "items": [
+        "NN = NOT NULL; AI = AUTO_INCREMENT; D= significa DEFAULT del valor indicado; U= significa ON UPDATE automático del valor indicado. En columnas datetime, CURRENT_TIMESTAMP conserva el literal exacto del DDL.",
+        "FK `tb_carts_ibfk_1`, `fk_user2`, `fk_products3`, `fk_product_rel` y `fk_category_rel` aplican ON DELETE CASCADE y ON UPDATE CASCADE. `fk_superior_category` no especifica acciones.",
+        "UNIQUE: `uk_cart_user` sobre tb_carts.user_ID; `email` y `nick` en tb_users; `SKU` en tb_products; `name` en tb_categories. La PK compuesta de tbd_products_categories tiene ?ndice `fk_category_idx` en category_id.",
+        "La referencia jer?rquica opcional de tb_categories.sup_id_category apunta a tb_categories.ID; se conserva en los atributos porque el renderizador no admite relaciones de una entidad consigo misma."
+      ]
+    }
+  ]
+}

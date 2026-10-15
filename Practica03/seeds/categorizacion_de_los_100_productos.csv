@@ -1,0 +1,101 @@
+ID,SKU,name,description,current_price,current_stock,status,category_id,category_name
+1,PROD-001,Producto Ropa X1,Artículo oficial y verificado para la categoría de Ropa,1560.1,64,ACTIVE,1,Ropa
+2,TECH-002,Producto Hombre X2,Artículo oficial y verificado para la categoría de Hombre,1554.06,68,ACTIVE,2,Hombre
+3,PROD-003,Producto Mujer X3,Artículo oficial y verificado para la categoría de Mujer,2159.69,50,ACTIVE,3,Mujer
+4,GAD-004,Producto Unisex X4,Artículo oficial y verificado para la categoría de Unisex,1953.49,18,ACTIVE,4,Unisex
+5,JEN-005,Producto Caballero X5,Artículo oficial y verificado para la categoría de Caballero,846.61,50,ACTIVE,5,Caballero
+6,GAD-006,Producto Juvenil Hombre X6,Artículo oficial y verificado para la categoría de Juvenil Hombre,3895.09,25,ACTIVE,6,Juvenil Hombre
+7,PROD-007,Producto Dama X7,Artículo oficial y verificado para la categoría de Dama,4993.77,64,ACTIVE,7,Dama
+8,PROD-008,Producto Juvenil Mujer X8,Artículo oficial y verificado para la categoría de Juvenil Mujer,4847.03,39,ACTIVE,8,Juvenil Mujer
+9,PROD-009,Producto Bebés X9,Artículo oficial y verificado para la categoría de Bebés,155.48,61,ACTIVE,9,Bebés
+10,TECH-010,Producto Niños X10,Artículo oficial y verificado para la categoría de Niños,668.96,17,ACTIVE,10,Niños
+11,PROD-011,Producto Niñas X11,Artículo oficial y verificado para la categoría de Niñas,3709.2,23,ACTIVE,11,Niñas
+12,PROD-012,Producto Adolescentes X12,Artículo oficial y verificado para la categoría de Adolescentes,1689.89,42,ACTIVE,12,Adolescentes
+13,ECO-013,Producto Playeras X13,Artículo oficial y verificado para la categoría de Playeras,2685.85,45,ACTIVE,13,Playeras
+14,PROD-014,Producto Pantalones X14,Artículo oficial y verificado para la categoría de Pantalones,4256.12,36,ACTIVE,14,Pantalones
+15,ECO-015,Producto Vestidos X15,Artículo oficial y verificado para la categoría de Vestidos,4432.05,28,ACTIVE,15,Vestidos
+16,ECO-016,Producto Blusas X16,Artículo oficial y verificado para la categoría de Blusas,3556.51,51,ACTIVE,16,Blusas
+17,GAD-017,Producto Sudaderas X17,Artículo oficial y verificado para la categoría de Sudaderas,187.51,72,ACTIVE,17,Sudaderas
+18,SKU-018,Producto Ropa Deportiva X18,Artículo oficial y verificado para la categoría de Ropa Deportiva,2878.61,58,ACTIVE,18,Ropa Deportiva
+19,ECO-019,Producto Calzado X19,Artículo oficial y verificado para la categoría de Calzado,3554.34,57,ACTIVE,19,Calzado
+20,ECO-020,Producto Calzado Hombre X20,Artículo oficial y verificado para la categoría de Calzado Hombre,4908.73,46,ACTIVE,20,Calzado Hombre
+21,ECO-021,Producto Calzado Mujer X21,Artículo oficial y verificado para la categoría de Calzado Mujer,3716.37,38,ACTIVE,21,Calzado Mujer
+22,ECO-022,Producto Calzado Infantil X22,Artículo oficial y verificado para la categoría de Calzado Infantil,291.31,63,ACTIVE,22,Calzado Infantil
+23,SKU-023,Producto Tenis X23,Artículo oficial y verificado para la categoría de Tenis,1096.28,67,ACTIVE,23,Tenis
+24,PROD-024,Producto Zapatos Formales X24,Artículo oficial y verificado para la categoría de Zapatos Formales,5035.42,57,ACTIVE,24,Zapatos Formales
+25,GAD-025,Producto Tacones X25,Artículo oficial y verificado para la categoría de Tacones,1035.28,36,ACTIVE,25,Tacones
+26,ECO-026,Producto Botas X26,Artículo oficial y verificado para la categoría de Botas,2224.62,19,ACTIVE,26,Botas
+27,SKU-027,Producto Sandalias X27,Artículo oficial y verificado para la categoría de Sandalias,2577.41,51,ACTIVE,27,Sandalias
+28,GAD-028,Producto Accesorios X28,Artículo oficial y verificado para la categoría de Accesorios,207.74,52,ACTIVE,28,Accesorios
+29,PROD-029,Producto Bolsas y Mochilas X29,Artículo oficial y verificado para la categoría de Bolsas y Mochilas,4594.03,38,ACTIVE,29,Bolsas y Mochilas
+30,PROD-030,Producto Joyería X30,Artículo oficial y verificado para la categoría de Joyería,4941.28,29,ACTIVE,30,Joyería
+31,TECH-031,Producto Relojes X31,Artículo oficial y verificado para la categoría de Relojes,2982.15,61,ACTIVE,31,Relojes
+32,PROD-032,Producto Lentes X32,Artículo oficial y verificado para la categoría de Lentes,3556.75,46,ACTIVE,32,Lentes
+33,SKU-033,Producto Gorras y Sombreros X33,Artículo oficial y verificado para la categoría de Gorras y Sombreros,3995.19,49,ACTIVE,33,Gorras y Sombreros
+34,TECH-034,Producto Cinturones X34,Artículo oficial y verificado para la categoría de Cinturones,5396.03,24,ACTIVE,34,Cinturones
+35,ECO-035,Producto Carteras X35,Artículo oficial y verificado para la categoría de Carteras,2511.41,63,ACTIVE,35,Carteras
+36,TECH-036,Producto Electrónica X36,Artículo oficial y verificado para la categoría de Electrónica,357.42,23,ACTIVE,36,Electrónica
+37,TECH-037,Producto Computación X37,Artículo oficial y verificado para la categoría de Computación,1159.29,31,ACTIVE,37,Computación
+38,GAD-038,Producto Telefonía X38,Artículo oficial y verificado para la categoría de Telefonía,3805.12,42,ACTIVE,38,Telefonía
+39,SKU-039,Producto Audio X39,Artículo oficial y verificado para la categoría de Audio,2381.52,21,ACTIVE,39,Audio
+40,ECO-040,Producto Video y TV X40,Artículo oficial y verificado para la categoría de Video y TV,456.84,37,ACTIVE,40,Video y TV
+41,SKU-041,Producto Laptops X41,Artículo oficial y verificado para la categoría de Laptops,597.68,42,ACTIVE,41,Laptops
+42,PROD-042,Producto Componentes de PC X42,Artículo oficial y verificado para la categoría de Componentes de PC,4401.05,39,ACTIVE,42,Componentes de PC
+43,PROD-043,Producto Periféricos X43,Artículo oficial y verificado para la categoría de Periféricos,3060.62,55,ACTIVE,43,Periféricos
+44,TECH-044,Producto Smartphones X44,Artículo oficial y verificado para la categoría de Smartphones,276.76,35,ACTIVE,44,Smartphones
+45,GAD-045,Producto Fundas y Protectores X45,Artículo oficial y verificado para la categoría de Fundas y Protectores,5262.02,17,ACTIVE,45,Fundas y Protectores
+46,ECO-046,Producto Audífonos X46,Artículo oficial y verificado para la categoría de Audífonos,1921.39,37,ACTIVE,46,Audífonos
+47,PROD-047,Producto Bocinas X47,Artículo oficial y verificado para la categoría de Bocinas,3558.51,25,ACTIVE,47,Bocinas
+48,TECH-048,Producto Smart TV X48,Artículo oficial y verificado para la categoría de Smart TV,465.65,70,ACTIVE,48,Smart TV
+49,SKU-049,Producto Hogar y Cocina X49,Artículo oficial y verificado para la categoría de Hogar y Cocina,894.63,57,ACTIVE,49,Hogar y Cocina
+50,JEN-050,Producto Cocina X50,Artículo oficial y verificado para la categoría de Cocina,4123.33,67,ACTIVE,50,Cocina
+51,SKU-051,Producto Electrodomésticos X51,Artículo oficial y verificado para la categoría de Electrodomésticos,427.52,48,ACTIVE,51,Electrodomésticos
+52,TECH-052,Producto Muebles X52,Artículo oficial y verificado para la categoría de Muebles,3011.95,24,ACTIVE,52,Muebles
+53,SKU-053,Producto Decoración X53,Artículo oficial y verificado para la categoría de Decoración,4275.79,33,ACTIVE,53,Decoración
+54,TECH-054,Producto Recámara X54,Artículo oficial y verificado para la categoría de Recámara,2102.47,49,ACTIVE,54,Recámara
+55,GAD-055,Producto Licuadoras X55,Artículo oficial y verificado para la categoría de Licuadoras,2902.02,55,ACTIVE,55,Licuadoras
+56,JEN-056,Producto Cafeteras X56,Artículo oficial y verificado para la categoría de Cafeteras,4436.25,39,ACTIVE,56,Cafeteras
+57,TECH-057,Producto Sofás X57,Artículo oficial y verificado para la categoría de Sofás,453.86,23,ACTIVE,57,Sofás
+58,TECH-058,Producto Iluminación X58,Artículo oficial y verificado para la categoría de Iluminación,3716.25,37,ACTIVE,58,Iluminación
+59,TECH-059,Producto Blancos X59,Artículo oficial y verificado para la categoría de Blancos,4806.4,62,ACTIVE,59,Blancos
+60,SKU-060,Producto Belleza y Cuidado Personal X60,Artículo oficial y verificado para la categoría de Belleza y Cuidado Personal,5394.76,57,ACTIVE,60,Belleza y Cuidado Personal
+61,TECH-061,Producto Maquillaje X61,Artículo oficial y verificado para la categoría de Maquillaje,1754.48,65,ACTIVE,61,Maquillaje
+62,PROD-062,Producto Cuidado de la Piel X62,Artículo oficial y verificado para la categoría de Cuidado de la Piel,973.15,35,ACTIVE,62,Cuidado de la Piel
+63,ECO-063,Producto Cuidado del Cabello X63,Artículo oficial y verificado para la categoría de Cuidado del Cabello,2889.19,23,ACTIVE,63,Cuidado del Cabello
+64,GAD-064,Producto Perfumes X64,Artículo oficial y verificado para la categoría de Perfumes,2810.66,49,ACTIVE,64,Perfumes
+65,SKU-065,Producto Labios X65,Artículo oficial y verificado para la categoría de Labios,2105.22,72,ACTIVE,65,Labios
+66,ECO-066,Producto Rostro X66,Artículo oficial y verificado para la categoría de Rostro,1949.63,32,ACTIVE,66,Rostro
+67,ECO-067,Producto Hidratantes X67,Artículo oficial y verificado para la categoría de Hidratantes,1428.63,71,ACTIVE,67,Hidratantes
+68,GAD-068,Producto Protección Solar X68,Artículo oficial y verificado para la categoría de Protección Solar,1543.27,17,ACTIVE,68,Protección Solar
+69,ECO-069,Producto Deportes y Aire Libre X69,Artículo oficial y verificado para la categoría de Deportes y Aire Libre,552.35,27,ACTIVE,69,Deportes y Aire Libre
+70,ECO-070,Producto Fitness X70,Artículo oficial y verificado para la categoría de Fitness,1193.31,72,ACTIVE,70,Fitness
+71,PROD-071,Producto Fútbol X71,Artículo oficial y verificado para la categoría de Fútbol,1164.6,51,ACTIVE,71,Fútbol
+72,JEN-072,Producto Running X72,Artículo oficial y verificado para la categoría de Running,577.84,35,ACTIVE,72,Running
+73,PROD-073,Producto Ciclismo X73,Artículo oficial y verificado para la categoría de Ciclismo,1955.36,49,ACTIVE,73,Ciclismo
+74,JEN-074,Producto Pesas y Mancuernas X74,Artículo oficial y verificado para la categoría de Pesas y Mancuernas,5120.03,66,ACTIVE,74,Pesas y Mancuernas
+75,ECO-075,Producto Yoga X75,Artículo oficial y verificado para la categoría de Yoga,848.7,72,ACTIVE,75,Yoga
+76,TECH-076,Producto Camping X76,Artículo oficial y verificado para la categoría de Camping,2768.5,40,ACTIVE,76,Camping
+77,PROD-077,Producto Juguetes y Videojuegos X77,Artículo oficial y verificado para la categoría de Juguetes y Videojuegos,1501.86,68,ACTIVE,77,Juguetes y Videojuegos
+78,ECO-078,Producto Juguetes Educativos X78,Artículo oficial y verificado para la categoría de Juguetes Educativos,4785.28,36,ACTIVE,78,Juguetes Educativos
+79,TECH-079,Producto Figuras y Coleccionables X79,Artículo oficial y verificado para la categoría de Figuras y Coleccionables,5040.0,68,ACTIVE,79,Figuras y Coleccionables
+80,ECO-080,Producto Videojuegos X80,Artículo oficial y verificado para la categoría de Videojuegos,5096.28,54,ACTIVE,80,Videojuegos
+81,SKU-081,Producto Consolas X81,Artículo oficial y verificado para la categoría de Consolas,152.07,65,ACTIVE,81,Consolas
+82,ECO-082,Producto Accesorios Gaming X82,Artículo oficial y verificado para la categoría de Accesorios Gaming,3397.27,46,ACTIVE,82,Accesorios Gaming
+83,GAD-083,Producto Juegos de Mesa X83,Artículo oficial y verificado para la categoría de Juegos de Mesa,3863.31,22,ACTIVE,83,Juegos de Mesa
+84,SKU-084,Producto Libros y Papelería X84,Artículo oficial y verificado para la categoría de Libros y Papelería,402.1,70,ACTIVE,84,Libros y Papelería
+85,TECH-085,Producto Libros X85,Artículo oficial y verificado para la categoría de Libros,2066.7,57,ACTIVE,85,Libros
+86,TECH-086,Producto Papelería X86,Artículo oficial y verificado para la categoría de Papelería,1817.43,28,ACTIVE,86,Papelería
+87,TECH-087,Producto Tecnología y Programación X87,Artículo oficial y verificado para la categoría de Tecnología y Programación,1965.52,63,ACTIVE,87,Tecnología y Programación
+88,JEN-088,Producto Oficina X88,Artículo oficial y verificado para la categoría de Oficina,4534.17,26,ACTIVE,88,Oficina
+89,TECH-089,Producto Automotriz X89,Artículo oficial y verificado para la categoría de Automotriz,5377.5,18,ACTIVE,89,Automotriz
+90,TECH-090,Producto Accesorios para Auto X90,Artículo oficial y verificado para la categoría de Accesorios para Auto,2139.3,31,ACTIVE,90,Accesorios para Auto
+91,JEN-091,Producto Cuidado Automotriz X91,Artículo oficial y verificado para la categoría de Cuidado Automotriz,4727.06,39,ACTIVE,91,Cuidado Automotriz
+92,GAD-092,Producto Refacciones X92,Artículo oficial y verificado para la categoría de Refacciones,492.08,33,ACTIVE,92,Refacciones
+93,PROD-093,Producto Mascotas X93,Artículo oficial y verificado para la categoría de Mascotas,5006.18,47,ACTIVE,93,Mascotas
+94,ECO-094,Producto Perros X94,Artículo oficial y verificado para la categoría de Perros,1853.62,75,ACTIVE,94,Perros
+95,TECH-095,Producto Gatos X95,Artículo oficial y verificado para la categoría de Gatos,397.63,39,ACTIVE,95,Gatos
+96,GAD-096,Producto Campañas y Ofertas X96,Artículo oficial y verificado para la categoría de Campañas y Ofertas,698.17,51,ACTIVE,96,Campañas y Ofertas
+97,SKU-097,Producto Hot Sale X97,Artículo oficial y verificado para la categoría de Hot Sale,1866.86,56,ACTIVE,97,Hot Sale
+98,TECH-098,Producto Black Friday X98,Artículo oficial y verificado para la categoría de Black Friday,1550.62,43,ACTIVE,98,Black Friday
+99,ECO-099,Producto Buen Fin X99,Artículo oficial y verificado para la categoría de Buen Fin,3194.78,30,ACTIVE,99,Buen Fin
+100,SKU-100,Producto Cyber Monday X100,Artículo oficial y verificado para la categoría de Cyber Monday,2570.52,51,ACTIVE,100,Cyber Monday

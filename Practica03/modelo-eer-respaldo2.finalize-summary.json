@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "erd",
+  "quality": "standard",
+  "specification": {
+    "path": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\erd-respaldo2-20261015-131844\\candidate.json",
+    "sha256": "e7f8f51ba71e586bb274a8781c8fae6791a4b800685ed60b10e64baf1222769f",
+    "bytes": 11829
+  },
+  "artifact": {
+    "path": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+    "sha256": "b71ebb8960b46f019a3add21d7e31376ddb8542f88c94a00d88722f505a95d7f",
+    "bytes": 858189
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "fail"
+  },
+  "failedStage": "browser-check",
+  "diagnostics": [
+    {
+      "code": "viewer/projected-text-readability",
+      "severity": "error",
+      "message": "Projected context text is below the readability floor at 1440x900.",
+      "subject": {
+        "artifact": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "theme": "light"
+        }
+      },
+      "evidence": {
+        "text": "PK",
+        "detail": "context",
+        "owner": {
+          "kind": "node",
+          "id": "tb_users"
+        },
+        "minimumProjectedNodeTextPx": 5.493877551020408,
+        "minimumRequiredNodeTextPx": 6
+      },
+      "supportedFixes": [
+        "increase projected node text to at least 6px at 1440x900, then rerun browser-check"
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.finalize.json",
+    "summaryReceipt": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-15T19:20:01.165Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 3237
+}

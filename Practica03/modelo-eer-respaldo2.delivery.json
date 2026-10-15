@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "c16e4ff3-4191-47eb-9f2e-9cd556e67654",
+  "status": "current",
+  "command": "deliver",
+  "type": "erd",
+  "input": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\erd-respaldo2-20261015-131844\\candidate.json",
+  "output": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+  "specification": {
+    "sha256": "2a658c06c01f0325ea7fc779ebf4356196a4e1cf9ffb465f9e9c27ca2b8fdc7a",
+    "bytes": 11827
+  },
+  "artifact": {
+    "sha256": "c1715fef86355f778a93fd3cdc860548a3ea09a9f97e590033517d23696c575e",
+    "bytes": 858173
+  }
+}

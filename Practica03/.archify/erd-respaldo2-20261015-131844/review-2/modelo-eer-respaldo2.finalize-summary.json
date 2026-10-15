@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "erd",
+  "quality": "standard",
+  "specification": {
+    "path": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\erd-respaldo2-20261015-131844\\candidate.json",
+    "sha256": "2a658c06c01f0325ea7fc779ebf4356196a4e1cf9ffb465f9e9c27ca2b8fdc7a",
+    "bytes": 11827
+  },
+  "artifact": {
+    "path": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+    "sha256": "c1715fef86355f778a93fd3cdc860548a3ea09a9f97e590033517d23696c575e",
+    "bytes": 858173
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\review-2\\modelo-eer-respaldo2.finalize.json",
+    "summaryReceipt": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\review-2\\modelo-eer-respaldo2.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\review-2\\modelo-eer-respaldo2.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-15T19:20:01.165Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 3162
+}
