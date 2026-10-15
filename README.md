@@ -3,7 +3,7 @@
 #### Docente: M.T.I.  Marco A. Ramírez Hernández
 
 Periodo: Septiembre - Diciembre 2026
-
+Autor: Ricardo Gadieo Bobadilla Gabriel 
 --- 
 
 ###  Tabla de Prácticas de la Materia
