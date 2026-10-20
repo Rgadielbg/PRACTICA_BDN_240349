@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "erd",
+  "quality": "standard",
+  "specification": {
+    "path": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\candidate.json",
+    "sha256": "269ce75e9f13a272a2331b5f5f01c3bb27cd43c73dcecd910a61a94f9bdecdf9",
+    "bytes": 14070
+  },
+  "artifact": {
+    "path": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+    "sha256": "c44b79042e4c9bceb8be7ae64e67828f16834534c7c3b693be7589370b9659a6",
+    "bytes": 862177
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\review-3\\modelo-eer-respaldo2.finalize.json",
+    "summaryReceipt": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\review-3\\modelo-eer-respaldo2.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\review-3\\modelo-eer-respaldo2.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.1.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-16T05:09:45.980Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 25914
+}

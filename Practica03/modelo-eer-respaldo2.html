@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="archify 3.1.0">
   <meta name="archify-reader-contract" content="declared-wide-v1">
-  <title>Modelo EER del catÃ¡logo y usuarios · Diagrama</title>
+  <title>EER de db_test | respaldo2.sql · Diagrama</title>
   <script>
     // Resolve the theme before first paint so light-preference users don't
     // see a dark flash. The toolbar script below re-applies with UI state.
@@ -5150,7 +5150,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
            data-preset-badge-blueprint="PLANO / REV 01"
            data-preset-badge-editorial="EDITORIAL / NOTA DE CAMPO">
         <div class="pulse-dot"></div>
-        <h1>Modelo EER del catÃ¡logo y usuarios</h1>
+        <h1>EER de db_test | respaldo2.sql</h1>
       </div>
     </div>
 
@@ -5159,8 +5159,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / LÁMINA 04">
-      <svg viewBox="0 0 1680 934" role="img" lang="es" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="standard" data-erd-ui="cards" data-reader-fit="intrinsic-height" data-reader-min-text="7.5">
-        <title id="archify-diagram-title">Modelo EER del catÃ¡logo y usuarios</title>
+      <svg viewBox="0 0 1402 934" role="img" lang="es" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="standard" data-erd-ui="cards" data-reader-fit="intrinsic-height" data-reader-min-text="7.5">
+        <title id="archify-diagram-title">EER de db_test | respaldo2.sql</title>
         <desc id="archify-diagram-description">Un diagrama de entidad-relación generado por Archify.</desc>
         <!-- Definitions -->
         <defs>
@@ -5191,8 +5191,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <circle cx="3.5" cy="8" r="2.6" class="c-mask"/>
             <circle cx="3.5" cy="8" r="2.6"/>
           </marker>
-          <marker id="er-many-start" markerWidth="24" markerHeight="18" refX="0" refY="8" orient="auto" markerUnits="userSpaceOnUse" class="a-default" style="stroke: var(--text-muted)" stroke-width="1.75">
+          <marker id="er-many-optional-start" markerWidth="24" markerHeight="18" refX="0" refY="8" orient="auto" markerUnits="userSpaceOnUse" class="a-default" style="stroke: var(--text-muted)" stroke-width="1.75">
             <path d="M 14 8 L 0 1 M 14 8 L 0 8 M 14 8 L 0 15"/>
+            <circle cx="18.5" cy="8" r="2.6" class="c-mask"/>
+            <circle cx="18.5" cy="8" r="2.6"/>
           </marker>
         </defs>
         <style>
@@ -5249,547 +5251,557 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
         <!-- Domain bands (behind the routes so a channel is never washed out) -->
         <g data-domain-band="Cuentas" class="er-hue-database">
-          <rect x="20" y="22" width="514" height="642" rx="12" class="c-lane er-band" stroke-width="1"/>
+          <rect x="20" y="22" width="664" height="642" rx="12" class="c-lane er-band" stroke-width="1"/>
           <rect x="28" y="15" width="58" height="15" rx="7.5" class="c-mask"/>
           <rect x="28" y="15" width="58" height="15" rx="7.5" class="er-band-pill"/>
           <text data-domain-label="" x="35" y="25.6" class="t-muted er-band-label" font-size="9" font-weight="700">Cuentas</text>
         </g>
-        <g data-domain-band="CatÃ¡logo" class="er-hue-frontend">
-          <rect x="659" y="22" width="454" height="642" rx="12" class="c-lane er-band" stroke-width="1"/>
-          <rect x="667" y="15" width="70" height="15" rx="7.5" class="c-mask"/>
-          <rect x="667" y="15" width="70" height="15" rx="7.5" class="er-band-pill"/>
-          <text data-domain-label="" x="674" y="25.6" class="t-muted er-band-label" font-size="9" font-weight="700">CatÃ¡logo</text>
+        <g data-domain-band="Cat?logo" class="er-hue-frontend">
+          <rect x="866" y="22" width="524" height="642" rx="12" class="c-lane er-band" stroke-width="1"/>
+          <rect x="874" y="15" width="64" height="15" rx="7.5" class="c-mask"/>
+          <rect x="874" y="15" width="64" height="15" rx="7.5" class="er-band-pill"/>
+          <text data-domain-label="" x="881" y="25.6" class="t-muted er-band-label" font-size="9" font-weight="700">Cat?logo</text>
         </g>
-        <g data-domain-band="AuditorÃ­a" class="er-hue-backend">
-          <rect x="1194" y="22" width="474" height="202" rx="12" class="c-lane er-band" stroke-width="1"/>
-          <rect x="1202" y="15" width="76" height="15" rx="7.5" class="c-mask"/>
-          <rect x="1202" y="15" width="76" height="15" rx="7.5" class="er-band-pill"/>
-          <text data-domain-label="" x="1209" y="25.6" class="t-muted er-band-label" font-size="9" font-weight="700">AuditorÃ­a</text>
+        <g data-domain-band="Auditor?a" class="er-hue-backend">
+          <rect x="866" y="682" width="524" height="202" rx="12" class="c-lane er-band" stroke-width="1"/>
+          <rect x="874" y="675" width="70" height="15" rx="7.5" class="c-mask"/>
+          <rect x="874" y="675" width="70" height="15" rx="7.5" class="er-band-pill"/>
+          <text data-domain-label="" x="881" y="685.6" class="t-muted er-band-label" font-size="9" font-weight="700">Auditor?a</text>
         </g>
-        <g data-domain-band="Catálogo" class="er-hue-cloud">
-          <rect x="649" y="682" width="474" height="202" rx="12" class="c-lane er-band" stroke-width="1"/>
-          <rect x="657" y="675" width="64" height="15" rx="7.5" class="c-mask"/>
-          <rect x="657" y="675" width="64" height="15" rx="7.5" class="er-band-pill"/>
-          <text data-domain-label="" x="664" y="685.6" class="t-muted er-band-label" font-size="9" font-weight="700">Catálogo</text>
+        <g data-domain-band="Proveedores" class="er-hue-cloud">
+          <rect x="20" y="682" width="664" height="202" rx="12" class="c-lane er-band" stroke-width="1"/>
+          <rect x="28" y="675" width="83" height="15" rx="7.5" class="c-mask"/>
+          <rect x="28" y="675" width="83" height="15" rx="7.5" class="er-band-pill"/>
+          <text data-domain-label="" x="35" y="685.6" class="t-muted er-band-label" font-size="9" font-weight="700">Proveedores</text>
         </g>
 
         <!-- Bundled relationship trunks (under the branches: a bus runs close
              to the shared side, so a cardinality glyph that reaches further out
              has to stay readable over it, and the ring's mask has to be able to
              punch through) -->
-
+        <path data-er-trunk="" data-composition-points="328,252;352,252" d="M 328 252 L 352 252" class="a-dashed" stroke-width="1.5"/>
 
         <!-- Relationship paths (before entities for correct z-order) -->
-        <path data-edge-from="tb_carts" data-edge-to="tb_users" data-edge-label="pertenece a Â· user_ID Ãºnico" data-edge-key="0" data-edge-id="cart_user" data-er-ends="one optional" data-composition-points="265,300;265,236" d="M 265 300 L 265 236" class="a-dashed" data-animate="edge" style="--step:0" stroke-width="1.5" marker-start="url(#er-one-start)" marker-end="url(#er-one-optional-end)"/>
-        <path data-edge-from="tbd_users_wishlist_products" data-edge-to="tb_users" data-edge-label="FK user_ID" data-edge-key="1" data-edge-id="wishlist_user" data-er-ends="many one" data-composition-points="522,588;546,588;546,138;492,138" d="M 522 588 L 538 588 Q 546 588 546 580 L 546 146 Q 546 138 538 138 L 492 138" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-start="url(#er-many-start)" marker-end="url(#er-one-end)"/>
-        <path data-edge-from="tbd_users_wishlist_products" data-edge-to="tb_products" data-edge-label="FK product_ID" data-edge-key="2" data-edge-id="wishlist_product" data-er-ends="many one" data-composition-points="522,588;596.5,588;596.5,148;671,148" d="M 522 588 L 588.5 588 Q 596.5 588 596.5 580 L 596.5 156 Q 596.5 148 604.5 148 L 671 148" class="a-default" data-animate="edge" style="--step:2" stroke-width="1.5" marker-start="url(#er-many-start)" marker-end="url(#er-one-end)"/>
-        <path data-edge-from="tbd_products_categories" data-edge-to="tb_products" data-edge-label="FK product_id" data-edge-key="3" data-edge-id="product_category_product" data-er-ends="many one" data-composition-points="1101,588;1125,588;1125,148;1101,148" d="M 1101 588 L 1117 588 Q 1125 588 1125 580 L 1125 156 Q 1125 148 1117 148 L 1101 148" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-start="url(#er-many-start)" marker-end="url(#er-one-end)"/>
-        <path data-edge-from="tbd_products_categories" data-edge-to="tb_categories" data-edge-label="FK category_id" data-edge-key="4" data-edge-id="product_category_category" data-er-ends="many one" data-composition-points="874,520;874,476" d="M 874 520 L 874 476" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-start="url(#er-many-start)" marker-end="url(#er-one-end)"/>
+        <path data-edge-from="tb_carts" data-edge-to="tb_users" data-edge-label="user_ID ? UNIQUE ? CASCADE" data-edge-key="0" data-edge-id="cart_user" data-er-ends="one optional" data-composition-points="352,300;352,252;328,252;328,236" d="M 352 300 L 352 252 M 328 252 L 328 236" class="a-dashed" data-animate="edge" style="--step:0" stroke-width="1.5" marker-start="url(#er-one-start)" marker-end="url(#er-one-optional-end)"/>
+        <path data-edge-from="tbd_users_wishlist_products" data-edge-to="tb_users" data-edge-label="user_ID ? CASCADE" data-edge-key="1" data-edge-id="wishlist_user" data-er-ends="many one optional" data-composition-points="672,588;696,588;696,138;672,138" d="M 672 588 L 688 588 Q 696 588 696 580 L 696 146 Q 696 138 688 138 L 672 138" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-start="url(#er-many-optional-start)" marker-end="url(#er-one-end)"/>
+        <path data-edge-from="tbd_users_wishlist_products" data-edge-to="tb_products" data-edge-label="product_ID ? CASCADE" data-edge-key="2" data-edge-id="wishlist_product" data-er-ends="many one optional" data-composition-points="672,588;775,588;775,136;878,136" d="M 672 588 L 767 588 Q 775 588 775 580 L 775 144 Q 775 136 783 136 L 878 136" class="a-default" data-animate="edge" style="--step:2" stroke-width="1.5" marker-start="url(#er-many-optional-start)" marker-end="url(#er-one-end)"/>
+        <path data-edge-from="tbd_products_categories" data-edge-to="tb_products" data-edge-label="product_id ? CASCADE" data-edge-key="3" data-edge-id="product_category_product" data-er-ends="many one optional" data-composition-points="878,588;854,588;854,148;878,148" d="M 878 588 L 862 588 Q 854 588 854 580 L 854 156 Q 854 148 862 148 L 878 148" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-start="url(#er-many-optional-start)" marker-end="url(#er-one-end)"/>
+        <path data-edge-from="tbd_products_categories" data-edge-to="tb_categories" data-edge-label="category_id ? CASCADE" data-edge-key="4" data-edge-id="product_category_category" data-er-ends="many one optional" data-composition-points="1116,520;1116,476" d="M 1116 520 L 1116 476" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-start="url(#er-many-optional-start)" marker-end="url(#er-one-end)"/>
+        <path data-edge-from="tbd_products_users_providers" data-edge-to="tb_users" data-edge-label="Inferida: FK no declarada" data-edge-key="5" data-edge-id="provider_user_inferred" data-er-ends="many one optional" data-composition-points="672,788;696,788;696,138;672,138" d="M 672 788 L 688 788 Q 696 788 696 780 L 696 146 Q 696 138 688 138 L 672 138" class="a-dashed" data-animate="edge" style="--step:5" stroke-width="1.5" marker-start="url(#er-many-optional-start)" marker-end="url(#er-one-end)"/>
+        <path data-edge-from="tbd_products_users_providers" data-edge-to="tb_products" data-edge-label="Inferida: FK no declarada" data-edge-key="6" data-edge-id="provider_product_inferred" data-er-ends="many one optional" data-composition-points="672,788;775,788;775,160;878,160" d="M 672 788 L 767 788 Q 775 788 775 780 L 775 168 Q 775 160 783 160 L 878 160" class="a-dashed" data-animate="edge" style="--step:6" stroke-width="1.5" marker-start="url(#er-many-optional-start)" marker-end="url(#er-one-end)"/>
 
         <!-- Entities -->
-        <g id="node-tb_users" data-node-id="tb_users" data-node-label="tb_users" tabindex="0" role="button" aria-label="Enfocar tb_users, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="Cuentas" data-node-context="Entidad" class="er-hue-database">
-          <title>tb_users · Entidad · Cuentas</title>
-          <rect x="62" y="40" width="430" height="196" rx="8" class="c-mask"/>
-          <rect x="62" y="40" width="430" height="196" rx="8" class="c-database er-table" data-animate="node" style="--step:1" stroke-width="1.2"/>
-          <path class="er-table-header" d="M 70 40 H 484 A 8 8 0 0 1 492 48 V 70 H 62 V 48 A 8 8 0 0 1 70 40 Z"/>
-          <path class="er-table-cap" d="M 74 41.4 H 480" stroke-width="2.6" stroke-linecap="round" fill="none"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(70 47) scale(0.875)">
+        <g id="node-tb_users" data-node-id="tb_users" data-node-label="tb_users | 5 filas" tabindex="0" role="button" aria-label="Enfocar tb_users | 5 filas, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="Cuentas" data-node-context="Entidad" class="er-hue-database">
+          <title>tb_users | 5 filas · Entidad · Cuentas</title>
+          <rect x="32" y="40" width="640" height="196" rx="8" class="c-mask"/>
+          <rect x="32" y="40" width="640" height="196" rx="8" class="c-database er-table" data-animate="node" style="--step:1" stroke-width="1.2"/>
+          <path class="er-table-header" d="M 40 40 H 664 A 8 8 0 0 1 672 48 V 70 H 32 V 48 A 8 8 0 0 1 40 40 Z"/>
+          <path class="er-table-cap" d="M 44 41.4 H 660" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(40 47) scale(0.875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" x="277" y="59" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tb_users</text>
-          <line x1="62" y1="70" x2="492" y2="70" class="c-grid er-header-rule" stroke-width="1"/>
+          <text data-node-label="" x="352" y="59" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tb_users | 5 filas</text>
+          <line x1="32" y1="70" x2="672" y2="70" class="c-grid er-header-rule" stroke-width="1"/>
           <g data-detail="context" data-er-row="0">
-            <line x1="62" y1="70" x2="492" y2="70" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="70" x2="672" y2="70" class="c-grid er-row-rule" stroke-width="0.5"/>
 
-            <rect x="72" y="75" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="83" y="85" class="t-database" font-size="9" font-weight="600">PK</text>
-            <text data-detail="context" x="104" y="85" class="t-primary er-name-pk" font-size="11">ID</text>
-            <text data-detail="context" x="480" y="85" class="er-type" font-size="10.5" text-anchor="end">int NN AI</text>
+            <rect x="42" y="75" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="53" y="85" class="t-database" font-size="9" font-weight="600">PK</text>
+            <text data-detail="context" x="74" y="85" class="t-primary er-name-pk" font-size="11">ID</text>
+            <text data-detail="context" x="660" y="85" class="er-type" font-size="10.5" text-anchor="end">int NOT NULL AUTO_INCREMENT</text>
           </g>
           <g data-detail="context" data-er-row="1">
-            <line x1="62" y1="90" x2="492" y2="90" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="66" y="91" width="422" height="18" rx="4" class="er-zebra"/>
-            <rect x="72" y="95" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="uk"/><text data-detail="context" x="83" y="105" class="t-muted" font-size="9" font-weight="600">UK</text>
-            <text data-detail="context" x="104" y="105" class="t-primary" font-size="11">email</text>
-            <text data-detail="context" x="480" y="105" class="er-type" font-size="10.5" text-anchor="end">varchar(100) NN</text>
+            <line x1="32" y1="90" x2="672" y2="90" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="36" y="91" width="632" height="18" rx="4" class="er-zebra"/>
+            <rect x="42" y="95" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="uk"/><text data-detail="context" x="53" y="105" class="t-muted" font-size="9" font-weight="600">UK</text>
+            <text data-detail="context" x="74" y="105" class="t-primary" font-size="11">email</text>
+            <text data-detail="context" x="660" y="105" class="er-type" font-size="10.5" text-anchor="end">varchar(100) NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="2">
-            <line x1="62" y1="110" x2="492" y2="110" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="110" x2="672" y2="110" class="c-grid er-row-rule" stroke-width="0.5"/>
 
-            <rect x="72" y="115" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="uk"/><text data-detail="context" x="83" y="125" class="t-muted" font-size="9" font-weight="600">UK</text>
-            <text data-detail="context" x="104" y="125" class="t-primary" font-size="11">nick</text>
-            <text data-detail="context" x="480" y="125" class="er-type" font-size="10.5" text-anchor="end">varchar(50) NN</text>
+            <rect x="42" y="115" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="uk"/><text data-detail="context" x="53" y="125" class="t-muted" font-size="9" font-weight="600">UK</text>
+            <text data-detail="context" x="74" y="125" class="t-primary" font-size="11">nick</text>
+            <text data-detail="context" x="660" y="125" class="er-type" font-size="10.5" text-anchor="end">varchar(50) NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="3">
-            <line x1="62" y1="130" x2="492" y2="130" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="66" y="131" width="422" height="18" rx="4" class="er-zebra"/>
+            <line x1="32" y1="130" x2="672" y2="130" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="36" y="131" width="632" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="104" y="145" class="t-primary" font-size="11">password</text>
-            <text data-detail="context" x="480" y="145" class="er-type" font-size="10.5" text-anchor="end">varchar(255) NN</text>
+            <text data-detail="context" x="74" y="145" class="t-primary" font-size="11">password</text>
+            <text data-detail="context" x="660" y="145" class="er-type" font-size="10.5" text-anchor="end">varchar(255) NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="4">
-            <line x1="62" y1="150" x2="492" y2="150" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="150" x2="672" y2="150" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="104" y="165" class="t-primary" font-size="11">creation_date</text>
-            <text data-detail="context" x="480" y="165" class="er-type" font-size="10.5" text-anchor="end">datetime NN D=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="74" y="165" class="t-primary" font-size="11">creation_date</text>
+            <text data-detail="context" x="660" y="165" class="er-type" font-size="10.5" text-anchor="end">datetime NOT NULL DEFAULT CURRENT_TIMESTAMP</text>
           </g>
           <g data-detail="context" data-er-row="5">
-            <line x1="62" y1="170" x2="492" y2="170" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="66" y="171" width="422" height="18" rx="4" class="er-zebra"/>
+            <line x1="32" y1="170" x2="672" y2="170" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="36" y="171" width="632" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="104" y="185" class="t-primary" font-size="11">last_update</text>
-            <text data-detail="context" x="480" y="185" class="er-type" font-size="10.5" text-anchor="end">datetime NULL</text>
+            <text data-detail="context" x="74" y="185" class="t-primary" font-size="11">last_update</text>
+            <text data-detail="context" x="660" y="185" class="er-type" font-size="10.5" text-anchor="end">datetime DEFAULT NULL</text>
           </g>
           <g data-detail="context" data-er-row="6">
-            <line x1="62" y1="190" x2="492" y2="190" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="190" x2="672" y2="190" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="104" y="205" class="t-primary" font-size="11">last_login</text>
-            <text data-detail="context" x="480" y="205" class="er-type" font-size="10.5" text-anchor="end">datetime NULL</text>
+            <text data-detail="context" x="74" y="205" class="t-primary" font-size="11">last_login</text>
+            <text data-detail="context" x="660" y="205" class="er-type" font-size="10.5" text-anchor="end">datetime DEFAULT NULL</text>
           </g>
           <g data-detail="context" data-er-row="7">
-            <line x1="62" y1="210" x2="492" y2="210" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="66" y="211" width="422" height="18" rx="4" class="er-zebra"/>
+            <line x1="32" y1="210" x2="672" y2="210" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="36" y="211" width="632" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="104" y="225" class="t-primary" font-size="11">status</text>
-            <text data-detail="context" x="480" y="225" class="er-type" font-size="10.5" text-anchor="end">bit(1) D=b&#39;1&#39;</text>
+            <text data-detail="context" x="74" y="225" class="t-primary" font-size="11">status</text>
+            <text data-detail="context" x="660" y="225" class="er-type" font-size="10.5" text-anchor="end">bit(1) DEFAULT b&#39;1&#39;</text>
           </g>
         </g>
 
-        <g id="node-tb_carts" data-node-id="tb_carts" data-node-label="tb_carts" tabindex="0" role="button" aria-label="Enfocar tb_carts, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="Cuentas" data-node-context="Entidad" class="er-hue-database">
-          <title>tb_carts · Entidad · Cuentas</title>
-          <rect x="62" y="300" width="430" height="136" rx="8" class="c-mask"/>
-          <rect x="62" y="300" width="430" height="136" rx="8" class="c-database er-table" data-animate="node" style="--step:0" stroke-width="1.2"/>
-          <path class="er-table-header" d="M 70 300 H 484 A 8 8 0 0 1 492 308 V 330 H 62 V 308 A 8 8 0 0 1 70 300 Z"/>
-          <path class="er-table-cap" d="M 74 301.4 H 480" stroke-width="2.6" stroke-linecap="round" fill="none"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(70 307) scale(0.875)">
+        <g id="node-tb_carts" data-node-id="tb_carts" data-node-label="tb_carts | 0 filas" tabindex="0" role="button" aria-label="Enfocar tb_carts | 0 filas, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="Cuentas" data-node-context="Entidad" class="er-hue-database">
+          <title>tb_carts | 0 filas · Entidad · Cuentas</title>
+          <rect x="32" y="300" width="640" height="136" rx="8" class="c-mask"/>
+          <rect x="32" y="300" width="640" height="136" rx="8" class="c-database er-table" data-animate="node" style="--step:0" stroke-width="1.2"/>
+          <path class="er-table-header" d="M 40 300 H 664 A 8 8 0 0 1 672 308 V 330 H 32 V 308 A 8 8 0 0 1 40 300 Z"/>
+          <path class="er-table-cap" d="M 44 301.4 H 660" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(40 307) scale(0.875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" x="277" y="319" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tb_carts</text>
-          <line x1="62" y1="330" x2="492" y2="330" class="c-grid er-header-rule" stroke-width="1"/>
+          <text data-node-label="" x="352" y="319" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tb_carts | 0 filas</text>
+          <line x1="32" y1="330" x2="672" y2="330" class="c-grid er-header-rule" stroke-width="1"/>
           <g data-detail="context" data-er-row="0">
-            <line x1="62" y1="330" x2="492" y2="330" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="330" x2="672" y2="330" class="c-grid er-row-rule" stroke-width="0.5"/>
 
-            <rect x="72" y="335" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="83" y="345" class="t-database" font-size="9" font-weight="600">PK</text>
-            <text data-detail="context" x="124" y="345" class="t-primary er-name-pk" font-size="11">ID</text>
-            <text data-detail="context" x="480" y="345" class="er-type" font-size="10.5" text-anchor="end">int unsigned NN AI</text>
+            <rect x="42" y="335" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="53" y="345" class="t-database" font-size="9" font-weight="600">PK</text>
+            <text data-detail="context" x="94" y="345" class="t-primary er-name-pk" font-size="11">ID</text>
+            <text data-detail="context" x="660" y="345" class="er-type" font-size="10.5" text-anchor="end">int unsigned NOT NULL AUTO_INCREMENT</text>
           </g>
           <g data-detail="context" data-er-row="1">
-            <line x1="62" y1="350" x2="492" y2="350" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="66" y="351" width="422" height="18" rx="4" class="er-zebra"/>
-            <rect x="72" y="355" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="fk"/><text data-detail="context" x="83" y="365" class="t-messagebus" font-size="9" font-weight="600">FK</text><rect x="97" y="355" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="uk"/><text data-detail="context" x="108" y="365" class="t-muted" font-size="9" font-weight="600">UK</text>
-            <text data-detail="context" x="124" y="365" class="t-primary" font-size="11">user_ID</text>
-            <text data-detail="context" x="480" y="365" class="er-type" font-size="10.5" text-anchor="end">int NN FK</text>
+            <line x1="32" y1="350" x2="672" y2="350" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="36" y="351" width="632" height="18" rx="4" class="er-zebra"/>
+            <rect x="42" y="355" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="fk"/><text data-detail="context" x="53" y="365" class="t-messagebus" font-size="9" font-weight="600">FK</text><rect x="67" y="355" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="uk"/><text data-detail="context" x="78" y="365" class="t-muted" font-size="9" font-weight="600">UK</text>
+            <text data-detail="context" x="94" y="365" class="t-primary" font-size="11">user_ID</text>
+            <text data-detail="context" x="660" y="365" class="er-type" font-size="10.5" text-anchor="end">int NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="2">
-            <line x1="62" y1="370" x2="492" y2="370" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="370" x2="672" y2="370" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="124" y="385" class="t-primary" font-size="11">status</text>
-            <text data-detail="context" x="480" y="385" class="er-type" font-size="10.5" text-anchor="end">bit(1) D=b&#39;1&#39;</text>
+            <text data-detail="context" x="94" y="385" class="t-primary" font-size="11">status</text>
+            <text data-detail="context" x="660" y="385" class="er-type" font-size="10.5" text-anchor="end">bit(1) DEFAULT b&#39;1&#39;</text>
           </g>
           <g data-detail="context" data-er-row="3">
-            <line x1="62" y1="390" x2="492" y2="390" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="66" y="391" width="422" height="18" rx="4" class="er-zebra"/>
+            <line x1="32" y1="390" x2="672" y2="390" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="36" y="391" width="632" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="124" y="405" class="t-primary" font-size="11">creation_date</text>
-            <text data-detail="context" x="480" y="405" class="er-type" font-size="10.5" text-anchor="end">datetime NN D=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="94" y="405" class="t-primary" font-size="11">creation_date</text>
+            <text data-detail="context" x="660" y="405" class="er-type" font-size="10.5" text-anchor="end">datetime NOT NULL DEFAULT CURRENT_TIMESTAMP</text>
           </g>
           <g data-detail="context" data-er-row="4">
-            <line x1="62" y1="410" x2="492" y2="410" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="410" x2="672" y2="410" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="124" y="425" class="t-primary" font-size="11">last_update</text>
-            <text data-detail="context" x="480" y="425" class="er-type" font-size="10.5" text-anchor="end">datetime NULL U=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="94" y="425" class="t-primary" font-size="11">last_update</text>
+            <text data-detail="context" x="660" y="425" class="er-type" font-size="10.5" text-anchor="end">datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP</text>
           </g>
         </g>
 
-        <g id="node-tbd_users_wishlist_products" data-node-id="tbd_users_wishlist_products" data-node-label="tbd_users_wishlist_products" tabindex="0" role="button" aria-label="Enfocar tbd_users_wishlist_products, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="Cuentas" data-node-context="Entidad" class="er-hue-database">
-          <title>tbd_users_wishlist_products · Entidad · Cuentas</title>
-          <rect x="32" y="520" width="490" height="136" rx="8" class="c-mask"/>
-          <rect x="32" y="520" width="490" height="136" rx="8" class="c-database er-table" data-animate="node" style="--step:1" stroke-width="1.2"/>
-          <path class="er-table-header" d="M 40 520 H 514 A 8 8 0 0 1 522 528 V 550 H 32 V 528 A 8 8 0 0 1 40 520 Z"/>
-          <path class="er-table-cap" d="M 44 521.4 H 510" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+        <g id="node-tbd_users_wishlist_products" data-node-id="tbd_users_wishlist_products" data-node-label="tbd_users_wishlist_products | 0 filas" tabindex="0" role="button" aria-label="Enfocar tbd_users_wishlist_products | 0 filas, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="Cuentas" data-node-context="Entidad" class="er-hue-database">
+          <title>tbd_users_wishlist_products | 0 filas · Entidad · Cuentas</title>
+          <rect x="32" y="520" width="640" height="136" rx="8" class="c-mask"/>
+          <rect x="32" y="520" width="640" height="136" rx="8" class="c-database er-table" data-animate="node" style="--step:1" stroke-width="1.2"/>
+          <path class="er-table-header" d="M 40 520 H 664 A 8 8 0 0 1 672 528 V 550 H 32 V 528 A 8 8 0 0 1 40 520 Z"/>
+          <path class="er-table-cap" d="M 44 521.4 H 660" stroke-width="2.6" stroke-linecap="round" fill="none"/>
           <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(40 527) scale(0.875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" x="277" y="539" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tbd_users_wishlist_products</text>
-          <line x1="32" y1="550" x2="522" y2="550" class="c-grid er-header-rule" stroke-width="1"/>
+          <text data-node-label="" x="352" y="539" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tbd_users_wishlist_products | 0 filas</text>
+          <line x1="32" y1="550" x2="672" y2="550" class="c-grid er-header-rule" stroke-width="1"/>
           <g data-detail="context" data-er-row="0">
-            <line x1="32" y1="550" x2="522" y2="550" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="550" x2="672" y2="550" class="c-grid er-row-rule" stroke-width="0.5"/>
 
             <rect x="42" y="555" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="53" y="565" class="t-database" font-size="9" font-weight="600">PK</text><rect x="67" y="555" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="fk"/><text data-detail="context" x="78" y="565" class="t-messagebus" font-size="9" font-weight="600">FK</text>
             <text data-detail="context" x="94" y="565" class="t-primary er-name-pk" font-size="11">user_ID</text>
-            <text data-detail="context" x="510" y="565" class="er-type" font-size="10.5" text-anchor="end">int NN PK/FK</text>
+            <text data-detail="context" x="660" y="565" class="er-type" font-size="10.5" text-anchor="end">int NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="1">
-            <line x1="32" y1="570" x2="522" y2="570" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="36" y="571" width="482" height="18" rx="4" class="er-zebra"/>
+            <line x1="32" y1="570" x2="672" y2="570" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="36" y="571" width="632" height="18" rx="4" class="er-zebra"/>
             <rect x="42" y="575" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="53" y="585" class="t-database" font-size="9" font-weight="600">PK</text><rect x="67" y="575" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="fk"/><text data-detail="context" x="78" y="585" class="t-messagebus" font-size="9" font-weight="600">FK</text>
             <text data-detail="context" x="94" y="585" class="t-primary er-name-pk" font-size="11">product_ID</text>
-            <text data-detail="context" x="510" y="585" class="er-type" font-size="10.5" text-anchor="end">int NN PK/FK</text>
+            <text data-detail="context" x="660" y="585" class="er-type" font-size="10.5" text-anchor="end">int NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="2">
-            <line x1="32" y1="590" x2="522" y2="590" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="590" x2="672" y2="590" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
             <text data-detail="context" x="94" y="605" class="t-primary" font-size="11">status</text>
-            <text data-detail="context" x="510" y="605" class="er-type" font-size="10.5" text-anchor="end">bit(1) NN D=b&#39;1&#39;</text>
+            <text data-detail="context" x="660" y="605" class="er-type" font-size="10.5" text-anchor="end">bit(1) NOT NULL DEFAULT b&#39;1&#39;</text>
           </g>
           <g data-detail="context" data-er-row="3">
-            <line x1="32" y1="610" x2="522" y2="610" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="36" y="611" width="482" height="18" rx="4" class="er-zebra"/>
+            <line x1="32" y1="610" x2="672" y2="610" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="36" y="611" width="632" height="18" rx="4" class="er-zebra"/>
 
             <text data-detail="context" x="94" y="625" class="t-primary" font-size="11">creation_date</text>
-            <text data-detail="context" x="510" y="625" class="er-type" font-size="10.5" text-anchor="end">datetime NN D=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="660" y="625" class="er-type" font-size="10.5" text-anchor="end">datetime NOT NULL DEFAULT CURRENT_TIMESTAMP</text>
           </g>
           <g data-detail="context" data-er-row="4">
-            <line x1="32" y1="630" x2="522" y2="630" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="630" x2="672" y2="630" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
             <text data-detail="context" x="94" y="645" class="t-primary" font-size="11">last_update</text>
-            <text data-detail="context" x="510" y="645" class="er-type" font-size="10.5" text-anchor="end">datetime NN D=CURRENT_TIMESTAMP U=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="660" y="645" class="er-type" font-size="10.5" text-anchor="end">datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</text>
           </g>
         </g>
 
-        <g id="node-tb_products" data-node-id="tb_products" data-node-label="tb_products" tabindex="0" role="button" aria-label="Enfocar tb_products, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="CatÃ¡logo" data-node-context="Entidad" class="er-hue-frontend">
-          <title>tb_products · Entidad · CatÃ¡logo</title>
-          <rect x="671" y="40" width="430" height="216" rx="8" class="c-mask"/>
-          <rect x="671" y="40" width="430" height="216" rx="8" class="c-database er-table" data-animate="node" style="--step:3" stroke-width="1.2"/>
-          <path class="er-table-header" d="M 679 40 H 1093 A 8 8 0 0 1 1101 48 V 70 H 671 V 48 A 8 8 0 0 1 679 40 Z"/>
-          <path class="er-table-cap" d="M 683 41.4 H 1089" stroke-width="2.6" stroke-linecap="round" fill="none"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(679 47) scale(0.875)">
+        <g id="node-tb_products" data-node-id="tb_products" data-node-label="tb_products | 5025 filas" tabindex="0" role="button" aria-label="Enfocar tb_products | 5025 filas, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="Cat?logo" data-node-context="Entidad" class="er-hue-frontend">
+          <title>tb_products | 5025 filas · Entidad · Cat?logo</title>
+          <rect x="878" y="40" width="500" height="216" rx="8" class="c-mask"/>
+          <rect x="878" y="40" width="500" height="216" rx="8" class="c-database er-table" data-animate="node" style="--step:3" stroke-width="1.2"/>
+          <path class="er-table-header" d="M 886 40 H 1370 A 8 8 0 0 1 1378 48 V 70 H 878 V 48 A 8 8 0 0 1 886 40 Z"/>
+          <path class="er-table-cap" d="M 890 41.4 H 1366" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(886 47) scale(0.875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" x="886" y="59" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tb_products</text>
-          <line x1="671" y1="70" x2="1101" y2="70" class="c-grid er-header-rule" stroke-width="1"/>
+          <text data-node-label="" x="1128" y="59" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tb_products | 5025 filas</text>
+          <line x1="878" y1="70" x2="1378" y2="70" class="c-grid er-header-rule" stroke-width="1"/>
           <g data-detail="context" data-er-row="0">
-            <line x1="671" y1="70" x2="1101" y2="70" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="70" x2="1378" y2="70" class="c-grid er-row-rule" stroke-width="0.5"/>
 
-            <rect x="681" y="75" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="692" y="85" class="t-database" font-size="9" font-weight="600">PK</text>
-            <text data-detail="context" x="713" y="85" class="t-primary er-name-pk" font-size="11">ID</text>
-            <text data-detail="context" x="1089" y="85" class="er-type" font-size="10.5" text-anchor="end">int NN AI</text>
+            <rect x="888" y="75" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="899" y="85" class="t-database" font-size="9" font-weight="600">PK</text>
+            <text data-detail="context" x="920" y="85" class="t-primary er-name-pk" font-size="11">ID</text>
+            <text data-detail="context" x="1366" y="85" class="er-type" font-size="10.5" text-anchor="end">int NOT NULL AUTO_INCREMENT</text>
           </g>
           <g data-detail="context" data-er-row="1">
-            <line x1="671" y1="90" x2="1101" y2="90" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="675" y="91" width="422" height="18" rx="4" class="er-zebra"/>
-            <rect x="681" y="95" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="uk"/><text data-detail="context" x="692" y="105" class="t-muted" font-size="9" font-weight="600">UK</text>
-            <text data-detail="context" x="713" y="105" class="t-primary" font-size="11">SKU</text>
-            <text data-detail="context" x="1089" y="105" class="er-type" font-size="10.5" text-anchor="end">varchar(50) NN</text>
+            <line x1="878" y1="90" x2="1378" y2="90" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="882" y="91" width="492" height="18" rx="4" class="er-zebra"/>
+            <rect x="888" y="95" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="uk"/><text data-detail="context" x="899" y="105" class="t-muted" font-size="9" font-weight="600">UK</text>
+            <text data-detail="context" x="920" y="105" class="t-primary" font-size="11">SKU</text>
+            <text data-detail="context" x="1366" y="105" class="er-type" font-size="10.5" text-anchor="end">varchar(50) NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="2">
-            <line x1="671" y1="110" x2="1101" y2="110" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="110" x2="1378" y2="110" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="713" y="125" class="t-primary" font-size="11">name</text>
-            <text data-detail="context" x="1089" y="125" class="er-type" font-size="10.5" text-anchor="end">varchar(100) NN</text>
+            <text data-detail="context" x="920" y="125" class="t-primary" font-size="11">name</text>
+            <text data-detail="context" x="1366" y="125" class="er-type" font-size="10.5" text-anchor="end">varchar(100) NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="3">
-            <line x1="671" y1="130" x2="1101" y2="130" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="675" y="131" width="422" height="18" rx="4" class="er-zebra"/>
+            <line x1="878" y1="130" x2="1378" y2="130" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="882" y="131" width="492" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="713" y="145" class="t-primary" font-size="11">description</text>
-            <text data-detail="context" x="1089" y="145" class="er-type" font-size="10.5" text-anchor="end">text NN</text>
+            <text data-detail="context" x="920" y="145" class="t-primary" font-size="11">description</text>
+            <text data-detail="context" x="1366" y="145" class="er-type" font-size="10.5" text-anchor="end">text NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="4">
-            <line x1="671" y1="150" x2="1101" y2="150" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="150" x2="1378" y2="150" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="713" y="165" class="t-primary" font-size="11">current_price</text>
-            <text data-detail="context" x="1089" y="165" class="er-type" font-size="10.5" text-anchor="end">decimal(10,2) NN</text>
+            <text data-detail="context" x="920" y="165" class="t-primary" font-size="11">current_price</text>
+            <text data-detail="context" x="1366" y="165" class="er-type" font-size="10.5" text-anchor="end">decimal(10,2) NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="5">
-            <line x1="671" y1="170" x2="1101" y2="170" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="675" y="171" width="422" height="18" rx="4" class="er-zebra"/>
+            <line x1="878" y1="170" x2="1378" y2="170" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="882" y="171" width="492" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="713" y="185" class="t-primary" font-size="11">current_stock</text>
-            <text data-detail="context" x="1089" y="185" class="er-type" font-size="10.5" text-anchor="end">int NN</text>
+            <text data-detail="context" x="920" y="185" class="t-primary" font-size="11">current_stock</text>
+            <text data-detail="context" x="1366" y="185" class="er-type" font-size="10.5" text-anchor="end">int NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="6">
-            <line x1="671" y1="190" x2="1101" y2="190" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="190" x2="1378" y2="190" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="713" y="205" class="t-primary" font-size="11">status</text>
-            <text data-detail="context" x="1089" y="205" class="er-type" font-size="10.5" text-anchor="end">varchar(20) NN</text>
+            <text data-detail="context" x="920" y="205" class="t-primary" font-size="11">status</text>
+            <text data-detail="context" x="1366" y="205" class="er-type" font-size="10.5" text-anchor="end">varchar(20) NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="7">
-            <line x1="671" y1="210" x2="1101" y2="210" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="675" y="211" width="422" height="18" rx="4" class="er-zebra"/>
+            <line x1="878" y1="210" x2="1378" y2="210" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="882" y="211" width="492" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="713" y="225" class="t-primary" font-size="11">creation_date</text>
-            <text data-detail="context" x="1089" y="225" class="er-type" font-size="10.5" text-anchor="end">datetime NN D=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="920" y="225" class="t-primary" font-size="11">creation_date</text>
+            <text data-detail="context" x="1366" y="225" class="er-type" font-size="10.5" text-anchor="end">datetime NOT NULL DEFAULT CURRENT_TIMESTAMP</text>
           </g>
           <g data-detail="context" data-er-row="8">
-            <line x1="671" y1="230" x2="1101" y2="230" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="230" x2="1378" y2="230" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="713" y="245" class="t-primary" font-size="11">last_update</text>
-            <text data-detail="context" x="1089" y="245" class="er-type" font-size="10.5" text-anchor="end">datetime NULL</text>
+            <text data-detail="context" x="920" y="245" class="t-primary" font-size="11">last_update</text>
+            <text data-detail="context" x="1366" y="245" class="er-type" font-size="10.5" text-anchor="end">datetime DEFAULT NULL</text>
           </g>
         </g>
 
-        <g id="node-tb_categories" data-node-id="tb_categories" data-node-label="tb_categories" tabindex="0" role="button" aria-label="Enfocar tb_categories, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="CatÃ¡logo" data-node-context="Entidad" class="er-hue-frontend">
-          <title>tb_categories · Entidad · CatÃ¡logo</title>
-          <rect x="671" y="300" width="430" height="176" rx="8" class="c-mask"/>
-          <rect x="671" y="300" width="430" height="176" rx="8" class="c-database er-table" data-animate="node" style="--step:5" stroke-width="1.2"/>
-          <path class="er-table-header" d="M 679 300 H 1093 A 8 8 0 0 1 1101 308 V 330 H 671 V 308 A 8 8 0 0 1 679 300 Z"/>
-          <path class="er-table-cap" d="M 683 301.4 H 1089" stroke-width="2.6" stroke-linecap="round" fill="none"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(679 307) scale(0.875)">
+        <g id="node-tb_categories" data-node-id="tb_categories" data-node-label="tb_categories | 100 filas" tabindex="0" role="button" aria-label="Enfocar tb_categories | 100 filas, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="Cat?logo" data-node-context="Entidad" class="er-hue-frontend">
+          <title>tb_categories | 100 filas · Entidad · Cat?logo</title>
+          <rect x="878" y="300" width="500" height="176" rx="8" class="c-mask"/>
+          <rect x="878" y="300" width="500" height="176" rx="8" class="c-database er-table" data-animate="node" style="--step:5" stroke-width="1.2"/>
+          <path class="er-table-header" d="M 886 300 H 1370 A 8 8 0 0 1 1378 308 V 330 H 878 V 308 A 8 8 0 0 1 886 300 Z"/>
+          <path class="er-table-cap" d="M 890 301.4 H 1366" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(886 307) scale(0.875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" x="886" y="319" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tb_categories</text>
-          <line x1="671" y1="330" x2="1101" y2="330" class="c-grid er-header-rule" stroke-width="1"/>
+          <text data-node-label="" x="1128" y="319" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tb_categories | 100 filas</text>
+          <line x1="878" y1="330" x2="1378" y2="330" class="c-grid er-header-rule" stroke-width="1"/>
           <g data-detail="context" data-er-row="0">
-            <line x1="671" y1="330" x2="1101" y2="330" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="330" x2="1378" y2="330" class="c-grid er-row-rule" stroke-width="0.5"/>
 
-            <rect x="681" y="335" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="692" y="345" class="t-database" font-size="9" font-weight="600">PK</text>
-            <text data-detail="context" x="713" y="345" class="t-primary er-name-pk" font-size="11">ID</text>
-            <text data-detail="context" x="1089" y="345" class="er-type" font-size="10.5" text-anchor="end">int unsigned NN AI</text>
+            <rect x="888" y="335" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="899" y="345" class="t-database" font-size="9" font-weight="600">PK</text>
+            <text data-detail="context" x="920" y="345" class="t-primary er-name-pk" font-size="11">ID</text>
+            <text data-detail="context" x="1366" y="345" class="er-type" font-size="10.5" text-anchor="end">int unsigned NOT NULL AUTO_INCREMENT</text>
           </g>
           <g data-detail="context" data-er-row="1">
-            <line x1="671" y1="350" x2="1101" y2="350" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="675" y="351" width="422" height="18" rx="4" class="er-zebra"/>
-            <rect x="681" y="355" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="uk"/><text data-detail="context" x="692" y="365" class="t-muted" font-size="9" font-weight="600">UK</text>
-            <text data-detail="context" x="713" y="365" class="t-primary" font-size="11">name</text>
-            <text data-detail="context" x="1089" y="365" class="er-type" font-size="10.5" text-anchor="end">varchar(120) NN</text>
+            <line x1="878" y1="350" x2="1378" y2="350" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="882" y="351" width="492" height="18" rx="4" class="er-zebra"/>
+            <rect x="888" y="355" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="uk"/><text data-detail="context" x="899" y="365" class="t-muted" font-size="9" font-weight="600">UK</text>
+            <text data-detail="context" x="920" y="365" class="t-primary" font-size="11">name</text>
+            <text data-detail="context" x="1366" y="365" class="er-type" font-size="10.5" text-anchor="end">varchar(120) NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="2">
-            <line x1="671" y1="370" x2="1101" y2="370" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="370" x2="1378" y2="370" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="713" y="385" class="t-primary" font-size="11">description</text>
-            <text data-detail="context" x="1089" y="385" class="er-type" font-size="10.5" text-anchor="end">text NULL</text>
+            <text data-detail="context" x="920" y="385" class="t-primary" font-size="11">description</text>
+            <text data-detail="context" x="1366" y="385" class="er-type" font-size="10.5" text-anchor="end">text</text>
           </g>
           <g data-detail="context" data-er-row="3">
-            <line x1="671" y1="390" x2="1101" y2="390" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="675" y="391" width="422" height="18" rx="4" class="er-zebra"/>
-            <rect x="681" y="395" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="fk"/><text data-detail="context" x="692" y="405" class="t-messagebus" font-size="9" font-weight="600">FK</text>
-            <text data-detail="context" x="713" y="405" class="t-primary" font-size="11">sup_id_category</text>
-            <text data-detail="context" x="1089" y="405" class="er-type" font-size="10.5" text-anchor="end">int unsigned NULL FK</text>
+            <line x1="878" y1="390" x2="1378" y2="390" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="882" y="391" width="492" height="18" rx="4" class="er-zebra"/>
+            <rect x="888" y="395" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="fk"/><text data-detail="context" x="899" y="405" class="t-messagebus" font-size="9" font-weight="600">FK</text>
+            <text data-detail="context" x="920" y="405" class="t-primary" font-size="11">sup_id_category</text>
+            <text data-detail="context" x="1366" y="405" class="er-type" font-size="10.5" text-anchor="end">int unsigned DEFAULT NULL</text>
           </g>
           <g data-detail="context" data-er-row="4">
-            <line x1="671" y1="410" x2="1101" y2="410" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="410" x2="1378" y2="410" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="713" y="425" class="t-primary" font-size="11">status</text>
-            <text data-detail="context" x="1089" y="425" class="er-type" font-size="10.5" text-anchor="end">bit(1) NN D=b&#39;1&#39;</text>
+            <text data-detail="context" x="920" y="425" class="t-primary" font-size="11">status</text>
+            <text data-detail="context" x="1366" y="425" class="er-type" font-size="10.5" text-anchor="end">bit(1) NOT NULL DEFAULT b&#39;1&#39;</text>
           </g>
           <g data-detail="context" data-er-row="5">
-            <line x1="671" y1="430" x2="1101" y2="430" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="675" y="431" width="422" height="18" rx="4" class="er-zebra"/>
+            <line x1="878" y1="430" x2="1378" y2="430" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="882" y="431" width="492" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="713" y="445" class="t-primary" font-size="11">creation_date</text>
-            <text data-detail="context" x="1089" y="445" class="er-type" font-size="10.5" text-anchor="end">datetime NN D=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="920" y="445" class="t-primary" font-size="11">creation_date</text>
+            <text data-detail="context" x="1366" y="445" class="er-type" font-size="10.5" text-anchor="end">datetime NOT NULL DEFAULT CURRENT_TIMESTAMP</text>
           </g>
           <g data-detail="context" data-er-row="6">
-            <line x1="671" y1="450" x2="1101" y2="450" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="450" x2="1378" y2="450" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="713" y="465" class="t-primary" font-size="11">last_update</text>
-            <text data-detail="context" x="1089" y="465" class="er-type" font-size="10.5" text-anchor="end">datetime NN U=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="920" y="465" class="t-primary" font-size="11">last_update</text>
+            <text data-detail="context" x="1366" y="465" class="er-type" font-size="10.5" text-anchor="end">datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP</text>
           </g>
         </g>
 
-        <g id="node-tbd_products_categories" data-node-id="tbd_products_categories" data-node-label="tbd_products_categories" tabindex="0" role="button" aria-label="Enfocar tbd_products_categories, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="CatÃ¡logo" data-node-context="Entidad" class="er-hue-frontend">
-          <title>tbd_products_categories · Entidad · CatÃ¡logo</title>
-          <rect x="671" y="520" width="430" height="136" rx="8" class="c-mask"/>
-          <rect x="671" y="520" width="430" height="136" rx="8" class="c-database er-table" data-animate="node" style="--step:3" stroke-width="1.2"/>
-          <path class="er-table-header" d="M 679 520 H 1093 A 8 8 0 0 1 1101 528 V 550 H 671 V 528 A 8 8 0 0 1 679 520 Z"/>
-          <path class="er-table-cap" d="M 683 521.4 H 1089" stroke-width="2.6" stroke-linecap="round" fill="none"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(679 527) scale(0.875)">
+        <g id="node-tbd_products_categories" data-node-id="tbd_products_categories" data-node-label="tbd_products_categories | 21 filas" tabindex="0" role="button" aria-label="Enfocar tbd_products_categories | 21 filas, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="Cat?logo" data-node-context="Entidad" class="er-hue-frontend">
+          <title>tbd_products_categories | 21 filas · Entidad · Cat?logo</title>
+          <rect x="878" y="520" width="500" height="136" rx="8" class="c-mask"/>
+          <rect x="878" y="520" width="500" height="136" rx="8" class="c-database er-table" data-animate="node" style="--step:3" stroke-width="1.2"/>
+          <path class="er-table-header" d="M 886 520 H 1370 A 8 8 0 0 1 1378 528 V 550 H 878 V 528 A 8 8 0 0 1 886 520 Z"/>
+          <path class="er-table-cap" d="M 890 521.4 H 1366" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(886 527) scale(0.875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" x="886" y="539" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tbd_products_categories</text>
-          <line x1="671" y1="550" x2="1101" y2="550" class="c-grid er-header-rule" stroke-width="1"/>
+          <text data-node-label="" x="1128" y="539" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tbd_products_categories | 21 filas</text>
+          <line x1="878" y1="550" x2="1378" y2="550" class="c-grid er-header-rule" stroke-width="1"/>
           <g data-detail="context" data-er-row="0">
-            <line x1="671" y1="550" x2="1101" y2="550" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="550" x2="1378" y2="550" class="c-grid er-row-rule" stroke-width="0.5"/>
 
-            <rect x="681" y="555" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="692" y="565" class="t-database" font-size="9" font-weight="600">PK</text><rect x="706" y="555" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="fk"/><text data-detail="context" x="717" y="565" class="t-messagebus" font-size="9" font-weight="600">FK</text>
-            <text data-detail="context" x="733" y="565" class="t-primary er-name-pk" font-size="11">product_id</text>
-            <text data-detail="context" x="1089" y="565" class="er-type" font-size="10.5" text-anchor="end">int NN PK/FK</text>
+            <rect x="888" y="555" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="899" y="565" class="t-database" font-size="9" font-weight="600">PK</text><rect x="913" y="555" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="fk"/><text data-detail="context" x="924" y="565" class="t-messagebus" font-size="9" font-weight="600">FK</text>
+            <text data-detail="context" x="940" y="565" class="t-primary er-name-pk" font-size="11">product_id</text>
+            <text data-detail="context" x="1366" y="565" class="er-type" font-size="10.5" text-anchor="end">int NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="1">
-            <line x1="671" y1="570" x2="1101" y2="570" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="675" y="571" width="422" height="18" rx="4" class="er-zebra"/>
-            <rect x="681" y="575" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="692" y="585" class="t-database" font-size="9" font-weight="600">PK</text><rect x="706" y="575" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="fk"/><text data-detail="context" x="717" y="585" class="t-messagebus" font-size="9" font-weight="600">FK</text>
-            <text data-detail="context" x="733" y="585" class="t-primary er-name-pk" font-size="11">category_id</text>
-            <text data-detail="context" x="1089" y="585" class="er-type" font-size="10.5" text-anchor="end">int unsigned NN PK/FK</text>
+            <line x1="878" y1="570" x2="1378" y2="570" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="882" y="571" width="492" height="18" rx="4" class="er-zebra"/>
+            <rect x="888" y="575" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="899" y="585" class="t-database" font-size="9" font-weight="600">PK</text><rect x="913" y="575" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="fk"/><text data-detail="context" x="924" y="585" class="t-messagebus" font-size="9" font-weight="600">FK</text>
+            <text data-detail="context" x="940" y="585" class="t-primary er-name-pk" font-size="11">category_id</text>
+            <text data-detail="context" x="1366" y="585" class="er-type" font-size="10.5" text-anchor="end">int unsigned NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="2">
-            <line x1="671" y1="590" x2="1101" y2="590" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="590" x2="1378" y2="590" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="733" y="605" class="t-primary" font-size="11">status</text>
-            <text data-detail="context" x="1089" y="605" class="er-type" font-size="10.5" text-anchor="end">varchar(20) NN D=&#39;ACTIVE&#39;</text>
+            <text data-detail="context" x="940" y="605" class="t-primary" font-size="11">status</text>
+            <text data-detail="context" x="1366" y="605" class="er-type" font-size="10.5" text-anchor="end">varchar(20) NOT NULL DEFAULT &#39;ACTIVE&#39;</text>
           </g>
           <g data-detail="context" data-er-row="3">
-            <line x1="671" y1="610" x2="1101" y2="610" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="675" y="611" width="422" height="18" rx="4" class="er-zebra"/>
+            <line x1="878" y1="610" x2="1378" y2="610" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="882" y="611" width="492" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="733" y="625" class="t-primary" font-size="11">creation_date</text>
-            <text data-detail="context" x="1089" y="625" class="er-type" font-size="10.5" text-anchor="end">datetime NN D=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="940" y="625" class="t-primary" font-size="11">creation_date</text>
+            <text data-detail="context" x="1366" y="625" class="er-type" font-size="10.5" text-anchor="end">datetime NOT NULL DEFAULT CURRENT_TIMESTAMP</text>
           </g>
           <g data-detail="context" data-er-row="4">
-            <line x1="671" y1="630" x2="1101" y2="630" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="630" x2="1378" y2="630" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="733" y="645" class="t-primary" font-size="11">last_update</text>
-            <text data-detail="context" x="1089" y="645" class="er-type" font-size="10.5" text-anchor="end">datetime NULL U=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="940" y="645" class="t-primary" font-size="11">last_update</text>
+            <text data-detail="context" x="1366" y="645" class="er-type" font-size="10.5" text-anchor="end">datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP</text>
           </g>
         </g>
 
-        <g id="node-tb_logs" data-node-id="tb_logs" data-node-label="tb_logs" tabindex="0" role="button" aria-label="Enfocar tb_logs, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="AuditorÃ­a" data-node-context="Entidad" class="er-hue-backend">
-          <title>tb_logs · Entidad · AuditorÃ­a</title>
-          <rect x="1206" y="40" width="450" height="176" rx="8" class="c-mask"/>
-          <rect x="1206" y="40" width="450" height="176" rx="8" class="c-database er-table" data-animate="node" style="--step:6" stroke-width="1.2"/>
-          <path class="er-table-header" d="M 1214 40 H 1648 A 8 8 0 0 1 1656 48 V 70 H 1206 V 48 A 8 8 0 0 1 1214 40 Z"/>
-          <path class="er-table-cap" d="M 1218 41.4 H 1644" stroke-width="2.6" stroke-linecap="round" fill="none"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(1214 47) scale(0.875)">
+        <g id="node-tb_logs" data-node-id="tb_logs" data-node-label="tb_logs | 5137 filas" tabindex="0" role="button" aria-label="Enfocar tb_logs | 5137 filas, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="Auditor?a" data-node-context="Entidad" class="er-hue-backend">
+          <title>tb_logs | 5137 filas · Entidad · Auditor?a</title>
+          <rect x="878" y="700" width="500" height="176" rx="8" class="c-mask"/>
+          <rect x="878" y="700" width="500" height="176" rx="8" class="c-database er-table" data-animate="node" style="--step:6" stroke-width="1.2"/>
+          <path class="er-table-header" d="M 886 700 H 1370 A 8 8 0 0 1 1378 708 V 730 H 878 V 708 A 8 8 0 0 1 886 700 Z"/>
+          <path class="er-table-cap" d="M 890 701.4 H 1366" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(886 707) scale(0.875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" x="1431" y="59" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tb_logs</text>
-          <line x1="1206" y1="70" x2="1656" y2="70" class="c-grid er-header-rule" stroke-width="1"/>
+          <text data-node-label="" x="1128" y="719" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tb_logs | 5137 filas</text>
+          <line x1="878" y1="730" x2="1378" y2="730" class="c-grid er-header-rule" stroke-width="1"/>
           <g data-detail="context" data-er-row="0">
-            <line x1="1206" y1="70" x2="1656" y2="70" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="730" x2="1378" y2="730" class="c-grid er-row-rule" stroke-width="0.5"/>
 
-            <rect x="1216" y="75" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="1227" y="85" class="t-database" font-size="9" font-weight="600">PK</text>
-            <text data-detail="context" x="1248" y="85" class="t-primary er-name-pk" font-size="11">ID</text>
-            <text data-detail="context" x="1644" y="85" class="er-type" font-size="10.5" text-anchor="end">int NN AI</text>
+            <rect x="888" y="735" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="899" y="745" class="t-database" font-size="9" font-weight="600">PK</text>
+            <text data-detail="context" x="920" y="745" class="t-primary er-name-pk" font-size="11">ID</text>
+            <text data-detail="context" x="1366" y="745" class="er-type" font-size="10.5" text-anchor="end">int NOT NULL AUTO_INCREMENT</text>
           </g>
           <g data-detail="context" data-er-row="1">
-            <line x1="1206" y1="90" x2="1656" y2="90" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="1210" y="91" width="442" height="18" rx="4" class="er-zebra"/>
+            <line x1="878" y1="750" x2="1378" y2="750" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="882" y="751" width="492" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="1248" y="105" class="t-primary" font-size="11">table_name</text>
-            <text data-detail="context" x="1644" y="105" class="er-type" font-size="10.5" text-anchor="end">varchar(80) NN</text>
+            <text data-detail="context" x="920" y="765" class="t-primary" font-size="11">table_name</text>
+            <text data-detail="context" x="1366" y="765" class="er-type" font-size="10.5" text-anchor="end">varchar(80) NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="2">
-            <line x1="1206" y1="110" x2="1656" y2="110" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="770" x2="1378" y2="770" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="1248" y="125" class="t-primary" font-size="11">table_operation</text>
-            <text data-detail="context" x="1644" y="125" class="er-type" font-size="10.5" text-anchor="end">enum(&#39;Create&#39;,&#39;Read&#39;,&#39;Update&#39;,&#39;Delete&#39;) NULL</text>
+            <text data-detail="context" x="920" y="785" class="t-primary" font-size="11">table_operation</text>
+            <text data-detail="context" x="1366" y="785" class="er-type" font-size="10.5" text-anchor="end">enum(&#39;Create&#39;,&#39;Read&#39;,&#39;Update&#39;,&#39;Delete&#39;) DEFAULT NULL</text>
           </g>
           <g data-detail="context" data-er-row="3">
-            <line x1="1206" y1="130" x2="1656" y2="130" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="1210" y="131" width="442" height="18" rx="4" class="er-zebra"/>
+            <line x1="878" y1="790" x2="1378" y2="790" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="882" y="791" width="492" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="1248" y="145" class="t-primary" font-size="11">db_user</text>
-            <text data-detail="context" x="1644" y="145" class="er-type" font-size="10.5" text-anchor="end">varchar(80) NN</text>
+            <text data-detail="context" x="920" y="805" class="t-primary" font-size="11">db_user</text>
+            <text data-detail="context" x="1366" y="805" class="er-type" font-size="10.5" text-anchor="end">varchar(80) NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="4">
-            <line x1="1206" y1="150" x2="1656" y2="150" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="810" x2="1378" y2="810" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="1248" y="165" class="t-primary" font-size="11">table_description</text>
-            <text data-detail="context" x="1644" y="165" class="er-type" font-size="10.5" text-anchor="end">text NN</text>
+            <text data-detail="context" x="920" y="825" class="t-primary" font-size="11">table_description</text>
+            <text data-detail="context" x="1366" y="825" class="er-type" font-size="10.5" text-anchor="end">text NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="5">
-            <line x1="1206" y1="170" x2="1656" y2="170" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="1210" y="171" width="442" height="18" rx="4" class="er-zebra"/>
+            <line x1="878" y1="830" x2="1378" y2="830" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="882" y="831" width="492" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="1248" y="185" class="t-primary" font-size="11">operation_date</text>
-            <text data-detail="context" x="1644" y="185" class="er-type" font-size="10.5" text-anchor="end">datetime NN D=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="920" y="845" class="t-primary" font-size="11">operation_date</text>
+            <text data-detail="context" x="1366" y="845" class="er-type" font-size="10.5" text-anchor="end">datetime NOT NULL DEFAULT CURRENT_TIMESTAMP</text>
           </g>
           <g data-detail="context" data-er-row="6">
-            <line x1="1206" y1="190" x2="1656" y2="190" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="878" y1="850" x2="1378" y2="850" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="1248" y="205" class="t-primary" font-size="11">operation_status</text>
-            <text data-detail="context" x="1644" y="205" class="er-type" font-size="10.5" text-anchor="end">bit(1) D=b&#39;1&#39;</text>
+            <text data-detail="context" x="920" y="865" class="t-primary" font-size="11">operation_status</text>
+            <text data-detail="context" x="1366" y="865" class="er-type" font-size="10.5" text-anchor="end">bit(1) DEFAULT b&#39;1&#39;</text>
           </g>
         </g>
 
-        <g id="node-tbd_products_users_providers" data-node-id="tbd_products_users_providers" data-node-label="tbd_products_users_providers" tabindex="0" role="button" aria-label="Enfocar tbd_products_users_providers, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="Catálogo" data-node-context="Entidad" class="er-hue-cloud">
-          <title>tbd_products_users_providers · Entidad · Catálogo</title>
-          <rect x="661" y="700" width="450" height="176" rx="8" class="c-mask"/>
-          <rect x="661" y="700" width="450" height="176" rx="8" class="c-database er-table" data-animate="node" style="--step:7" stroke-width="1.2"/>
-          <path class="er-table-header" d="M 669 700 H 1103 A 8 8 0 0 1 1111 708 V 730 H 661 V 708 A 8 8 0 0 1 669 700 Z"/>
-          <path class="er-table-cap" d="M 673 701.4 H 1099" stroke-width="2.6" stroke-linecap="round" fill="none"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(669 707) scale(0.875)">
+        <g id="node-tbd_products_users_providers" data-node-id="tbd_products_users_providers" data-node-label="tbd_products_users_providers | 0 filas" tabindex="0" role="button" aria-label="Enfocar tbd_products_users_providers | 0 filas, Entidad" aria-pressed="false" data-node-kind="database" data-node-tag="Proveedores" data-node-context="Entidad" class="er-hue-cloud">
+          <title>tbd_products_users_providers | 0 filas · Entidad · Proveedores</title>
+          <rect x="32" y="700" width="640" height="176" rx="8" class="c-mask"/>
+          <rect x="32" y="700" width="640" height="176" rx="8" class="c-database er-table" data-animate="node" style="--step:5" stroke-width="1.2"/>
+          <path class="er-table-header" d="M 40 700 H 664 A 8 8 0 0 1 672 708 V 730 H 32 V 708 A 8 8 0 0 1 40 700 Z"/>
+          <path class="er-table-cap" d="M 44 701.4 H 660" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(40 707) scale(0.875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" x="886" y="719" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tbd_products_users_providers</text>
-          <line x1="661" y1="730" x2="1111" y2="730" class="c-grid er-header-rule" stroke-width="1"/>
+          <text data-node-label="" x="352" y="719" class="t-primary er-title" font-size="13" font-weight="700" text-anchor="middle">tbd_products_users_providers | 0 filas</text>
+          <line x1="32" y1="730" x2="672" y2="730" class="c-grid er-header-rule" stroke-width="1"/>
           <g data-detail="context" data-er-row="0">
-            <line x1="661" y1="730" x2="1111" y2="730" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="730" x2="672" y2="730" class="c-grid er-row-rule" stroke-width="0.5"/>
 
-            <rect x="671" y="735" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="682" y="745" class="t-database" font-size="9" font-weight="600">PK</text>
-            <text data-detail="context" x="703" y="745" class="t-primary er-name-pk" font-size="11">user_id</text>
-            <text data-detail="context" x="1099" y="745" class="er-type" font-size="10.5" text-anchor="end">int NN PK</text>
+            <rect x="42" y="735" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="53" y="745" class="t-database" font-size="9" font-weight="600">PK</text>
+            <text data-detail="context" x="74" y="745" class="t-primary er-name-pk" font-size="11">user_id</text>
+            <text data-detail="context" x="660" y="745" class="er-type" font-size="10.5" text-anchor="end">int NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="1">
-            <line x1="661" y1="750" x2="1111" y2="750" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="665" y="751" width="442" height="18" rx="4" class="er-zebra"/>
-            <rect x="671" y="755" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="682" y="765" class="t-database" font-size="9" font-weight="600">PK</text>
-            <text data-detail="context" x="703" y="765" class="t-primary er-name-pk" font-size="11">product_id</text>
-            <text data-detail="context" x="1099" y="765" class="er-type" font-size="10.5" text-anchor="end">int NN PK</text>
+            <line x1="32" y1="750" x2="672" y2="750" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="36" y="751" width="632" height="18" rx="4" class="er-zebra"/>
+            <rect x="42" y="755" width="22" height="13" rx="3" class="er-key-badge" data-er-badge="pk"/><text data-detail="context" x="53" y="765" class="t-database" font-size="9" font-weight="600">PK</text>
+            <text data-detail="context" x="74" y="765" class="t-primary er-name-pk" font-size="11">product_id</text>
+            <text data-detail="context" x="660" y="765" class="er-type" font-size="10.5" text-anchor="end">int NOT NULL</text>
           </g>
           <g data-detail="context" data-er-row="2">
-            <line x1="661" y1="770" x2="1111" y2="770" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="770" x2="672" y2="770" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="703" y="785" class="t-primary" font-size="11">type_ownership</text>
-            <text data-detail="context" x="1099" y="785" class="er-type" font-size="10.5" text-anchor="end">enum(&#39;Owner&#39;,&#39;Reseller&#39;,&#39;Distributor&#39;) NULL</text>
+            <text data-detail="context" x="74" y="785" class="t-primary" font-size="11">type_ownership</text>
+            <text data-detail="context" x="660" y="785" class="er-type" font-size="10.5" text-anchor="end">enum(&#39;Owner&#39;,&#39;Reseller&#39;,&#39;Distributor&#39;) DEFAULT NULL</text>
           </g>
           <g data-detail="context" data-er-row="3">
-            <line x1="661" y1="790" x2="1111" y2="790" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="665" y="791" width="442" height="18" rx="4" class="er-zebra"/>
+            <line x1="32" y1="790" x2="672" y2="790" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="36" y="791" width="632" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="703" y="805" class="t-primary" font-size="11">status</text>
-            <text data-detail="context" x="1099" y="805" class="er-type" font-size="10.5" text-anchor="end">bit(1) D=b&#39;1&#39;</text>
+            <text data-detail="context" x="74" y="805" class="t-primary" font-size="11">status</text>
+            <text data-detail="context" x="660" y="805" class="er-type" font-size="10.5" text-anchor="end">bit(1) DEFAULT b&#39;1&#39;</text>
           </g>
           <g data-detail="context" data-er-row="4">
-            <line x1="661" y1="810" x2="1111" y2="810" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="810" x2="672" y2="810" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="703" y="825" class="t-primary" font-size="11">available_date</text>
-            <text data-detail="context" x="1099" y="825" class="er-type" font-size="10.5" text-anchor="end">datetime NULL</text>
+            <text data-detail="context" x="74" y="825" class="t-primary" font-size="11">available_date</text>
+            <text data-detail="context" x="660" y="825" class="er-type" font-size="10.5" text-anchor="end">datetime DEFAULT NULL</text>
           </g>
           <g data-detail="context" data-er-row="5">
-            <line x1="661" y1="830" x2="1111" y2="830" class="c-grid er-row-rule" stroke-width="0.5"/>
-            <rect x="665" y="831" width="442" height="18" rx="4" class="er-zebra"/>
+            <line x1="32" y1="830" x2="672" y2="830" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <rect x="36" y="831" width="632" height="18" rx="4" class="er-zebra"/>
 
-            <text data-detail="context" x="703" y="845" class="t-primary" font-size="11">creation_date</text>
-            <text data-detail="context" x="1099" y="845" class="er-type" font-size="10.5" text-anchor="end">datetime D=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="74" y="845" class="t-primary" font-size="11">creation_date</text>
+            <text data-detail="context" x="660" y="845" class="er-type" font-size="10.5" text-anchor="end">datetime DEFAULT CURRENT_TIMESTAMP</text>
           </g>
           <g data-detail="context" data-er-row="6">
-            <line x1="661" y1="850" x2="1111" y2="850" class="c-grid er-row-rule" stroke-width="0.5"/>
+            <line x1="32" y1="850" x2="672" y2="850" class="c-grid er-row-rule" stroke-width="0.5"/>
 
 
-            <text data-detail="context" x="703" y="865" class="t-primary" font-size="11">last_update</text>
-            <text data-detail="context" x="1099" y="865" class="er-type" font-size="10.5" text-anchor="end">datetime D=CURRENT_TIMESTAMP U=CURRENT_TIMESTAMP</text>
+            <text data-detail="context" x="74" y="865" class="t-primary" font-size="11">last_update</text>
+            <text data-detail="context" x="660" y="865" class="er-type" font-size="10.5" text-anchor="end">datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</text>
           </g>
         </g>
 
         <!-- Relationship labels -->
-        <g data-detail="context" data-edge-from="tb_carts" data-edge-to="tb_users" data-edge-label="pertenece a Â· user_ID Ãºnico" data-edge-key="0" data-edge-id="cart_user" data-er-ends="one optional">
-          <rect x="79.18" y="261" width="171.82" height="14" rx="3" class="c-mask"/>
-          <text x="165.09" y="271" class="t-messagebus" font-size="9" text-anchor="middle">pertenece a Â· user_ID Ãºnico</text>
+        <g data-detail="context" data-edge-from="tb_carts" data-edge-to="tb_users" data-edge-label="user_ID ? UNIQUE ? CASCADE" data-edge-key="0" data-edge-id="cart_user" data-er-ends="one optional">
+          <rect x="182.91999999999996" y="269" width="155.08" height="14" rx="3" class="c-mask"/>
+          <text x="260.46" y="279" class="t-messagebus" font-size="9" text-anchor="middle">user_ID ? UNIQUE ? CASCADE</text>
         </g>
-        <g data-detail="context" data-edge-from="tbd_users_wishlist_products" data-edge-to="tb_users" data-edge-label="FK user_ID" data-edge-key="1" data-edge-id="wishlist_user" data-er-ends="many one">
-          <rect x="474.20000000000005" y="468.5" width="65.8" height="14" rx="3" class="c-mask"/>
-          <text x="507.1" y="478.5" class="t-muted" font-size="9" text-anchor="middle">FK user_ID</text>
+        <g data-detail="context" data-edge-from="tbd_users_wishlist_products" data-edge-to="tb_users" data-edge-label="user_ID ? CASCADE" data-edge-key="1" data-edge-id="wishlist_user" data-er-ends="many one optional">
+          <rect x="585.1400000000001" y="468.5" width="104.86" height="14" rx="3" class="c-mask"/>
+          <text x="637.57" y="478.5" class="t-muted" font-size="9" text-anchor="middle">user_ID ? CASCADE</text>
         </g>
-        <g data-detail="context" data-edge-from="tbd_users_wishlist_products" data-edge-to="tb_products" data-edge-label="FK product_ID" data-edge-key="2" data-edge-id="wishlist_product" data-er-ends="many one">
-          <rect x="555.23" y="348" width="82.54" height="14" rx="3" class="c-mask"/>
-          <text x="596.5" y="358" class="t-muted" font-size="9" text-anchor="middle">FK product_ID</text>
+        <g data-detail="context" data-edge-from="tbd_users_wishlist_products" data-edge-to="tb_products" data-edge-label="product_ID ? CASCADE" data-edge-key="2" data-edge-id="wishlist_product" data-er-ends="many one optional">
+          <rect x="692.9000000000001" y="98" width="121.6" height="14" rx="3" class="c-mask"/>
+          <text x="753.7" y="108" class="t-muted" font-size="9" text-anchor="middle">product_ID ? CASCADE</text>
         </g>
-        <g data-detail="context" data-edge-from="tbd_products_categories" data-edge-to="tb_products" data-edge-label="FK product_id" data-edge-key="3" data-edge-id="product_category_product" data-er-ends="many one">
-          <rect x="1131" y="361" width="82.54" height="14" rx="3" class="c-mask"/>
-          <text x="1172.27" y="371" class="t-muted" font-size="9" text-anchor="middle">FK product_id</text>
+        <g data-detail="context" data-edge-from="tbd_products_categories" data-edge-to="tb_products" data-edge-label="product_id ? CASCADE" data-edge-key="3" data-edge-id="product_category_product" data-er-ends="many one optional">
+          <rect x="860" y="504" width="121.6" height="14" rx="3" class="c-mask"/>
+          <text x="920.8" y="514" class="t-muted" font-size="9" text-anchor="middle">product_id ? CASCADE</text>
         </g>
-        <g data-detail="context" data-edge-from="tbd_products_categories" data-edge-to="tb_categories" data-edge-label="FK category_id" data-edge-key="4" data-edge-id="product_category_category" data-er-ends="many one">
-          <rect x="771.8800000000001" y="491" width="88.12" height="14" rx="3" class="c-mask"/>
-          <text x="815.94" y="501" class="t-muted" font-size="9" text-anchor="middle">FK category_id</text>
+        <g data-detail="context" data-edge-from="tbd_products_categories" data-edge-to="tb_categories" data-edge-label="category_id ? CASCADE" data-edge-key="4" data-edge-id="product_category_category" data-er-ends="many one optional">
+          <rect x="1130" y="491" width="127.17999999999999" height="14" rx="3" class="c-mask"/>
+          <text x="1193.59" y="501" class="t-muted" font-size="9" text-anchor="middle">category_id ? CASCADE</text>
+        </g>
+        <g data-detail="context" data-edge-from="tbd_products_users_providers" data-edge-to="tb_users" data-edge-label="Inferida: FK no declarada" data-edge-key="5" data-edge-id="provider_user_inferred" data-er-ends="many one optional">
+          <rect x="540.5" y="684" width="149.5" height="14" rx="3" class="c-mask"/>
+          <text x="615.25" y="694" class="t-messagebus" font-size="9" text-anchor="middle">Inferida: FK no declarada</text>
+        </g>
+        <g data-detail="context" data-edge-from="tbd_products_users_providers" data-edge-to="tb_products" data-edge-label="Inferida: FK no declarada" data-edge-key="6" data-edge-id="provider_product_inferred" data-er-ends="many one optional">
+          <rect x="781" y="658" width="149.5" height="14" rx="3" class="c-mask"/>
+          <text x="855.75" y="668" class="t-messagebus" font-size="9" text-anchor="middle">Inferida: FK no declarada</text>
         </g>
 
         <!-- Legend -->
@@ -6000,48 +6012,54 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <div class="card">
         <div class="card-header">
           <div class="card-dot cyan"></div>
-          <h3>Lectura de columnas</h3>
+          <h3>Estadisticas del respaldo | conteos por filas</h3>
         </div>
         <ul>
-          <li>El tipo incluye nulabilidad, AUTO_INCREMENT, DEFAULT y ON UPDATE cuando aparecen en el DDL.</li>
-          <li>PK, FK y UK se marcan ademÃ¡s con insignias; las claves compuestas seÃ±alan sus columnas participantes.</li>
-          <li>Las restricciones e Ã­ndices conservan el nombre SQL junto a la columna correspondiente.</li>
+          <li>Archivo: respaldo2.sql | MySQL 8.0.36 | esquema db_test.</li>
+          <li>8 tablas fisicas | 53 columnas | 6 claves foraneas declaradas (incluye la autorreferente de categorias).</li>
+          <li>8 de 8 tablas con conteos reconstruidos desde las tuplas INSERT; suma: 10 288 filas, no entidades unicas.</li>
+          <li>Conteos: tb_carts 0; tb_categories 100; tb_logs 5 137; tb_products 5 025; tb_users 5; tbd_products_categories 21; tbd_products_users_providers 0; tbd_users_wishlist_products 0.</li>
+          <li>Metodo: conteo de tuplas VALUES de cada INSERT de carga. No hay UPDATE, DELETE ni REPLACE de nivel superior posterior; triggers de auditoria se crean tras las cargas pertinentes. No se ejecuto una restauracion en MySQL.</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
           <div class="card-dot amber"></div>
-          <h3>Alcance del respaldo</h3>
+          <h3>Integridad referencial e indices</h3>
         </div>
         <ul>
-          <li>Se muestran las ocho tablas físicas con sus 53 columnas.</li>
-          <li>tbd_products_users_providers no declara claves forÃ¡neas en el respaldo; sus nombres user_id y product_id no bastan para afirmar relaciones.</li>
-          <li>tb_logs tampoco declara FK: table_name es texto de auditorÃ­a, no una referencia relacional.</li>
+          <li>tb_carts.user_ID -&gt; tb_users.ID | UNIQUE uk_cart_user | ON DELETE CASCADE | ON UPDATE CASCADE | maximo uno por lado; el usuario puede no tener carrito.</li>
+          <li>tbd_users_wishlist_products.user_ID -&gt; tb_users.ID y product_ID -&gt; tb_products.ID; ambas con ON DELETE/UPDATE CASCADE.</li>
+          <li>tbd_products_categories.product_id -&gt; tb_products.ID y category_id -&gt; tb_categories.ID; ambas con ON DELETE/UPDATE CASCADE; PK compuesta y fk_category_idx(category_id).</li>
+          <li>tb_categories.sup_id_category -&gt; tb_categories.ID | FK nullable fk_superior_category; sin acciones ON DELETE/UPDATE declaradas. FK autorreferente marcada en columna.</li>
+          <li>UNIQUE: tb_categories.name; tb_products.SKU; tb_users.email y nick.</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
           <div class="card-dot emerald"></div>
-          <h3>Motor y automatizaciÃ³n</h3>
+          <h3>Datos, columnas y semantica</h3>
         </div>
         <ul>
-          <li>Las tablas usan InnoDB, utf8mb4 y collation utf8mb4_0900_ai_ci.</li>
-          <li>El respaldo contiene triggers y vistas ademÃ¡s de tablas; este diagrama representa el modelo EER de tablas y FKs declaradas. Los triggers no se modelan como entidades.</li>
+          <li>Cada fila muestra la declaracion de columna del DDL, incluidos tipo, nulabilidad, DEFAULT, AUTO_INCREMENT, ON UPDATE, ENUM y atributos SQL presentes.</li>
+          <li>Si el DDL no declara un atributo, no se infiere. Las columnas permiten consultar todos los detalles dentro de su tabla.</li>
+          <li>tbd_products_categories y tbd_users_wishlist_products son asociativas con PK compuesta y FKs declaradas.</li>
+          <li>tbd_products_users_providers tiene PK (user_id, product_id) sin FKs. Se muestran dos conexiones inferidas discontinuas hacia tb_users y tb_products; no cuentan como FKs verificadas.</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <div class="card-dot rose"></div>
-          <h3>Convenciones y restricciones</h3>
+          <div class="card-dot violet"></div>
+          <h3>Otros objetos del respaldo</h3>
         </div>
         <ul>
-          <li>NN = NOT NULL; AI = AUTO_INCREMENT; D= significa DEFAULT del valor indicado; U= significa ON UPDATE automático del valor indicado. En columnas datetime, CURRENT_TIMESTAMP conserva el literal exacto del DDL.</li>
-          <li>FK `tb_carts_ibfk_1`, `fk_user2`, `fk_products3`, `fk_product_rel` y `fk_category_rel` aplican ON DELETE CASCADE y ON UPDATE CASCADE. `fk_superior_category` no especifica acciones.</li>
-          <li>UNIQUE: `uk_cart_user` sobre tb_carts.user_ID; `email` y `nick` en tb_users; `SKU` en tb_products; `name` en tb_categories. La PK compuesta de tbd_products_categories tiene ?ndice `fk_category_idx` en category_id.</li>
-          <li>La referencia jer?rquica opcional de tb_categories.sup_id_category apunta a tb_categories.ID; se conserva en los atributos porque el renderizador no admite relaciones de una entidad consigo misma.</li>
+          <li>4 vistas: vw_trazabilidad_categorias, vw_trazabilidad_productos, vw_trazabilidad_productos_categorias, vw_trazabilidad_usuarios.</li>
+          <li>8 triggers: trg_tb_categories_after_insert/update/delete; trq_products_after_insert/update/delete; trg_tbd_products_categories_insert/update.</li>
+          <li>Las vistas y triggers se documentan como objetos auxiliares; el ERD dibuja tablas fisicas.</li>
+          <li>No se encontraron relaciones sin resolver en el DDL; la FK autorreferente esta verificada aunque Archify no puede trazarla como arista.</li>
         </ul>
       </div>
     </div>

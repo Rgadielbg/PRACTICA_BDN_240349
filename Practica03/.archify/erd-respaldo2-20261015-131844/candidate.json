@@ -2,20 +2,20 @@
   "schema_version": 1,
   "diagram_type": "erd",
   "meta": {
-    "title": "Modelo EER del catÃ¡logo y usuarios",
+    "title": "EER de db_test | respaldo2.sql",
     "locale": "es",
     "output": "modelo-eer-respaldo2.html",
     "quality_profile": "standard",
     "views": [
       {
         "id": "catalogo",
-        "label": "CatÃ¡logo",
+        "label": "Catalogo",
         "focus": [
           "tb_products",
           "tb_categories",
           "tbd_products_categories"
         ],
-        "note": "Productos y categorÃ­as enlazados con una entidad asociativa."
+        "note": "Productos, categorias y asociacion declarada."
       },
       {
         "id": "usuarios",
@@ -25,16 +25,27 @@
           "tb_carts",
           "tbd_users_wishlist_products"
         ],
-        "note": "Cuenta, carrito Ãºnico y productos guardados."
+        "note": "Usuarios, carrito unico y lista de deseos."
       },
       {
         "id": "auditoria",
-        "label": "AuditorÃ­a y proveedores",
+        "label": "Auditor?a",
         "focus": [
           "tb_logs",
-          "tbd_products_users_providers"
+          "tb_products",
+          "tb_categories"
         ],
-        "note": "Registro de operaciones y tabla de proveedores sin FKs declaradas."
+        "note": "Registros y tablas auditadas por triggers."
+      },
+      {
+        "id": "proveedores",
+        "label": "Proveedores",
+        "focus": [
+          "tbd_products_users_providers",
+          "tb_users",
+          "tb_products"
+        ],
+        "note": "Tabla asociativa sin FKs declaradas."
       }
     ]
   },
@@ -46,64 +57,64 @@
   "entities": [
     {
       "id": "tb_users",
-      "label": "tb_users",
+      "label": "tb_users | 5 filas",
       "tag": "Cuentas",
       "row": 0,
       "col": 0,
       "attributes": [
         {
           "name": "ID",
-          "type": "int NN AI",
+          "type": "int NOT NULL AUTO_INCREMENT",
           "key": "pk"
         },
         {
           "name": "email",
-          "type": "varchar(100) NN",
+          "type": "varchar(100) NOT NULL",
           "key": "uk"
         },
         {
           "name": "nick",
-          "type": "varchar(50) NN",
+          "type": "varchar(50) NOT NULL",
           "key": "uk"
         },
         {
           "name": "password",
-          "type": "varchar(255) NN"
+          "type": "varchar(255) NOT NULL"
         },
         {
           "name": "creation_date",
-          "type": "datetime NN D=CURRENT_TIMESTAMP"
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
         },
         {
           "name": "last_update",
-          "type": "datetime NULL"
+          "type": "datetime DEFAULT NULL"
         },
         {
           "name": "last_login",
-          "type": "datetime NULL"
+          "type": "datetime DEFAULT NULL"
         },
         {
           "name": "status",
-          "type": "bit(1) D=b'1'"
+          "type": "bit(1) DEFAULT b'1'"
         }
       ],
-      "width": 430
+      "width": 640
     },
     {
       "id": "tb_carts",
-      "label": "tb_carts",
+      "label": "tb_carts | 0 filas",
       "tag": "Cuentas",
       "row": 1,
       "col": 0,
       "attributes": [
         {
           "name": "ID",
-          "type": "int unsigned NN AI",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
           "key": "pk"
         },
         {
           "name": "user_ID",
-          "type": "int NN FK",
+          "type": "int NOT NULL",
           "key": [
             "fk",
             "uk"
@@ -112,30 +123,30 @@
         },
         {
           "name": "status",
-          "type": "bit(1) D=b'1'"
+          "type": "bit(1) DEFAULT b'1'"
         },
         {
           "name": "creation_date",
-          "type": "datetime NN D=CURRENT_TIMESTAMP"
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
         },
         {
           "name": "last_update",
-          "type": "datetime NULL U=CURRENT_TIMESTAMP"
+          "type": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP"
         }
       ],
-      "width": 430
+      "width": 640
     },
     {
       "id": "tbd_users_wishlist_products",
-      "label": "tbd_users_wishlist_products",
+      "label": "tbd_users_wishlist_products | 0 filas",
       "tag": "Cuentas",
       "row": 2,
       "col": 0,
-      "width": 490,
+      "width": 640,
       "attributes": [
         {
           "name": "user_ID",
-          "type": "int NN PK/FK",
+          "type": "int NOT NULL",
           "key": [
             "pk",
             "fk"
@@ -144,7 +155,7 @@
         },
         {
           "name": "product_ID",
-          "type": "int NN PK/FK",
+          "type": "int NOT NULL",
           "key": [
             "pk",
             "fk"
@@ -153,119 +164,119 @@
         },
         {
           "name": "status",
-          "type": "bit(1) NN D=b'1'"
+          "type": "bit(1) NOT NULL DEFAULT b'1'"
         },
         {
           "name": "creation_date",
-          "type": "datetime NN D=CURRENT_TIMESTAMP"
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
         },
         {
           "name": "last_update",
-          "type": "datetime NN D=CURRENT_TIMESTAMP U=CURRENT_TIMESTAMP"
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
         }
       ]
     },
     {
       "id": "tb_products",
-      "label": "tb_products",
-      "tag": "CatÃ¡logo",
+      "label": "tb_products | 5025 filas",
+      "tag": "Cat?logo",
       "row": 0,
       "col": 1,
       "attributes": [
         {
           "name": "ID",
-          "type": "int NN AI",
+          "type": "int NOT NULL AUTO_INCREMENT",
           "key": "pk"
         },
         {
           "name": "SKU",
-          "type": "varchar(50) NN",
+          "type": "varchar(50) NOT NULL",
           "key": "uk"
         },
         {
           "name": "name",
-          "type": "varchar(100) NN"
+          "type": "varchar(100) NOT NULL"
         },
         {
           "name": "description",
-          "type": "text NN"
+          "type": "text NOT NULL"
         },
         {
           "name": "current_price",
-          "type": "decimal(10,2) NN"
+          "type": "decimal(10,2) NOT NULL"
         },
         {
           "name": "current_stock",
-          "type": "int NN"
+          "type": "int NOT NULL"
         },
         {
           "name": "status",
-          "type": "varchar(20) NN"
+          "type": "varchar(20) NOT NULL"
         },
         {
           "name": "creation_date",
-          "type": "datetime NN D=CURRENT_TIMESTAMP"
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
         },
         {
           "name": "last_update",
-          "type": "datetime NULL"
+          "type": "datetime DEFAULT NULL"
         }
       ],
-      "width": 430
+      "width": 500
     },
     {
       "id": "tb_categories",
-      "label": "tb_categories",
-      "tag": "CatÃ¡logo",
+      "label": "tb_categories | 100 filas",
+      "tag": "Cat?logo",
       "row": 1,
       "col": 1,
       "attributes": [
         {
           "name": "ID",
-          "type": "int unsigned NN AI",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
           "key": "pk"
         },
         {
           "name": "name",
-          "type": "varchar(120) NN",
+          "type": "varchar(120) NOT NULL",
           "key": "uk"
         },
         {
           "name": "description",
-          "type": "text NULL"
+          "type": "text"
         },
         {
           "name": "sup_id_category",
-          "type": "int unsigned NULL FK",
+          "type": "int unsigned DEFAULT NULL",
           "key": "fk",
           "references": "tb_categories.ID"
         },
         {
           "name": "status",
-          "type": "bit(1) NN D=b'1'"
+          "type": "bit(1) NOT NULL DEFAULT b'1'"
         },
         {
           "name": "creation_date",
-          "type": "datetime NN D=CURRENT_TIMESTAMP"
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
         },
         {
           "name": "last_update",
-          "type": "datetime NN U=CURRENT_TIMESTAMP"
+          "type": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP"
         }
       ],
-      "width": 430
+      "width": 500
     },
     {
       "id": "tbd_products_categories",
-      "label": "tbd_products_categories",
-      "tag": "CatÃ¡logo",
+      "label": "tbd_products_categories | 21 filas",
+      "tag": "Cat?logo",
       "row": 2,
       "col": 1,
-      "width": 430,
+      "width": 500,
       "attributes": [
         {
           "name": "product_id",
-          "type": "int NN PK/FK",
+          "type": "int NOT NULL",
           "key": [
             "pk",
             "fk"
@@ -274,7 +285,7 @@
         },
         {
           "name": "category_id",
-          "type": "int unsigned NN PK/FK",
+          "type": "int unsigned NOT NULL",
           "key": [
             "pk",
             "fk"
@@ -283,94 +294,94 @@
         },
         {
           "name": "status",
-          "type": "varchar(20) NN D='ACTIVE'"
+          "type": "varchar(20) NOT NULL DEFAULT 'ACTIVE'"
         },
         {
           "name": "creation_date",
-          "type": "datetime NN D=CURRENT_TIMESTAMP"
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
         },
         {
           "name": "last_update",
-          "type": "datetime NULL U=CURRENT_TIMESTAMP"
+          "type": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP"
         }
       ]
     },
     {
       "id": "tb_logs",
-      "label": "tb_logs",
-      "tag": "AuditorÃ­a",
-      "row": 0,
-      "col": 2,
+      "label": "tb_logs | 5137 filas",
+      "tag": "Auditor?a",
+      "row": 3,
+      "col": 1,
       "attributes": [
         {
           "name": "ID",
-          "type": "int NN AI",
+          "type": "int NOT NULL AUTO_INCREMENT",
           "key": "pk"
         },
         {
           "name": "table_name",
-          "type": "varchar(80) NN"
+          "type": "varchar(80) NOT NULL"
         },
         {
           "name": "table_operation",
-          "type": "enum('Create','Read','Update','Delete') NULL"
+          "type": "enum('Create','Read','Update','Delete') DEFAULT NULL"
         },
         {
           "name": "db_user",
-          "type": "varchar(80) NN"
+          "type": "varchar(80) NOT NULL"
         },
         {
           "name": "table_description",
-          "type": "text NN"
+          "type": "text NOT NULL"
         },
         {
           "name": "operation_date",
-          "type": "datetime NN D=CURRENT_TIMESTAMP"
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
         },
         {
           "name": "operation_status",
-          "type": "bit(1) D=b'1'"
+          "type": "bit(1) DEFAULT b'1'"
         }
       ],
-      "width": 450
+      "width": 500
     },
     {
       "id": "tbd_products_users_providers",
-      "label": "tbd_products_users_providers",
-      "tag": "Catálogo",
+      "label": "tbd_products_users_providers | 0 filas",
+      "tag": "Proveedores",
       "row": 3,
-      "col": 1,
-      "width": 450,
+      "col": 0,
+      "width": 640,
       "attributes": [
         {
           "name": "user_id",
-          "type": "int NN PK",
+          "type": "int NOT NULL",
           "key": "pk"
         },
         {
           "name": "product_id",
-          "type": "int NN PK",
+          "type": "int NOT NULL",
           "key": "pk"
         },
         {
           "name": "type_ownership",
-          "type": "enum('Owner','Reseller','Distributor') NULL"
+          "type": "enum('Owner','Reseller','Distributor') DEFAULT NULL"
         },
         {
           "name": "status",
-          "type": "bit(1) D=b'1'"
+          "type": "bit(1) DEFAULT b'1'"
         },
         {
           "name": "available_date",
-          "type": "datetime NULL"
+          "type": "datetime DEFAULT NULL"
         },
         {
           "name": "creation_date",
-          "type": "datetime D=CURRENT_TIMESTAMP"
+          "type": "datetime DEFAULT CURRENT_TIMESTAMP"
         },
         {
           "name": "last_update",
-          "type": "datetime D=CURRENT_TIMESTAMP U=CURRENT_TIMESTAMP"
+          "type": "datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
         }
       ]
     }
@@ -380,7 +391,7 @@
       "id": "cart_user",
       "from": "tb_carts",
       "to": "tb_users",
-      "label": "pertenece a Â· user_ID Ãºnico",
+      "label": "user_ID ? UNIQUE ? CASCADE",
       "fromCardinality": "one",
       "toCardinality": "one",
       "toOptional": true,
@@ -391,74 +402,102 @@
       "id": "wishlist_user",
       "from": "tbd_users_wishlist_products",
       "to": "tb_users",
-      "label": "FK user_ID",
+      "label": "user_ID ? CASCADE",
       "fromCardinality": "many",
-      "toCardinality": "one",
-      "identifying": true
+      "fromOptional": true,
+      "toCardinality": "one"
     },
     {
       "id": "wishlist_product",
       "from": "tbd_users_wishlist_products",
       "to": "tb_products",
-      "label": "FK product_ID",
+      "label": "product_ID ? CASCADE",
       "fromCardinality": "many",
-      "toCardinality": "one",
-      "identifying": true
+      "fromOptional": true,
+      "toCardinality": "one"
     },
     {
       "id": "product_category_product",
       "from": "tbd_products_categories",
       "to": "tb_products",
-      "label": "FK product_id",
+      "label": "product_id ? CASCADE",
       "fromCardinality": "many",
-      "toCardinality": "one",
-      "identifying": true
+      "fromOptional": true,
+      "toCardinality": "one"
     },
     {
       "id": "product_category_category",
       "from": "tbd_products_categories",
       "to": "tb_categories",
-      "label": "FK category_id",
+      "label": "category_id ? CASCADE",
       "fromCardinality": "many",
+      "fromOptional": true,
+      "toCardinality": "one"
+    },
+    {
+      "id": "provider_user_inferred",
+      "from": "tbd_products_users_providers",
+      "to": "tb_users",
+      "label": "Inferida: FK no declarada",
+      "fromCardinality": "many",
+      "fromOptional": true,
       "toCardinality": "one",
-      "identifying": true
+      "identifying": false,
+      "variant": "dashed"
+    },
+    {
+      "id": "provider_product_inferred",
+      "from": "tbd_products_users_providers",
+      "to": "tb_products",
+      "label": "Inferida: FK no declarada",
+      "fromCardinality": "many",
+      "fromOptional": true,
+      "toCardinality": "one",
+      "identifying": false,
+      "variant": "dashed"
     }
   ],
   "cards": [
     {
       "dot": "cyan",
-      "title": "Lectura de columnas",
+      "title": "Estadisticas del respaldo | conteos por filas",
       "items": [
-        "El tipo incluye nulabilidad, AUTO_INCREMENT, DEFAULT y ON UPDATE cuando aparecen en el DDL.",
-        "PK, FK y UK se marcan ademÃ¡s con insignias; las claves compuestas seÃ±alan sus columnas participantes.",
-        "Las restricciones e Ã­ndices conservan el nombre SQL junto a la columna correspondiente."
+        "Archivo: respaldo2.sql | MySQL 8.0.36 | esquema db_test.",
+        "8 tablas fisicas | 53 columnas | 6 claves foraneas declaradas (incluye la autorreferente de categorias).",
+        "8 de 8 tablas con conteos reconstruidos desde las tuplas INSERT; suma: 10 288 filas, no entidades unicas.",
+        "Conteos: tb_carts 0; tb_categories 100; tb_logs 5 137; tb_products 5 025; tb_users 5; tbd_products_categories 21; tbd_products_users_providers 0; tbd_users_wishlist_products 0.",
+        "Metodo: conteo de tuplas VALUES de cada INSERT de carga. No hay UPDATE, DELETE ni REPLACE de nivel superior posterior; triggers de auditoria se crean tras las cargas pertinentes. No se ejecuto una restauracion en MySQL."
       ]
     },
     {
       "dot": "amber",
-      "title": "Alcance del respaldo",
+      "title": "Integridad referencial e indices",
       "items": [
-        "Se muestran las ocho tablas físicas con sus 53 columnas.",
-        "tbd_products_users_providers no declara claves forÃ¡neas en el respaldo; sus nombres user_id y product_id no bastan para afirmar relaciones.",
-        "tb_logs tampoco declara FK: table_name es texto de auditorÃ­a, no una referencia relacional."
+        "tb_carts.user_ID -> tb_users.ID | UNIQUE uk_cart_user | ON DELETE CASCADE | ON UPDATE CASCADE | maximo uno por lado; el usuario puede no tener carrito.",
+        "tbd_users_wishlist_products.user_ID -> tb_users.ID y product_ID -> tb_products.ID; ambas con ON DELETE/UPDATE CASCADE.",
+        "tbd_products_categories.product_id -> tb_products.ID y category_id -> tb_categories.ID; ambas con ON DELETE/UPDATE CASCADE; PK compuesta y fk_category_idx(category_id).",
+        "tb_categories.sup_id_category -> tb_categories.ID | FK nullable fk_superior_category; sin acciones ON DELETE/UPDATE declaradas. FK autorreferente marcada en columna.",
+        "UNIQUE: tb_categories.name; tb_products.SKU; tb_users.email y nick."
       ]
     },
     {
       "dot": "emerald",
-      "title": "Motor y automatizaciÃ³n",
+      "title": "Datos, columnas y semantica",
       "items": [
-        "Las tablas usan InnoDB, utf8mb4 y collation utf8mb4_0900_ai_ci.",
-        "El respaldo contiene triggers y vistas ademÃ¡s de tablas; este diagrama representa el modelo EER de tablas y FKs declaradas. Los triggers no se modelan como entidades."
+        "Cada fila muestra la declaracion de columna del DDL, incluidos tipo, nulabilidad, DEFAULT, AUTO_INCREMENT, ON UPDATE, ENUM y atributos SQL presentes.",
+        "Si el DDL no declara un atributo, no se infiere. Las columnas permiten consultar todos los detalles dentro de su tabla.",
+        "tbd_products_categories y tbd_users_wishlist_products son asociativas con PK compuesta y FKs declaradas.",
+        "tbd_products_users_providers tiene PK (user_id, product_id) sin FKs. Se muestran dos conexiones inferidas discontinuas hacia tb_users y tb_products; no cuentan como FKs verificadas."
       ]
     },
     {
-      "dot": "rose",
-      "title": "Convenciones y restricciones",
+      "dot": "violet",
+      "title": "Otros objetos del respaldo",
       "items": [
-        "NN = NOT NULL; AI = AUTO_INCREMENT; D= significa DEFAULT del valor indicado; U= significa ON UPDATE automático del valor indicado. En columnas datetime, CURRENT_TIMESTAMP conserva el literal exacto del DDL.",
-        "FK `tb_carts_ibfk_1`, `fk_user2`, `fk_products3`, `fk_product_rel` y `fk_category_rel` aplican ON DELETE CASCADE y ON UPDATE CASCADE. `fk_superior_category` no especifica acciones.",
-        "UNIQUE: `uk_cart_user` sobre tb_carts.user_ID; `email` y `nick` en tb_users; `SKU` en tb_products; `name` en tb_categories. La PK compuesta de tbd_products_categories tiene ?ndice `fk_category_idx` en category_id.",
-        "La referencia jer?rquica opcional de tb_categories.sup_id_category apunta a tb_categories.ID; se conserva en los atributos porque el renderizador no admite relaciones de una entidad consigo misma."
+        "4 vistas: vw_trazabilidad_categorias, vw_trazabilidad_productos, vw_trazabilidad_productos_categorias, vw_trazabilidad_usuarios.",
+        "8 triggers: trg_tb_categories_after_insert/update/delete; trq_products_after_insert/update/delete; trg_tbd_products_categories_insert/update.",
+        "Las vistas y triggers se documentan como objetos auxiliares; el ERD dibuja tablas fisicas.",
+        "No se encontraron relaciones sin resolver en el DDL; la FK autorreferente esta verificada aunque Archify no puede trazarla como arista."
       ]
     }
   ]

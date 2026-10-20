@@ -5,16 +5,16 @@
   "status": "fail",
   "type": "erd",
   "quality": "standard",
-  "startedAt": "2026-10-15T19:21:00.027Z",
+  "startedAt": "2026-10-16T05:10:33.034Z",
   "specification": {
-    "path": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\erd-respaldo2-20261015-131844\\candidate.json",
-    "sha256": "e7f8f51ba71e586bb274a8781c8fae6791a4b800685ed60b10e64baf1222769f",
-    "bytes": 11829
+    "path": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\candidate.json",
+    "sha256": "269ce75e9f13a272a2331b5f5f01c3bb27cd43c73dcecd910a61a94f9bdecdf9",
+    "bytes": 14070
   },
   "artifact": {
-    "path": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
-    "sha256": "b71ebb8960b46f019a3add21d7e31376ddb8542f88c94a00d88722f505a95d7f",
-    "bytes": 858189
+    "path": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+    "sha256": "c44b79042e4c9bceb8be7ae64e67828f16834534c7c3b693be7589370b9659a6",
+    "bytes": 862177
   },
   "stages": {
     "validate": {
@@ -24,11 +24,11 @@
       "execution": "embedded-in-deliver",
       "command": [
         "C:\\Program Files\\nodejs\\node.exe",
-        "C:\\Users\\ti_la\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "C:\\Users\\RGadiel\\.agents\\skills\\archify\\bin\\archify.mjs",
         "deliver",
         "erd",
-        "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\erd-respaldo2-20261015-131844\\candidate.json",
-        "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+        "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\candidate.json",
+        "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
         "--quality",
         "standard",
         "--json"
@@ -38,8 +38,8 @@
         "ok": true,
         "command": "validate",
         "specification": {
-          "sha256": "e7f8f51ba71e586bb274a8781c8fae6791a4b800685ed60b10e64baf1222769f",
-          "bytes": 11829
+          "sha256": "269ce75e9f13a272a2331b5f5f01c3bb27cd43c73dcecd910a61a94f9bdecdf9",
+          "bytes": 14070
         },
         "validation": {
           "checksPassed": 9,
@@ -47,8 +47,32 @@
           "compositionProfile": "standard",
           "compositionStatus": "pass",
           "errors": 0,
-          "warnings": 1,
+          "warnings": 2,
           "compositionIssues": [
+            {
+              "severity": "warning",
+              "code": "composition/proper-crossing",
+              "relationship": {
+                "id": "wishlist_product",
+                "from": "tbd_users_wishlist_products",
+                "to": "tb_products",
+                "label": "product_ID ? CASCADE",
+                "collectionIndex": 2,
+                "artifactIndex": 3
+              },
+              "otherRelationship": {
+                "id": "provider_user_inferred",
+                "from": "tbd_products_users_providers",
+                "to": "tb_users",
+                "label": "Inferida: FK no declarada",
+                "collectionIndex": 5,
+                "artifactIndex": 6
+              },
+              "point": [
+                696,
+                588
+              ]
+            },
             {
               "severity": "warning",
               "code": "composition/desktop-readability",
@@ -59,18 +83,18 @@
               },
               "viewportWidth": 1440,
               "viewportHeight": 900,
-              "availableDiagramWidth": 1346,
-              "budgetBasis": "recognized-declared-wide",
+              "availableDiagramWidth": 930,
+              "budgetBasis": "legacy-930",
               "readerContract": "declared-wide-v1",
               "requestedTargetPx": 7.5,
               "requestedTargetMet": false,
-              "budgetLimit": "viewport-cap",
-              "viewBoxWidth": 2205,
-              "scale": 0.6104308390022676,
+              "budgetLimit": "legacy",
+              "viewBoxWidth": 1402,
+              "scale": 0.6633380884450785,
               "text": "PK",
               "detail": "context",
               "sourceFontPx": 9,
-              "projectedFontPx": 5.493877551020408,
+              "projectedFontPx": 5.970042796005706,
               "minimumProjectedFontPx": 6
             }
           ]
@@ -80,33 +104,33 @@
     "deliver": {
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 544,
+      "durationMs": 2040,
       "command": [
         "C:\\Program Files\\nodejs\\node.exe",
-        "C:\\Users\\ti_la\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "C:\\Users\\RGadiel\\.agents\\skills\\archify\\bin\\archify.mjs",
         "deliver",
         "erd",
-        "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\erd-respaldo2-20261015-131844\\candidate.json",
-        "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+        "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\candidate.json",
+        "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
         "--quality",
         "standard",
         "--json"
       ],
       "receipt": {
         "schemaVersion": 1,
-        "receiptId": "3ceafe8f-69a9-4c82-8bad-0eaa34912704",
+        "receiptId": "e814f52d-e589-495b-bec0-fd2e8d252e8b",
         "ok": true,
         "command": "deliver",
         "type": "erd",
-        "input": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\erd-respaldo2-20261015-131844\\candidate.json",
-        "output": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+        "input": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\candidate.json",
+        "output": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
         "specification": {
-          "sha256": "e7f8f51ba71e586bb274a8781c8fae6791a4b800685ed60b10e64baf1222769f",
-          "bytes": 11829
+          "sha256": "269ce75e9f13a272a2331b5f5f01c3bb27cd43c73dcecd910a61a94f9bdecdf9",
+          "bytes": 14070
         },
         "artifact": {
-          "sha256": "b71ebb8960b46f019a3add21d7e31376ddb8542f88c94a00d88722f505a95d7f",
-          "bytes": 858189
+          "sha256": "c44b79042e4c9bceb8be7ae64e67828f16834534c7c3b693be7589370b9659a6",
+          "bytes": 862177
         },
         "validation": {
           "checksPassed": 9,
@@ -114,8 +138,32 @@
           "compositionProfile": "standard",
           "compositionStatus": "pass",
           "errors": 0,
-          "warnings": 1,
+          "warnings": 2,
           "compositionIssues": [
+            {
+              "severity": "warning",
+              "code": "composition/proper-crossing",
+              "relationship": {
+                "id": "wishlist_product",
+                "from": "tbd_users_wishlist_products",
+                "to": "tb_products",
+                "label": "product_ID ? CASCADE",
+                "collectionIndex": 2,
+                "artifactIndex": 3
+              },
+              "otherRelationship": {
+                "id": "provider_user_inferred",
+                "from": "tbd_products_users_providers",
+                "to": "tb_users",
+                "label": "Inferida: FK no declarada",
+                "collectionIndex": 5,
+                "artifactIndex": 6
+              },
+              "point": [
+                696,
+                588
+              ]
+            },
             {
               "severity": "warning",
               "code": "composition/desktop-readability",
@@ -126,18 +174,18 @@
               },
               "viewportWidth": 1440,
               "viewportHeight": 900,
-              "availableDiagramWidth": 1346,
-              "budgetBasis": "recognized-declared-wide",
+              "availableDiagramWidth": 930,
+              "budgetBasis": "legacy-930",
               "readerContract": "declared-wide-v1",
               "requestedTargetPx": 7.5,
               "requestedTargetMet": false,
-              "budgetLimit": "viewport-cap",
-              "viewBoxWidth": 2205,
-              "scale": 0.6104308390022676,
+              "budgetLimit": "legacy",
+              "viewBoxWidth": 1402,
+              "scale": 0.6633380884450785,
               "text": "PK",
               "detail": "context",
               "sourceFontPx": 9,
-              "projectedFontPx": 5.493877551020408,
+              "projectedFontPx": 5.970042796005706,
               "minimumProjectedFontPx": 6
             }
           ]
@@ -158,20 +206,20 @@
     "check": {
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 171,
+      "durationMs": 502,
       "command": [
         "C:\\Program Files\\nodejs\\node.exe",
-        "C:\\Users\\ti_la\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "C:\\Users\\RGadiel\\.agents\\skills\\archify\\bin\\archify.mjs",
         "check",
-        "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+        "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
         "--require-provenance"
       ],
       "receipt": {
         "ok": true,
-        "file": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+        "file": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
         "artifact": {
-          "sha256": "b71ebb8960b46f019a3add21d7e31376ddb8542f88c94a00d88722f505a95d7f",
-          "bytes": 858189
+          "sha256": "c44b79042e4c9bceb8be7ae64e67828f16834534c7c3b693be7589370b9659a6",
+          "bytes": 862177
         },
         "checks": [
           {
@@ -199,7 +247,9 @@
           {
             "name": "relationship_crossings",
             "ok": true,
-            "details": []
+            "details": [
+              "[composition/proper-crossing] standard relationship id \"wishlist_product\" (\"tbd_users_wishlist_products\" -> \"tb_products\") crosses relationship id \"provider_user_inferred\" (\"tbd_products_users_providers\" -> \"tb_users\") at [696, 588]"
+            ]
           },
           {
             "name": "relationship_corridors",
@@ -228,25 +278,25 @@
           "status": "pass",
           "summary": {
             "errors": 0,
-            "warnings": 1
+            "warnings": 2
           },
           "metrics": {
-            "properCrossings": 0,
+            "properCrossings": 1,
             "resolvedCrossovers": 0,
             "ambiguousCorridors": 0,
             "arrowheadCollisions": 0,
             "containerBorderRuns": 0,
             "labelRouteClearanceIssues": 0,
             "labelCanvasOverflowIssues": 0,
-            "minLabelRouteClearance": 4.2,
+            "minLabelRouteClearance": 6,
             "desktopReadabilityIssues": 1,
             "viewportHeightIssues": 0,
-            "minProjectedNodeTextPx": 5.493877551020408,
+            "minProjectedNodeTextPx": 5.970042796005706,
             "maxBends": 2,
             "routesOverSuggestedBends": 0,
             "maxStretch": 1.109,
             "routesOverSuggestedStretch": 0,
-            "minSegmentPx": 24,
+            "minSegmentPx": 16,
             "minInteriorSegmentPx": 440,
             "shortSegmentCount": 0,
             "shortEndpointSegmentCount": 0,
@@ -268,14 +318,11 @@
             "reviewSuggested": false
           },
           "desktopReadability": {
-            "budgetBasis": "recognized-declared-wide",
+            "budgetBasis": "legacy-930",
             "readerContract": "declared-wide-v1",
-            "availableDiagramWidth": 1346,
-            "actualBudgetPx": 1346,
-            "actualReaderWidth": 1376,
-            "desiredReaderWidth": 1867.5,
-            "viewportCap": 1376,
-            "limit": "viewport-cap",
+            "availableDiagramWidth": 930,
+            "actualBudgetPx": 930,
+            "limit": "legacy",
             "requestedTargetPx": 7.5,
             "requestedTargetMet": false,
             "hardFloorPx": 6,
@@ -285,10 +332,34 @@
               "id": "tb_users"
             },
             "minimumSourceTextPx": 9,
-            "minimumProjectedTextPx": 5.493877551020408,
-            "semanticTextCount": 141
+            "minimumProjectedTextPx": 5.970042796005706,
+            "semanticTextCount": 143
           },
           "issues": [
+            {
+              "severity": "warning",
+              "code": "composition/proper-crossing",
+              "relationship": {
+                "id": "wishlist_product",
+                "from": "tbd_users_wishlist_products",
+                "to": "tb_products",
+                "label": "product_ID ? CASCADE",
+                "collectionIndex": 2,
+                "artifactIndex": 3
+              },
+              "otherRelationship": {
+                "id": "provider_user_inferred",
+                "from": "tbd_products_users_providers",
+                "to": "tb_users",
+                "label": "Inferida: FK no declarada",
+                "collectionIndex": 5,
+                "artifactIndex": 6
+              },
+              "point": [
+                696,
+                588
+              ]
+            },
             {
               "severity": "warning",
               "code": "composition/desktop-readability",
@@ -299,35 +370,35 @@
               },
               "viewportWidth": 1440,
               "viewportHeight": 900,
-              "availableDiagramWidth": 1346,
-              "budgetBasis": "recognized-declared-wide",
+              "availableDiagramWidth": 930,
+              "budgetBasis": "legacy-930",
               "readerContract": "declared-wide-v1",
               "requestedTargetPx": 7.5,
               "requestedTargetMet": false,
-              "budgetLimit": "viewport-cap",
-              "viewBoxWidth": 2205,
-              "scale": 0.6104308390022676,
+              "budgetLimit": "legacy",
+              "viewBoxWidth": 1402,
+              "scale": 0.6633380884450785,
               "text": "PK",
               "detail": "context",
               "sourceFontPx": 9,
-              "projectedFontPx": 5.493877551020408,
+              "projectedFontPx": 5.970042796005706,
               "minimumProjectedFontPx": 6
             }
           ]
         },
         "provenance": "current",
-        "deliveryReceiptId": "3ceafe8f-69a9-4c82-8bad-0eaa34912704"
+        "deliveryReceiptId": "e814f52d-e589-495b-bec0-fd2e8d252e8b"
       }
     },
     "browser-check": {
       "status": "fail",
       "exitCode": 1,
-      "durationMs": 2161,
+      "durationMs": 833,
       "command": [
         "C:\\Program Files\\nodejs\\node.exe",
-        "C:\\Users\\ti_la\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "C:\\Users\\RGadiel\\.agents\\skills\\archify\\bin\\archify.mjs",
         "browser-check",
-        "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+        "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
         "--json",
         "--require-provenance"
       ],
@@ -340,711 +411,56 @@
         "status": "fail",
         "visualReview": "not-requested",
         "provenance": "current",
-        "deliveryReceiptId": "3ceafe8f-69a9-4c82-8bad-0eaa34912704",
+        "deliveryReceiptId": "e814f52d-e589-495b-bec0-fd2e8d252e8b",
         "artifact": {
-          "path": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
-          "sha256": "b71ebb8960b46f019a3add21d7e31376ddb8542f88c94a00d88722f505a95d7f",
-          "bytes": 858189
+          "path": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+          "sha256": "c44b79042e4c9bceb8be7ae64e67828f16834534c7c3b693be7589370b9659a6",
+          "bytes": 862177
         },
         "state": {
           "detail": "read",
           "motion": "still"
         },
         "chrome": {
-          "status": "available",
-          "executable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+          "status": "not-checked",
+          "executable": null
         },
         "diagnostics": [
           {
-            "code": "viewer/projected-text-readability",
+            "code": "viewer/evidence-path-conflict",
             "severity": "error",
-            "message": "Projected context text is below the readability floor at 1440x900.",
+            "message": "browser-check will not replace the existing unowned evidence path \"C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.browser-check.json\".",
             "subject": {
-              "artifact": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
-              "viewport": {
-                "width": 1440,
-                "height": 900,
-                "theme": "light"
-              }
+              "artifact": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+              "evidencePath": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.browser-check.json"
             },
             "evidence": {
-              "text": "PK",
-              "detail": "context",
-              "owner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumProjectedNodeTextPx": 5.493877551020408,
-              "minimumRequiredNodeTextPx": 6
+              "reason": {
+                "code": "ownership-sidecar-path-mismatch"
+              }
             },
             "supportedFixes": [
-              "increase projected node text to at least 6px at 1440x900, then rerun browser-check"
+              "move the conflicting file aside, or choose a separate --out-dir, then rerun browser-check"
             ]
           }
         ],
         "containment": {
-          "status": "pass",
+          "status": "fail",
           "policy": "fit-or-reader-declared-readable-vertical-scroll",
-          "viewports": [
-            {
-              "width": 1440,
-              "height": 900,
-              "theme": "light",
-              "innerWidth": 1440,
-              "innerHeight": 900,
-              "scrollWidth": 1440,
-              "scrollHeight": 900,
-              "overflowX": false,
-              "overflowY": false,
-              "verticalScrollAccepted": false,
-              "overflowDisposition": "contained",
-              "readerLayout": "adaptive",
-              "readerOverflow": null,
-              "readerFit": "intrinsic-height",
-              "ok": true,
-              "readerWidth": 1376,
-              "diagramWidth": 1346,
-              "pageComposition": {
-                "bodyPaddingPx": 12,
-                "headerPx": 52,
-                "diagramChromePx": 78,
-                "svgPx": 436,
-                "cardsPx": 0,
-                "viewBoxHeight": 714
-              },
-              "viewBoxWidth": 2205,
-              "minimumProjectedNodeTextPx": 5.493877551020408,
-              "minimumProjectedNonEdgeTextPx": 5.493877551020408,
-              "minimumProjectedEdgeTextPx": 5.493877551020408,
-              "minimumProjectedNodeText": "PK",
-              "minimumProjectedNodeTextDetail": "context",
-              "minimumProjectedNodeTextOwner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumRequiredNodeTextPx": 6,
-              "readabilityOk": false,
-              "hasLegend": true,
-              "hasNavigationDock": true,
-              "legendDockIntersectionArea": 0,
-              "dockStageIntersectionArea": 0,
-              "dockStageGap": 10,
-              "requiredDockStageGap": 10,
-              "viewerChromeStageOk": true,
-              "viewerChromeReserve": 54,
-              "viewerChromeActive": true,
-              "viewerChromeOk": true,
-              "resolvedTheme": "light"
-            },
-            {
-              "width": 1600,
-              "height": 1000,
-              "theme": "light",
-              "innerWidth": 1600,
-              "innerHeight": 1000,
-              "scrollWidth": 1600,
-              "scrollHeight": 1000,
-              "overflowX": false,
-              "overflowY": false,
-              "verticalScrollAccepted": false,
-              "overflowDisposition": "contained",
-              "readerLayout": "adaptive",
-              "readerOverflow": null,
-              "readerFit": "intrinsic-height",
-              "ok": true,
-              "readerWidth": 1536,
-              "diagramWidth": 1506,
-              "pageComposition": {
-                "bodyPaddingPx": 64,
-                "headerPx": 60,
-                "diagramChromePx": 84,
-                "svgPx": 488,
-                "cardsPx": 0,
-                "viewBoxHeight": 714
-              },
-              "viewBoxWidth": 2205,
-              "minimumProjectedNodeTextPx": 6.146938775510204,
-              "minimumProjectedNonEdgeTextPx": 6.146938775510204,
-              "minimumProjectedEdgeTextPx": 6.146938775510204,
-              "minimumProjectedNodeText": "PK",
-              "minimumProjectedNodeTextDetail": "context",
-              "minimumProjectedNodeTextOwner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumRequiredNodeTextPx": 6,
-              "readabilityOk": true,
-              "hasLegend": true,
-              "hasNavigationDock": true,
-              "legendDockIntersectionArea": 0,
-              "dockStageIntersectionArea": 0,
-              "dockStageGap": 10,
-              "requiredDockStageGap": 10,
-              "viewerChromeStageOk": true,
-              "viewerChromeReserve": 54,
-              "viewerChromeActive": true,
-              "viewerChromeOk": true,
-              "resolvedTheme": "light"
-            },
-            {
-              "width": 1920,
-              "height": 1080,
-              "theme": "light",
-              "innerWidth": 1920,
-              "innerHeight": 1080,
-              "scrollWidth": 1920,
-              "scrollHeight": 1080,
-              "overflowX": false,
-              "overflowY": false,
-              "verticalScrollAccepted": false,
-              "overflowDisposition": "contained",
-              "readerLayout": "adaptive",
-              "readerOverflow": null,
-              "readerFit": "intrinsic-height",
-              "ok": true,
-              "readerWidth": 1856,
-              "diagramWidth": 1826,
-              "pageComposition": {
-                "bodyPaddingPx": 64,
-                "headerPx": 60,
-                "diagramChromePx": 84,
-                "svgPx": 591,
-                "cardsPx": 0,
-                "viewBoxHeight": 714
-              },
-              "viewBoxWidth": 2205,
-              "minimumProjectedNodeTextPx": 7.4530612244897965,
-              "minimumProjectedNonEdgeTextPx": 7.4530612244897965,
-              "minimumProjectedEdgeTextPx": 7.4530612244897965,
-              "minimumProjectedNodeText": "PK",
-              "minimumProjectedNodeTextDetail": "context",
-              "minimumProjectedNodeTextOwner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumRequiredNodeTextPx": 6,
-              "readabilityOk": true,
-              "hasLegend": true,
-              "hasNavigationDock": true,
-              "legendDockIntersectionArea": 0,
-              "dockStageIntersectionArea": 0,
-              "dockStageGap": 10,
-              "requiredDockStageGap": 10,
-              "viewerChromeStageOk": true,
-              "viewerChromeReserve": 54,
-              "viewerChromeActive": true,
-              "viewerChromeOk": true,
-              "resolvedTheme": "light"
-            },
-            {
-              "width": 2048,
-              "height": 1320,
-              "theme": "light",
-              "innerWidth": 2048,
-              "innerHeight": 1320,
-              "scrollWidth": 2048,
-              "scrollHeight": 1320,
-              "overflowX": false,
-              "overflowY": false,
-              "verticalScrollAccepted": false,
-              "overflowDisposition": "contained",
-              "readerLayout": "adaptive",
-              "readerOverflow": null,
-              "readerFit": "intrinsic-height",
-              "ok": true,
-              "readerWidth": 1920,
-              "diagramWidth": 1870,
-              "pageComposition": {
-                "bodyPaddingPx": 64,
-                "headerPx": 68,
-                "diagramChromePx": 94,
-                "svgPx": 606,
-                "cardsPx": 0,
-                "viewBoxHeight": 714
-              },
-              "viewBoxWidth": 2205,
-              "minimumProjectedNodeTextPx": 7.63265306122449,
-              "minimumProjectedNonEdgeTextPx": 7.63265306122449,
-              "minimumProjectedEdgeTextPx": 7.63265306122449,
-              "minimumProjectedNodeText": "PK",
-              "minimumProjectedNodeTextDetail": "context",
-              "minimumProjectedNodeTextOwner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumRequiredNodeTextPx": 6,
-              "readabilityOk": true,
-              "hasLegend": true,
-              "hasNavigationDock": true,
-              "legendDockIntersectionArea": 0,
-              "dockStageIntersectionArea": 0,
-              "dockStageGap": 10,
-              "requiredDockStageGap": 10,
-              "viewerChromeStageOk": true,
-              "viewerChromeReserve": 44,
-              "viewerChromeActive": true,
-              "viewerChromeOk": true,
-              "resolvedTheme": "light"
-            }
-          ]
+          "viewports": []
         },
         "themeStates": {
-          "status": "pass",
-          "viewports": [
-            {
-              "width": 1440,
-              "height": 900,
-              "requestedTheme": "light",
-              "resolvedTheme": "light",
-              "ok": true
-            },
-            {
-              "width": 1600,
-              "height": 1000,
-              "requestedTheme": "light",
-              "resolvedTheme": "light",
-              "ok": true
-            },
-            {
-              "width": 1920,
-              "height": 1080,
-              "requestedTheme": "light",
-              "resolvedTheme": "light",
-              "ok": true
-            },
-            {
-              "width": 2048,
-              "height": 1320,
-              "requestedTheme": "light",
-              "resolvedTheme": "light",
-              "ok": true
-            },
-            {
-              "width": 1440,
-              "height": 900,
-              "requestedTheme": "dark",
-              "resolvedTheme": "dark",
-              "ok": true
-            },
-            {
-              "width": 2048,
-              "height": 1320,
-              "requestedTheme": "dark",
-              "resolvedTheme": "dark",
-              "ok": true
-            }
-          ]
+          "status": "fail",
+          "viewports": []
         },
         "readability": {
           "status": "fail",
           "minimumProjectedNodeTextPx": 6,
-          "viewports": [
-            {
-              "width": 1440,
-              "height": 900,
-              "theme": "light",
-              "innerWidth": 1440,
-              "innerHeight": 900,
-              "scrollWidth": 1440,
-              "scrollHeight": 900,
-              "overflowX": false,
-              "overflowY": false,
-              "verticalScrollAccepted": false,
-              "overflowDisposition": "contained",
-              "readerLayout": "adaptive",
-              "readerOverflow": null,
-              "readerFit": "intrinsic-height",
-              "ok": true,
-              "readerWidth": 1376,
-              "diagramWidth": 1346,
-              "pageComposition": {
-                "bodyPaddingPx": 12,
-                "headerPx": 52,
-                "diagramChromePx": 78,
-                "svgPx": 436,
-                "cardsPx": 0,
-                "viewBoxHeight": 714
-              },
-              "viewBoxWidth": 2205,
-              "minimumProjectedNodeTextPx": 5.493877551020408,
-              "minimumProjectedNonEdgeTextPx": 5.493877551020408,
-              "minimumProjectedEdgeTextPx": 5.493877551020408,
-              "minimumProjectedNodeText": "PK",
-              "minimumProjectedNodeTextDetail": "context",
-              "minimumProjectedNodeTextOwner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumRequiredNodeTextPx": 6,
-              "readabilityOk": false,
-              "hasLegend": true,
-              "hasNavigationDock": true,
-              "legendDockIntersectionArea": 0,
-              "dockStageIntersectionArea": 0,
-              "dockStageGap": 10,
-              "requiredDockStageGap": 10,
-              "viewerChromeStageOk": true,
-              "viewerChromeReserve": 54,
-              "viewerChromeActive": true,
-              "viewerChromeOk": true,
-              "resolvedTheme": "light"
-            },
-            {
-              "width": 1600,
-              "height": 1000,
-              "theme": "light",
-              "innerWidth": 1600,
-              "innerHeight": 1000,
-              "scrollWidth": 1600,
-              "scrollHeight": 1000,
-              "overflowX": false,
-              "overflowY": false,
-              "verticalScrollAccepted": false,
-              "overflowDisposition": "contained",
-              "readerLayout": "adaptive",
-              "readerOverflow": null,
-              "readerFit": "intrinsic-height",
-              "ok": true,
-              "readerWidth": 1536,
-              "diagramWidth": 1506,
-              "pageComposition": {
-                "bodyPaddingPx": 64,
-                "headerPx": 60,
-                "diagramChromePx": 84,
-                "svgPx": 488,
-                "cardsPx": 0,
-                "viewBoxHeight": 714
-              },
-              "viewBoxWidth": 2205,
-              "minimumProjectedNodeTextPx": 6.146938775510204,
-              "minimumProjectedNonEdgeTextPx": 6.146938775510204,
-              "minimumProjectedEdgeTextPx": 6.146938775510204,
-              "minimumProjectedNodeText": "PK",
-              "minimumProjectedNodeTextDetail": "context",
-              "minimumProjectedNodeTextOwner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumRequiredNodeTextPx": 6,
-              "readabilityOk": true,
-              "hasLegend": true,
-              "hasNavigationDock": true,
-              "legendDockIntersectionArea": 0,
-              "dockStageIntersectionArea": 0,
-              "dockStageGap": 10,
-              "requiredDockStageGap": 10,
-              "viewerChromeStageOk": true,
-              "viewerChromeReserve": 54,
-              "viewerChromeActive": true,
-              "viewerChromeOk": true,
-              "resolvedTheme": "light"
-            },
-            {
-              "width": 1920,
-              "height": 1080,
-              "theme": "light",
-              "innerWidth": 1920,
-              "innerHeight": 1080,
-              "scrollWidth": 1920,
-              "scrollHeight": 1080,
-              "overflowX": false,
-              "overflowY": false,
-              "verticalScrollAccepted": false,
-              "overflowDisposition": "contained",
-              "readerLayout": "adaptive",
-              "readerOverflow": null,
-              "readerFit": "intrinsic-height",
-              "ok": true,
-              "readerWidth": 1856,
-              "diagramWidth": 1826,
-              "pageComposition": {
-                "bodyPaddingPx": 64,
-                "headerPx": 60,
-                "diagramChromePx": 84,
-                "svgPx": 591,
-                "cardsPx": 0,
-                "viewBoxHeight": 714
-              },
-              "viewBoxWidth": 2205,
-              "minimumProjectedNodeTextPx": 7.4530612244897965,
-              "minimumProjectedNonEdgeTextPx": 7.4530612244897965,
-              "minimumProjectedEdgeTextPx": 7.4530612244897965,
-              "minimumProjectedNodeText": "PK",
-              "minimumProjectedNodeTextDetail": "context",
-              "minimumProjectedNodeTextOwner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumRequiredNodeTextPx": 6,
-              "readabilityOk": true,
-              "hasLegend": true,
-              "hasNavigationDock": true,
-              "legendDockIntersectionArea": 0,
-              "dockStageIntersectionArea": 0,
-              "dockStageGap": 10,
-              "requiredDockStageGap": 10,
-              "viewerChromeStageOk": true,
-              "viewerChromeReserve": 54,
-              "viewerChromeActive": true,
-              "viewerChromeOk": true,
-              "resolvedTheme": "light"
-            },
-            {
-              "width": 2048,
-              "height": 1320,
-              "theme": "light",
-              "innerWidth": 2048,
-              "innerHeight": 1320,
-              "scrollWidth": 2048,
-              "scrollHeight": 1320,
-              "overflowX": false,
-              "overflowY": false,
-              "verticalScrollAccepted": false,
-              "overflowDisposition": "contained",
-              "readerLayout": "adaptive",
-              "readerOverflow": null,
-              "readerFit": "intrinsic-height",
-              "ok": true,
-              "readerWidth": 1920,
-              "diagramWidth": 1870,
-              "pageComposition": {
-                "bodyPaddingPx": 64,
-                "headerPx": 68,
-                "diagramChromePx": 94,
-                "svgPx": 606,
-                "cardsPx": 0,
-                "viewBoxHeight": 714
-              },
-              "viewBoxWidth": 2205,
-              "minimumProjectedNodeTextPx": 7.63265306122449,
-              "minimumProjectedNonEdgeTextPx": 7.63265306122449,
-              "minimumProjectedEdgeTextPx": 7.63265306122449,
-              "minimumProjectedNodeText": "PK",
-              "minimumProjectedNodeTextDetail": "context",
-              "minimumProjectedNodeTextOwner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumRequiredNodeTextPx": 6,
-              "readabilityOk": true,
-              "hasLegend": true,
-              "hasNavigationDock": true,
-              "legendDockIntersectionArea": 0,
-              "dockStageIntersectionArea": 0,
-              "dockStageGap": 10,
-              "requiredDockStageGap": 10,
-              "viewerChromeStageOk": true,
-              "viewerChromeReserve": 44,
-              "viewerChromeActive": true,
-              "viewerChromeOk": true,
-              "resolvedTheme": "light"
-            }
-          ]
+          "viewports": []
         },
         "viewerChrome": {
-          "status": "pass",
-          "viewports": [
-            {
-              "width": 1440,
-              "height": 900,
-              "theme": "light",
-              "innerWidth": 1440,
-              "innerHeight": 900,
-              "scrollWidth": 1440,
-              "scrollHeight": 900,
-              "overflowX": false,
-              "overflowY": false,
-              "verticalScrollAccepted": false,
-              "overflowDisposition": "contained",
-              "readerLayout": "adaptive",
-              "readerOverflow": null,
-              "readerFit": "intrinsic-height",
-              "ok": true,
-              "readerWidth": 1376,
-              "diagramWidth": 1346,
-              "pageComposition": {
-                "bodyPaddingPx": 12,
-                "headerPx": 52,
-                "diagramChromePx": 78,
-                "svgPx": 436,
-                "cardsPx": 0,
-                "viewBoxHeight": 714
-              },
-              "viewBoxWidth": 2205,
-              "minimumProjectedNodeTextPx": 5.493877551020408,
-              "minimumProjectedNonEdgeTextPx": 5.493877551020408,
-              "minimumProjectedEdgeTextPx": 5.493877551020408,
-              "minimumProjectedNodeText": "PK",
-              "minimumProjectedNodeTextDetail": "context",
-              "minimumProjectedNodeTextOwner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumRequiredNodeTextPx": 6,
-              "readabilityOk": false,
-              "hasLegend": true,
-              "hasNavigationDock": true,
-              "legendDockIntersectionArea": 0,
-              "dockStageIntersectionArea": 0,
-              "dockStageGap": 10,
-              "requiredDockStageGap": 10,
-              "viewerChromeStageOk": true,
-              "viewerChromeReserve": 54,
-              "viewerChromeActive": true,
-              "viewerChromeOk": true,
-              "resolvedTheme": "light"
-            },
-            {
-              "width": 1600,
-              "height": 1000,
-              "theme": "light",
-              "innerWidth": 1600,
-              "innerHeight": 1000,
-              "scrollWidth": 1600,
-              "scrollHeight": 1000,
-              "overflowX": false,
-              "overflowY": false,
-              "verticalScrollAccepted": false,
-              "overflowDisposition": "contained",
-              "readerLayout": "adaptive",
-              "readerOverflow": null,
-              "readerFit": "intrinsic-height",
-              "ok": true,
-              "readerWidth": 1536,
-              "diagramWidth": 1506,
-              "pageComposition": {
-                "bodyPaddingPx": 64,
-                "headerPx": 60,
-                "diagramChromePx": 84,
-                "svgPx": 488,
-                "cardsPx": 0,
-                "viewBoxHeight": 714
-              },
-              "viewBoxWidth": 2205,
-              "minimumProjectedNodeTextPx": 6.146938775510204,
-              "minimumProjectedNonEdgeTextPx": 6.146938775510204,
-              "minimumProjectedEdgeTextPx": 6.146938775510204,
-              "minimumProjectedNodeText": "PK",
-              "minimumProjectedNodeTextDetail": "context",
-              "minimumProjectedNodeTextOwner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumRequiredNodeTextPx": 6,
-              "readabilityOk": true,
-              "hasLegend": true,
-              "hasNavigationDock": true,
-              "legendDockIntersectionArea": 0,
-              "dockStageIntersectionArea": 0,
-              "dockStageGap": 10,
-              "requiredDockStageGap": 10,
-              "viewerChromeStageOk": true,
-              "viewerChromeReserve": 54,
-              "viewerChromeActive": true,
-              "viewerChromeOk": true,
-              "resolvedTheme": "light"
-            },
-            {
-              "width": 1920,
-              "height": 1080,
-              "theme": "light",
-              "innerWidth": 1920,
-              "innerHeight": 1080,
-              "scrollWidth": 1920,
-              "scrollHeight": 1080,
-              "overflowX": false,
-              "overflowY": false,
-              "verticalScrollAccepted": false,
-              "overflowDisposition": "contained",
-              "readerLayout": "adaptive",
-              "readerOverflow": null,
-              "readerFit": "intrinsic-height",
-              "ok": true,
-              "readerWidth": 1856,
-              "diagramWidth": 1826,
-              "pageComposition": {
-                "bodyPaddingPx": 64,
-                "headerPx": 60,
-                "diagramChromePx": 84,
-                "svgPx": 591,
-                "cardsPx": 0,
-                "viewBoxHeight": 714
-              },
-              "viewBoxWidth": 2205,
-              "minimumProjectedNodeTextPx": 7.4530612244897965,
-              "minimumProjectedNonEdgeTextPx": 7.4530612244897965,
-              "minimumProjectedEdgeTextPx": 7.4530612244897965,
-              "minimumProjectedNodeText": "PK",
-              "minimumProjectedNodeTextDetail": "context",
-              "minimumProjectedNodeTextOwner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumRequiredNodeTextPx": 6,
-              "readabilityOk": true,
-              "hasLegend": true,
-              "hasNavigationDock": true,
-              "legendDockIntersectionArea": 0,
-              "dockStageIntersectionArea": 0,
-              "dockStageGap": 10,
-              "requiredDockStageGap": 10,
-              "viewerChromeStageOk": true,
-              "viewerChromeReserve": 54,
-              "viewerChromeActive": true,
-              "viewerChromeOk": true,
-              "resolvedTheme": "light"
-            },
-            {
-              "width": 2048,
-              "height": 1320,
-              "theme": "light",
-              "innerWidth": 2048,
-              "innerHeight": 1320,
-              "scrollWidth": 2048,
-              "scrollHeight": 1320,
-              "overflowX": false,
-              "overflowY": false,
-              "verticalScrollAccepted": false,
-              "overflowDisposition": "contained",
-              "readerLayout": "adaptive",
-              "readerOverflow": null,
-              "readerFit": "intrinsic-height",
-              "ok": true,
-              "readerWidth": 1920,
-              "diagramWidth": 1870,
-              "pageComposition": {
-                "bodyPaddingPx": 64,
-                "headerPx": 68,
-                "diagramChromePx": 94,
-                "svgPx": 606,
-                "cardsPx": 0,
-                "viewBoxHeight": 714
-              },
-              "viewBoxWidth": 2205,
-              "minimumProjectedNodeTextPx": 7.63265306122449,
-              "minimumProjectedNonEdgeTextPx": 7.63265306122449,
-              "minimumProjectedEdgeTextPx": 7.63265306122449,
-              "minimumProjectedNodeText": "PK",
-              "minimumProjectedNodeTextDetail": "context",
-              "minimumProjectedNodeTextOwner": {
-                "kind": "node",
-                "id": "tb_users"
-              },
-              "minimumRequiredNodeTextPx": 6,
-              "readabilityOk": true,
-              "hasLegend": true,
-              "hasNavigationDock": true,
-              "legendDockIntersectionArea": 0,
-              "dockStageIntersectionArea": 0,
-              "dockStageGap": 10,
-              "requiredDockStageGap": 10,
-              "viewerChromeStageOk": true,
-              "viewerChromeReserve": 44,
-              "viewerChromeActive": true,
-              "viewerChromeOk": true,
-              "resolvedTheme": "light"
-            }
-          ]
+          "status": "fail",
+          "viewports": []
         },
         "captures": {
           "status": "not-requested",
@@ -1054,53 +470,45 @@
         "sidecars": {
           "receipt": "modelo-eer-respaldo2.browser-check.json",
           "files": []
-        }
+        },
+        "error": "browser-check will not replace the existing unowned evidence path \"C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.browser-check.json\"."
       }
     }
   },
   "diagnostics": [
     {
-      "code": "viewer/projected-text-readability",
+      "code": "viewer/evidence-path-conflict",
       "severity": "error",
-      "message": "Projected context text is below the readability floor at 1440x900.",
+      "message": "browser-check will not replace the existing unowned evidence path \"C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.browser-check.json\".",
       "subject": {
-        "artifact": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
-        "viewport": {
-          "width": 1440,
-          "height": 900,
-          "theme": "light"
-        }
+        "artifact": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+        "evidencePath": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.browser-check.json"
       },
       "evidence": {
-        "text": "PK",
-        "detail": "context",
-        "owner": {
-          "kind": "node",
-          "id": "tb_users"
-        },
-        "minimumProjectedNodeTextPx": 5.493877551020408,
-        "minimumRequiredNodeTextPx": 6
+        "reason": {
+          "code": "ownership-sidecar-path-mismatch"
+        }
       },
       "supportedFixes": [
-        "increase projected node text to at least 6px at 1440x900, then rerun browser-check"
+        "move the conflicting file aside, or choose a separate --out-dir, then rerun browser-check"
       ]
     }
   ],
   "evidence": {
-    "receipt": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.finalize.json",
-    "summaryReceipt": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.finalize-summary.json",
-    "browserCheckReceipt": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.browser-check.json"
+    "receipt": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.finalize.json",
+    "summaryReceipt": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.browser-check.json"
   },
   "visualReview": "not-requested",
   "failedStage": "browser-check",
-  "finishedAt": "2026-10-15T19:21:03.265Z",
-  "durationMs": 3237,
+  "finishedAt": "2026-10-16T05:10:42.010Z",
+  "durationMs": 8976,
   "update": {
     "status": "current",
     "installedVersion": "3.1.0",
     "availableVersion": "3.1.0",
     "releaseNotes": null,
-    "checkedAt": "2026-10-15T19:20:01.165Z",
+    "checkedAt": "2026-10-16T05:09:45.980Z",
     "source": "cache",
     "noticeRequired": false,
     "noticeText": null

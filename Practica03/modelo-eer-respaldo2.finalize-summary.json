@@ -6,14 +6,14 @@
   "type": "erd",
   "quality": "standard",
   "specification": {
-    "path": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\erd-respaldo2-20261015-131844\\candidate.json",
-    "sha256": "e7f8f51ba71e586bb274a8781c8fae6791a4b800685ed60b10e64baf1222769f",
-    "bytes": 11829
+    "path": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\candidate.json",
+    "sha256": "269ce75e9f13a272a2331b5f5f01c3bb27cd43c73dcecd910a61a94f9bdecdf9",
+    "bytes": 14070
   },
   "artifact": {
-    "path": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
-    "sha256": "b71ebb8960b46f019a3add21d7e31376ddb8542f88c94a00d88722f505a95d7f",
-    "bytes": 858189
+    "path": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+    "sha256": "c44b79042e4c9bceb8be7ae64e67828f16834534c7c3b693be7589370b9659a6",
+    "bytes": 862177
   },
   "gates": {
     "validate": "pass",
@@ -24,29 +24,20 @@
   "failedStage": "browser-check",
   "diagnostics": [
     {
-      "code": "viewer/projected-text-readability",
+      "code": "viewer/evidence-path-conflict",
       "severity": "error",
-      "message": "Projected context text is below the readability floor at 1440x900.",
+      "message": "browser-check will not replace the existing unowned evidence path \"C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.browser-check.json\".",
       "subject": {
-        "artifact": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
-        "viewport": {
-          "width": 1440,
-          "height": 900,
-          "theme": "light"
-        }
+        "artifact": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+        "evidencePath": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.browser-check.json"
       },
       "evidence": {
-        "text": "PK",
-        "detail": "context",
-        "owner": {
-          "kind": "node",
-          "id": "tb_users"
-        },
-        "minimumProjectedNodeTextPx": 5.493877551020408,
-        "minimumRequiredNodeTextPx": 6
+        "reason": {
+          "code": "ownership-sidecar-path-mismatch"
+        }
       },
       "supportedFixes": [
-        "increase projected node text to at least 6px at 1440x900, then rerun browser-check"
+        "move the conflicting file aside, or choose a separate --out-dir, then rerun browser-check"
       ]
     }
   ],
@@ -56,20 +47,20 @@
     "truncated": false
   },
   "evidence": {
-    "receipt": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.finalize.json",
-    "summaryReceipt": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.finalize-summary.json",
-    "browserCheckReceipt": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.browser-check.json"
+    "receipt": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.finalize.json",
+    "summaryReceipt": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.browser-check.json"
   },
   "update": {
     "status": "current",
     "installedVersion": "3.1.0",
     "availableVersion": "3.1.0",
     "releaseNotes": null,
-    "checkedAt": "2026-10-15T19:20:01.165Z",
+    "checkedAt": "2026-10-16T05:09:45.980Z",
     "source": "cache",
     "noticeRequired": false,
     "noticeText": null
   },
   "visualReview": "not-requested",
-  "durationMs": 3237
+  "durationMs": 8976
 }

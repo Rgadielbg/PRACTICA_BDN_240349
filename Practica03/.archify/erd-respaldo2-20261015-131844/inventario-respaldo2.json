@@ -1,0 +1,129 @@
+{
+  "source": "backups/respaldo2.sql",
+  "dialect": "MySQL 8.0.36",
+  "database": "db_test",
+  "tables": [
+    {
+      "name": "tb_users",
+      "columns": [
+        "ID",
+        "email",
+        "nick",
+        "password",
+        "creation_date",
+        "last_update",
+        "last_login",
+        "status"
+      ],
+      "rowsFromInsertTuples": 5
+    },
+    {
+      "name": "tb_carts",
+      "columns": [
+        "ID",
+        "user_ID",
+        "status",
+        "creation_date",
+        "last_update"
+      ],
+      "rowsFromInsertTuples": 0
+    },
+    {
+      "name": "tbd_users_wishlist_products",
+      "columns": [
+        "user_ID",
+        "product_ID",
+        "status",
+        "creation_date",
+        "last_update"
+      ],
+      "rowsFromInsertTuples": 0
+    },
+    {
+      "name": "tb_products",
+      "columns": [
+        "ID",
+        "SKU",
+        "name",
+        "description",
+        "current_price",
+        "current_stock",
+        "status",
+        "creation_date",
+        "last_update"
+      ],
+      "rowsFromInsertTuples": 5025
+    },
+    {
+      "name": "tb_categories",
+      "columns": [
+        "ID",
+        "name",
+        "description",
+        "sup_id_category",
+        "status",
+        "creation_date",
+        "last_update"
+      ],
+      "rowsFromInsertTuples": 100
+    },
+    {
+      "name": "tbd_products_categories",
+      "columns": [
+        "product_id",
+        "category_id",
+        "status",
+        "creation_date",
+        "last_update"
+      ],
+      "rowsFromInsertTuples": 21
+    },
+    {
+      "name": "tb_logs",
+      "columns": [
+        "ID",
+        "table_name",
+        "table_operation",
+        "db_user",
+        "table_description",
+        "operation_date",
+        "operation_status"
+      ],
+      "rowsFromInsertTuples": 5137
+    },
+    {
+      "name": "tbd_products_users_providers",
+      "columns": [
+        "user_id",
+        "product_id",
+        "type_ownership",
+        "status",
+        "available_date",
+        "creation_date",
+        "last_update"
+      ],
+      "rowsFromInsertTuples": 0
+    }
+  ],
+  "tableCount": 8,
+  "columnCount": 53,
+  "foreignKeys": 6,
+  "renderedForeignKeyRelationships": 5,
+  "views": [
+    "vw_trazabilidad_categorias",
+    "vw_trazabilidad_productos",
+    "vw_trazabilidad_productos_categorias",
+    "vw_trazabilidad_usuarios"
+  ],
+  "triggers": [
+    "trg_tb_categories_after_insert",
+    "trg_tb_categories_after_update",
+    "trg_tb_categories_after_delete",
+    "trq_products_after_insert",
+    "trq_products_after_update",
+    "trq_products_after_delete",
+    "trg_tbd_products_categories_insert",
+    "trg_tbd_products_categories_update"
+  ],
+  "countMethod": "Parsed top-level INSERT ... VALUES row tuples; no top-level UPDATE/DELETE/REPLACE follows; not restored in MySQL."
+}

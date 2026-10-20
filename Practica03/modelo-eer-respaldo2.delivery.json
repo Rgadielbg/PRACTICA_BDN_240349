@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "receiptId": "c16e4ff3-4191-47eb-9f2e-9cd556e67654",
+  "receiptId": "382766b7-7ef8-4a57-8a2f-b0a77f1a428c",
   "status": "current",
   "command": "deliver",
   "type": "erd",
-  "input": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\erd-respaldo2-20261015-131844\\candidate.json",
-  "output": "C:\\Users\\ti_la\\Documents\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
+  "input": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\.archify\\erd-respaldo2-20261015-131844\\candidate.json",
+  "output": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\Practica03\\modelo-eer-respaldo2.html",
   "specification": {
-    "sha256": "2a658c06c01f0325ea7fc779ebf4356196a4e1cf9ffb465f9e9c27ca2b8fdc7a",
-    "bytes": 11827
+    "sha256": "84929e02eb08a3b90fa0f9ba52ef609338fc417621837bf09c90550dae81f258",
+    "bytes": 14079
   },
   "artifact": {
-    "sha256": "c1715fef86355f778a93fd3cdc860548a3ea09a9f97e590033517d23696c575e",
-    "bytes": 858173
+    "sha256": "ba7bc4b5a8f4719145b32dde4ab4fcc37553573c7343fdcc81f4117fe3ffe1bf",
+    "bytes": 862204
   }
 }
