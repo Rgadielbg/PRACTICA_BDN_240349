@@ -120,3 +120,13 @@ FROM tb_users u
 JOIN tb_people p ON u.ID = p.user_ID 
 ORDER BY u.ID DESC 
 LIMIT 10;
+
+
+
+
+-- Comprobar la relación y trazabilidad de los últimos registros
+SELECT u.ID, u.email, u.nick, p.given_names, p.family_names, p.gender, p.country_code 
+FROM tb_users u 
+JOIN tb_people p ON u.ID = p.user_ID 
+ORDER BY u.ID DESC 
+LIMIT 10;
