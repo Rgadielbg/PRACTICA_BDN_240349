@@ -1,57 +1,56 @@
-/* =========================================================
-   1. ACTIVACIÓN GLOBAL DE ROLES
-   ========================================================= */
-SET GLOBAL activate_all_roles_on_login = ON;
+   /* =========================================================
+      1. ACTIVACIÓN GLOBAL DE ROLES
+      ========================================================= */
+   SET GLOBAL activate_all_roles_on_login = ON;
 
 
-/* =========================================================
-   2. CREACIÓN DE USUARIOS REMOTOS
-   ========================================================= */
+   /* =========================================================
+      2. CREACIÓN DE USUARIOS REMOTOS
+      ========================================================= */
 
-CREATE USER IF NOT EXISTS 'marco.ramirez'@'%' IDENTIFIED BY 'qwerty123';
-CREATE USER IF NOT EXISTS 'ricardo.gadiel'@'%' IDENTIFIED BY '240349';
-CREATE USER IF NOT EXISTS 'rodolfo.hernandez'@'%' IDENTIFIED BY '240836';
-CREATE USER IF NOT EXISTS 'aaron.ali'@'%' IDENTIFIED BY '240045';
-CREATE USER IF NOT EXISTS 'maguito.rojas'@'%' IDENTIFIED BY '240242';
-CREATE USER IF NOT EXISTS 'dara.gomez'@'%' IDENTIFIED BY '240765';
+   CREATE USER IF NOT EXISTS 'marco.ramirez'@'%' IDENTIFIED BY 'qwerty123';
+   CREATE USER IF NOT EXISTS 'ricardo.gadiel'@'%' IDENTIFIED BY '240349';
+   CREATE USER IF NOT EXISTS 'rodolfo.hernandez'@'%' IDENTIFIED BY '240836';
+   CREATE USER IF NOT EXISTS 'aaron.ali'@'%' IDENTIFIED BY '240045';
+   CREATE USER IF NOT EXISTS 'maguito.rojas'@'%' IDENTIFIED BY '240242';
+   CREATE USER IF NOT EXISTS 'dara.gomez'@'%' IDENTIFIED BY '240765';
 
--- Tu usuario creado para cualquier IP (%) y específico para PC-16
-CREATE USER IF NOT EXISTS 'jenny.canales'@'%' IDENTIFIED BY '240556';
-CREATE USER IF NOT EXISTS 'jenny.canales'@'pc-16' IDENTIFIED BY '240556';
+   -- Tu usuario creado para cualquier IP (%) y específico para PC-16
+   CREATE USER IF NOT EXISTS 'jenny.canales'@'%' IDENTIFIED BY '240556';
 
-/* USUARIOS MIDDLEWARE */
-CREATE USER IF NOT EXISTS 'app_web'@'%' IDENTIFIED BY 'web123';
-CREATE USER IF NOT EXISTS 'app_mobile'@'%' IDENTIFIED BY 'mobile123';
-
-
-/* =========================================================
-   3. CREACIÓN DE ROLES
-   ========================================================= */
-
-CREATE ROLE IF NOT EXISTS 'superadmin';
-CREATE ROLE IF NOT EXISTS 'admin';
-CREATE ROLE IF NOT EXISTS 'seller';
-CREATE ROLE IF NOT EXISTS 'buyer';
-CREATE ROLE IF NOT EXISTS 'support';
-CREATE ROLE IF NOT EXISTS 'commont';
-CREATE ROLE IF NOT EXISTS 'user_not_registered';
+   /* USUARIOS MIDDLEWARE */
+   CREATE USER IF NOT EXISTS 'app_web'@'%' IDENTIFIED BY 'web123';
+   CREATE USER IF NOT EXISTS 'app_mobile'@'%' IDENTIFIED BY 'mobile123';
 
 
-/* =========================================================
-   4. PRIVILEGIOS DE LOS ROLES (EN db_test)
-   ========================================================= */
+   /* =========================================================
+      3. CREACIÓN DE ROLES
+      ========================================================= */
 
-/* SUPERADMIN: Control total del servidor */
-GRANT ALL PRIVILEGES ON *.* TO 'superadmin' WITH GRANT OPTION;
+   CREATE ROLE IF NOT EXISTS 'superadmin';
+   CREATE ROLE IF NOT EXISTS 'admin';
+   CREATE ROLE IF NOT EXISTS 'seller';
+   CREATE ROLE IF NOT EXISTS 'buyer';
+   CREATE ROLE IF NOT EXISTS 'support';
+   CREATE ROLE IF NOT EXISTS 'commont';
+   CREATE ROLE IF NOT EXISTS 'user_not_registered';
 
-/* ADMIN: Control total sobre la base de datos db_test */
-GRANT ALL PRIVILEGES ON db_test.* TO 'admin';
 
-/* SUPPORT: Lectura, inserción y actualización en db_test */
-GRANT SELECT, INSERT, UPDATE ON db_test.* TO 'support';
+   /* =========================================================
+      4. PRIVILEGIOS DE LOS ROLES (EN db_test)
+      ========================================================= */
 
-/* SELLER: Lectura, inserción, actualización y eliminación en db_test */
-GRANT SELECT, INSERT, UPDATE, DELETE ON db_test.* TO 'seller';
+   /* SUPERADMIN: Control total del servidor */
+   GRANT ALL PRIVILEGES ON *.* TO 'superadmin' WITH GRANT OPTION;
+
+   /* ADMIN: Control total sobre la base de datos db_test */
+   GRANT ALL PRIVILEGES ON db_test.* TO 'admin';
+
+   /* SUPPORT: Lectura, inserción y actualización en db_test */
+   GRANT SELECT, INSERT, UPDATE ON db_test.* TO 'support';
+
+   /* SELLER: Lectura, inserción, actualización y eliminación en db_test */
+   GRANT SELECT, INSERT, UPDATE, DELETE ON db_test.* TO 'seller';
 
 
 /* NOT REGISTERED: Inserción en tablas específicas */
