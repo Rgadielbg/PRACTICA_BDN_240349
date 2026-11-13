@@ -1,46 +1,45 @@
-name: docker-gadielBG
 version: '3.8'
+
 services:
+  postgres_gadiel:
+    image: postgres:15-alpine
+    container_name: postgres_gadiel
+    restart: always
+    environment:
+      POSTGRES_DB: db_gadiel
+      POSTGRES_USER: RgadielBG
+      POSTGRES_PASSWORD: "240349!"
+    ports:
+      - "40349:5432"
+    volumes:
+      - postgres_data_gadiel:/var/lib/postgresql/data
 
- postgres_gadiel:
- image: postgres:15-alpine
- container_name: postgres_gadiel
- restart: always
- environment:
- POSTGRES_DB: db_gadiel
- POSTGRES_USER: RgadielBG
- POSTGRES_PASSWORD: 240349!
- ports:
- - "3306:5432"
- volumes:
- - postgres_data_gadiel:/var/lib/postgresql/data
- # Servicio de Interfaz Web pgAdmin
- pgadmin:
- image: dpage/pgadmin4
- container_name: pgadmin_gadiel
- restart: always
- environment:
- PGADMIN_DEFAULT_EMAIL: "240349@utxicotepec.edu.mx"
- PGADMIN_DEFAULT_PASSWORD: "gadiel1234!"
- PGADMIN_CONFIG_SERVER_MODE: "False"
- ports:
- - "40349:80" 
- depends_on:
- - postgres_gadiel
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_gadiel
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "240349@utxicotepec.edu.mx"
+      PGADMIN_DEFAULT_PASSWORD: "gadiel1234!"
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports:
+      - "40349:80"
+    depends_on:
+      - postgres_gadiel
 
-mysql_gadiel:
-  image: mysql:8.0
-  container_name: mysql_gadiel
-  restart: always
-  environment:
-    MYSQL_DATABASE: db_test_7b
-    MYSQL_USER: gadiel.bobadilla
-    MYSQL_PASSWORD: "240349"      
-    MYSQL_ROOT_PASSWORD: "240349"
-  ports:
-     - "40340:3306"
-  volumes:
-    - mysql_data_gadiel:/var/lib/mysql
+  mysql_gadiel:
+    image: mysql:8.0
+    container_name: mysql_gadiel
+    restart: always
+    environment:
+      MYSQL_DATABASE: db_test_7b
+      MYSQL_USER: gadiel.bobadilla
+      MYSQL_PASSWORD: "240349"
+      MYSQL_ROOT_PASSWORD: "240349"
+    ports:
+      - "40340:3306"
+    volumes:
+      - mysql_data_gadiel:/var/lib/mysql
 
 volumes:
   postgres_data_gadiel:
