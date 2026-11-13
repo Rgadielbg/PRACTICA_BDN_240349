@@ -8,7 +8,7 @@
 | 📖 **Diccionario de datos** | Consulta las tablas, columnas, tipos de datos y relaciones documentadas. | [Abrir diccionario](https://rgadielbg.github.io/PRACTICA_BDN_240349/diccionario/) |
 | 🧩 **Diagrama entidad-relación** | Modelo EER interactivo de la base `db_test`, con entidades, claves y relaciones. | [Abrir diagrama](https://rgadielbg.github.io/PRACTICA_BDN_240349/archify/modelo_eer_respaldo7.html) |
 
-> Los enlaces estarán disponibles después de que GitHub Actions publique el sitio en GitHub Pages. El diccionario que está actualmente en el repositorio fue generado desde `respaldo3.sql`; la portada y el diagrama describen `respaldo7.sql`.
+> **Si los enlaces muestran 404:** GitHub Pages aún no está habilitado para el repositorio. En GitHub, abre **Settings → Pages**, selecciona **GitHub Actions** en **Build and deployment → Source** y guarda. Después abre **Actions → Publicar documentación en GitHub Pages → Run workflow** para iniciar la publicación. Cuando termine correctamente, estos enlaces quedarán disponibles. El diccionario actual fue generado desde `respaldo3.sql`; la portada y el diagrama describen `respaldo7.sql`.
 
 ## 1. Descripción general
 
