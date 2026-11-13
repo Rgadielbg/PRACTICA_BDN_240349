@@ -1,0 +1,2735 @@
+{
+  "document": "Inventario técnico de db_test",
+  "source": "backups/respaldo7.sql",
+  "source_of_truth": "El respaldo SQL indicado es la única fuente utilizada.",
+  "database": {
+    "name": "db_test",
+    "dump_server_version": "8.0.36",
+    "dump_completed_on": "2026-11-12 13:07:38"
+  },
+  "summary": {
+    "table_count": 24,
+    "operational": 23,
+    "logs": 1,
+    "columns": 193,
+    "fk": 19,
+    "triggers": 69,
+    "views": 17
+  },
+  "tables": [
+    {
+      "name": "tb_buyer_orders",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "seller_ID",
+          "type": "int NOT NULL",
+          "keys": [
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "subtotal",
+          "type": "decimal(12,2) NOT NULL DEFAULT '0.00'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "shipping_cost",
+          "type": "decimal(12,2) NOT NULL DEFAULT '0.00'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "fulfillment_status",
+          "type": "enum('Pending','Accepted','Preparing','Sent','Delivered','Canceled','Returned') NOT NULL DEFAULT 'Pending'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) NOT NULL DEFAULT b'1'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [
+        {
+          "constraint": "tb_buyer_orders_ibfk_1",
+          "columns": [
+            "seller_ID"
+          ],
+          "references_table": "tb_users",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE"
+        }
+      ],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tb_carts",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "user_ID",
+          "type": "int NOT NULL",
+          "keys": [
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "status",
+          "type": "bit(1) DEFAULT b'1'",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [
+        {
+          "constraint": "tb_carts_ibfk_1",
+          "columns": [
+            "user_ID"
+          ],
+          "references_table": "tb_users",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE"
+        }
+      ],
+      "unique_keys": [
+        {
+          "name": "uk_cart_user",
+          "columns": [
+            "user_ID"
+          ]
+        }
+      ],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tb_categories",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "name",
+          "type": "varchar(120) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "sup_id_category",
+          "type": "int unsigned DEFAULT NULL",
+          "keys": [
+            "FK"
+          ],
+          "nullable": true,
+          "auto_increment": false,
+          "references": "tb_categories.ID"
+        },
+        {
+          "name": "status",
+          "type": "bit(1) NOT NULL DEFAULT b'1'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [
+        {
+          "constraint": "fk_superior_category",
+          "columns": [
+            "sup_id_category"
+          ],
+          "references_table": "tb_categories",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": null
+        }
+      ],
+      "unique_keys": [
+        {
+          "name": "name",
+          "columns": [
+            "name"
+          ]
+        }
+      ],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tb_logs",
+      "kind": "auditoria",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "table_name",
+          "type": "varchar(80) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "table_operation",
+          "type": "enum('Create','Read','Update','Delete') DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "db_user",
+          "type": "varchar(80) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "table_description",
+          "type": "text NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "operation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "operation_status",
+          "type": "bit(1) DEFAULT b'1'",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Auditoría"
+    },
+    {
+      "name": "tb_order_cancellations",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "order_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "reason",
+          "type": "text",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tb_payment_methods",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "user_ID",
+          "type": "int NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "name",
+          "type": "varchar(50) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "description",
+          "type": "varchar(255) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tb_payment_transaction",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "payment_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "transaction_ref",
+          "type": "varchar(255) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "amount",
+          "type": "decimal(12,2) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tb_payments",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "order_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "user_payment_method_ID",
+          "type": "bigint unsigned DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "amount",
+          "type": "decimal(12,2) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tb_people",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "person_ID",
+          "type": "bigint unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "user_ID",
+          "type": "int DEFAULT NULL",
+          "keys": [
+            "FK"
+          ],
+          "nullable": true,
+          "auto_increment": false,
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "courtesy_title",
+          "type": "varchar(20) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "given_names",
+          "type": "varchar(150) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "family_names",
+          "type": "varchar(150) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "birth_date",
+          "type": "date DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "gender",
+          "type": "enum('Hombre','Mujer','Prefiero no decirlo') NOT NULL DEFAULT 'Prefiero no decirlo'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "country_code",
+          "type": "char(2) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "phone",
+          "type": "varchar(25) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) NOT NULL DEFAULT b'1'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "person_ID"
+      ],
+      "foreign_keys": [
+        {
+          "constraint": "fk_people_users",
+          "columns": [
+            "user_ID"
+          ],
+          "references_table": "tb_users",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": null
+        }
+      ],
+      "unique_keys": [
+        {
+          "name": "user_ID",
+          "columns": [
+            "user_ID"
+          ]
+        }
+      ],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tb_products",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "SKU",
+          "type": "varchar(50) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "name",
+          "type": "varchar(100) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "description",
+          "type": "text NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "current_price",
+          "type": "decimal(10,2) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "current_stock",
+          "type": "int NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "varchar(20) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [
+        {
+          "name": "SKU",
+          "columns": [
+            "SKU"
+          ]
+        }
+      ],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tb_refunds",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "order_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "reason",
+          "type": "text",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "amount",
+          "type": "decimal(12,2) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tb_shipments",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "order_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "address_ID",
+          "type": "bigint unsigned DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "carrier",
+          "type": "varchar(50) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "tracking_number",
+          "type": "varchar(100) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tb_user_addresses",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "bigint unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "user_ID",
+          "type": "int NOT NULL",
+          "keys": [
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "address_label",
+          "type": "varchar(100) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "recipient_name",
+          "type": "varchar(150) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "recipient_phone",
+          "type": "varchar(25) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "delivery_instructions",
+          "type": "varchar(500) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "latitude",
+          "type": "decimal(10,7) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "longitude",
+          "type": "decimal(10,7) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "is_default",
+          "type": "tinyint(1) NOT NULL DEFAULT '0'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) NOT NULL DEFAULT b'1'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [
+        {
+          "constraint": "fk_addresses_users",
+          "columns": [
+            "user_ID"
+          ],
+          "references_table": "tb_users",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE"
+        }
+      ],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tb_users",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "email",
+          "type": "varchar(100) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "nick",
+          "type": "varchar(50) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "password",
+          "type": "varchar(255) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "last_login",
+          "type": "datetime DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) DEFAULT b'1'",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [
+        {
+          "name": "email",
+          "columns": [
+            "email"
+          ]
+        },
+        {
+          "name": "nick",
+          "columns": [
+            "nick"
+          ]
+        }
+      ],
+      "engine": "InnoDB",
+      "domain": "Entidades y transacciones"
+    },
+    {
+      "name": "tbc_payment_methods_types",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "code",
+          "type": "varchar(50) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "name",
+          "type": "varchar(50) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "description",
+          "type": "varchar(255) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) NOT NULL DEFAULT b'1'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [
+        {
+          "name": "uk_code",
+          "columns": [
+            "code"
+          ]
+        }
+      ],
+      "engine": "InnoDB",
+      "domain": "Catálogos"
+    },
+    {
+      "name": "tbd_address_components",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "bigint unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "address_ID",
+          "type": "bigint unsigned NOT NULL",
+          "keys": [
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tbd_address_components.address_ID"
+        },
+        {
+          "name": "value",
+          "type": "varchar(255) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "component_type",
+          "type": "varchar(50) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) NOT NULL DEFAULT b'1'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "address_sup_ID",
+          "type": "bigint unsigned DEFAULT NULL",
+          "keys": [
+            "FK"
+          ],
+          "nullable": true,
+          "auto_increment": false,
+          "references": "tbd_address_components.ID"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [
+        {
+          "constraint": "fk_component_address",
+          "columns": [
+            "address_ID"
+          ],
+          "references_table": "tb_user_addresses",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": "ON DELETE RESTRICT"
+        },
+        {
+          "constraint": "fk_component_parent",
+          "columns": [
+            "address_ID",
+            "address_sup_ID"
+          ],
+          "references_table": "tbd_address_components",
+          "references_columns": [
+            "address_ID",
+            "ID"
+          ],
+          "actions": "ON DELETE RESTRICT"
+        }
+      ],
+      "unique_keys": [
+        {
+          "name": "uk_address_component",
+          "columns": [
+            "address_ID",
+            "ID"
+          ]
+        }
+      ],
+      "engine": "InnoDB",
+      "domain": "Relaciones y detalles"
+    },
+    {
+      "name": "tbd_cancellation_items",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "cancellation_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "quantity",
+          "type": "int unsigned DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "cancellation_ID",
+        "product_ID"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Relaciones y detalles"
+    },
+    {
+      "name": "tbd_carts_items",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "cart_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "PK",
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tb_carts.ID"
+        },
+        {
+          "name": "provider_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "PK",
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tbd_products_users_providers.user_id"
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "PK",
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tbd_products_users_providers.product_id"
+        },
+        {
+          "name": "quantity",
+          "type": "int unsigned NOT NULL DEFAULT '1'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "cart_ID",
+        "provider_ID",
+        "product_ID"
+      ],
+      "foreign_keys": [
+        {
+          "constraint": "tbd_carts_items_ibfk_1",
+          "columns": [
+            "cart_ID"
+          ],
+          "references_table": "tb_carts",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": null
+        },
+        {
+          "constraint": "tbd_carts_items_ibfk_2",
+          "columns": [
+            "provider_ID"
+          ],
+          "references_table": "tbd_products_users_providers",
+          "references_columns": [
+            "user_id"
+          ],
+          "actions": null
+        },
+        {
+          "constraint": "tbd_carts_items_ibfk_3",
+          "columns": [
+            "product_ID"
+          ],
+          "references_table": "tbd_products_users_providers",
+          "references_columns": [
+            "product_id"
+          ],
+          "actions": null
+        }
+      ],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Relaciones y detalles"
+    },
+    {
+      "name": "tbd_order_items",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "seller_order_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tb_buyer_orders.ID"
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tbd_products_users_providers.product_id"
+        },
+        {
+          "name": "provider_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tbd_products_users_providers.user_id"
+        },
+        {
+          "name": "product_name",
+          "type": "varchar(255) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "quantity",
+          "type": "int unsigned NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "unit_price",
+          "type": "decimal(12,2) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "subtotal",
+          "type": "decimal(12,2) GENERATED ALWAYS AS ((`quantity` * `unit_price`)) STORED",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [
+        {
+          "constraint": "tbd_order_items_ibfk_1",
+          "columns": [
+            "seller_order_ID"
+          ],
+          "references_table": "tb_buyer_orders",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": null
+        },
+        {
+          "constraint": "tbd_order_items_ibfk_2",
+          "columns": [
+            "product_ID"
+          ],
+          "references_table": "tbd_products_users_providers",
+          "references_columns": [
+            "product_id"
+          ],
+          "actions": null
+        },
+        {
+          "constraint": "tbd_order_items_ibfk_3",
+          "columns": [
+            "provider_ID"
+          ],
+          "references_table": "tbd_products_users_providers",
+          "references_columns": [
+            "user_id"
+          ],
+          "actions": null
+        }
+      ],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Relaciones y detalles"
+    },
+    {
+      "name": "tbd_products_categories",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "int NOT NULL",
+          "keys": [
+            "PK",
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tb_products.ID"
+        },
+        {
+          "name": "category_id",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "PK",
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tb_categories.ID"
+        },
+        {
+          "name": "status",
+          "type": "varchar(20) NOT NULL DEFAULT 'ACTIVE'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "product_id",
+        "category_id"
+      ],
+      "foreign_keys": [
+        {
+          "constraint": "fk_category_rel",
+          "columns": [
+            "category_id"
+          ],
+          "references_table": "tb_categories",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE"
+        },
+        {
+          "constraint": "fk_product_rel",
+          "columns": [
+            "product_id"
+          ],
+          "references_table": "tb_products",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE"
+        }
+      ],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Relaciones y detalles"
+    },
+    {
+      "name": "tbd_products_users_providers",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "product_id",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "type_ownership",
+          "type": "enum('Owner','Reseller','Distributor') DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) DEFAULT b'1'",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "available_date",
+          "type": "datetime DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "user_id",
+        "product_id"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Relaciones y detalles"
+    },
+    {
+      "name": "tbd_return_items",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "return_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "quantity",
+          "type": "int unsigned DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "return_ID",
+        "product_ID"
+      ],
+      "foreign_keys": [],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Relaciones y detalles"
+    },
+    {
+      "name": "tbd_user_payment_methods",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "bigint unsigned NOT NULL AUTO_INCREMENT",
+          "keys": [
+            "PK"
+          ],
+          "nullable": false,
+          "auto_increment": true
+        },
+        {
+          "name": "user_ID",
+          "type": "int NOT NULL",
+          "keys": [
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "payment_method_type_ID",
+          "type": "int unsigned NOT NULL",
+          "keys": [
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tbc_payment_methods_types.ID"
+        },
+        {
+          "name": "provider",
+          "type": "varchar(50) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "provider_method_ref",
+          "type": "varchar(255) NOT NULL",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "label",
+          "type": "varchar(100) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "last_four",
+          "type": "char(4) DEFAULT NULL",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        },
+        {
+          "name": "is_default",
+          "type": "tinyint(1) NOT NULL DEFAULT '0'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "status",
+          "type": "bit(1) NOT NULL DEFAULT b'1'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": true,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [
+        {
+          "constraint": "tbd_user_payment_methods_ibfk_1",
+          "columns": [
+            "user_ID"
+          ],
+          "references_table": "tb_users",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE"
+        },
+        {
+          "constraint": "tbd_user_payment_methods_ibfk_2",
+          "columns": [
+            "payment_method_type_ID"
+          ],
+          "references_table": "tbc_payment_methods_types",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE"
+        }
+      ],
+      "unique_keys": [
+        {
+          "name": "uk_provider_method",
+          "columns": [
+            "provider",
+            "provider_method_ref"
+          ]
+        }
+      ],
+      "engine": "InnoDB",
+      "domain": "Relaciones y detalles"
+    },
+    {
+      "name": "tbd_users_wishlist_products",
+      "kind": "operativa",
+      "columns": [
+        {
+          "name": "user_ID",
+          "type": "int NOT NULL",
+          "keys": [
+            "PK",
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "product_ID",
+          "type": "int NOT NULL",
+          "keys": [
+            "PK",
+            "FK"
+          ],
+          "nullable": false,
+          "auto_increment": false,
+          "references": "tb_products.ID"
+        },
+        {
+          "name": "status",
+          "type": "bit(1) NOT NULL DEFAULT b'1'",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        },
+        {
+          "name": "last_update",
+          "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+          "keys": [],
+          "nullable": false,
+          "auto_increment": false
+        }
+      ],
+      "primary_key": [
+        "user_ID",
+        "product_ID"
+      ],
+      "foreign_keys": [
+        {
+          "constraint": "fk_products3",
+          "columns": [
+            "product_ID"
+          ],
+          "references_table": "tb_products",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE"
+        },
+        {
+          "constraint": "fk_user2",
+          "columns": [
+            "user_ID"
+          ],
+          "references_table": "tb_users",
+          "references_columns": [
+            "ID"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE"
+        }
+      ],
+      "unique_keys": [],
+      "engine": "InnoDB",
+      "domain": "Relaciones y detalles"
+    }
+  ],
+  "audit": {
+    "table": "tb_logs",
+    "columns": [
+      {
+        "name": "ID",
+        "type": "int NOT NULL AUTO_INCREMENT"
+      },
+      {
+        "name": "table_name",
+        "type": "varchar(80) NOT NULL"
+      },
+      {
+        "name": "table_operation",
+        "type": "enum('Create','Read','Update','Delete') DEFAULT NULL"
+      },
+      {
+        "name": "db_user",
+        "type": "varchar(80) NOT NULL"
+      },
+      {
+        "name": "table_description",
+        "type": "text NOT NULL"
+      },
+      {
+        "name": "operation_date",
+        "type": "datetime NOT NULL DEFAULT CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "operation_status",
+        "type": "bit(1) DEFAULT b'1'"
+      }
+    ],
+    "trigger_target": false,
+    "trigger_behavior": "Los triggers definidos insertan registros de CREATE, UPDATE y DELETE; capturan USER(), NOW(), table_description, operation_status y table_name.",
+    "limitations": "La definición del dump no acredita el estado activo en instancia restaurada ni la inmutabilidad de la bitácora."
+  },
+  "triggers": [
+    {
+      "name": "trg_tb_buyer_orders_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_buyer_orders",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_buyer_orders_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_buyer_orders",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_buyer_orders_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_buyer_orders",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tb_carts_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_carts",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_carts_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_carts",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_carts_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_carts",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tb_categories_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_categories",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_categories_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_categories",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_categories_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_categories",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tb_order_cancellations_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_order_cancellations",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_order_cancellations_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_order_cancellations",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_order_cancellations_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_order_cancellations",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tb_payment_methods_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_payment_methods",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_payment_methods_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_payment_methods",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_payment_methods_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_payment_methods",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tb_payment_transaction_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_payment_transaction",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_payment_transaction_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_payment_transaction",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_payment_transaction_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_payment_transaction",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tb_payments_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_payments",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_payments_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_payments",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_payments_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_payments",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tb_people_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_people",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_people_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_people",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_people_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_people",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tb_products_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_products",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_products_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_products",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_products_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_products",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tb_refunds_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_refunds",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_refunds_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_refunds",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_refunds_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_refunds",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tb_shipments_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_shipments",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_shipments_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_shipments",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_shipments_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_shipments",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tb_user_addresses_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_user_addresses",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_user_addresses_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_user_addresses",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_user_addresses_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_user_addresses",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tb_users_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tb_users",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tb_users_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tb_users",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tb_users_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tb_users",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tbc_payment_methods_types_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tbc_payment_methods_types",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tbc_payment_methods_types_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tbc_payment_methods_types",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tbc_payment_methods_types_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tbc_payment_methods_types",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tbd_address_components_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tbd_address_components",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tbd_address_components_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tbd_address_components",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tbd_address_components_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tbd_address_components",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tbd_cancellation_items_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tbd_cancellation_items",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tbd_cancellation_items_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tbd_cancellation_items",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tbd_cancellation_items_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tbd_cancellation_items",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tbd_carts_items_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tbd_carts_items",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tbd_carts_items_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tbd_carts_items",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tbd_carts_items_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tbd_carts_items",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tbd_order_items_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tbd_order_items",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tbd_order_items_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tbd_order_items",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tbd_order_items_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tbd_order_items",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tbd_products_categories_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tbd_products_categories",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tbd_products_categories_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tbd_products_categories",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tbd_products_categories_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tbd_products_categories",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tbd_products_users_providers_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tbd_products_users_providers",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tbd_products_users_providers_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tbd_products_users_providers",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tbd_products_users_providers_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tbd_products_users_providers",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tbd_return_items_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tbd_return_items",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tbd_return_items_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tbd_return_items",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tbd_return_items_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tbd_return_items",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tbd_user_payment_methods_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tbd_user_payment_methods",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tbd_user_payment_methods_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tbd_user_payment_methods",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tbd_user_payment_methods_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tbd_user_payment_methods",
+      "log_operation": "DELETE"
+    },
+    {
+      "name": "trg_tbd_users_wishlist_products_after_insert",
+      "timing": "AFTER",
+      "event": "INSERT",
+      "table": "tbd_users_wishlist_products",
+      "log_operation": "CREATE"
+    },
+    {
+      "name": "trg_tbd_users_wishlist_products_after_update",
+      "timing": "AFTER",
+      "event": "UPDATE",
+      "table": "tbd_users_wishlist_products",
+      "log_operation": "UPDATE"
+    },
+    {
+      "name": "trg_tbd_users_wishlist_products_after_delete",
+      "timing": "AFTER",
+      "event": "DELETE",
+      "table": "tbd_users_wishlist_products",
+      "log_operation": "DELETE"
+    }
+  ],
+  "views": [
+    {
+      "name": "vw_total_products_by_category",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_buyer_orders",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_carts_items",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_categorias",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_ordenes",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_order_items",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_payment_methods_types",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_productos",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_productos_categorias",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_productos_por_categoria",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_tb_people",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_tb_user_addresses",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_tbd_address_components",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_tbd_products_users_providers",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_tbd_users_wishlist_products",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_user_payment_methods",
+      "sources": [],
+      "role_metadata_dependency": false
+    },
+    {
+      "name": "vw_trazabilidad_usuarios",
+      "sources": [],
+      "role_metadata_dependency": false
+    }
+  ],
+  "business_rules": [
+    {
+      "rule": "Integridad referencial declarada",
+      "evidence": "Restricciones FOREIGN KEY en DDL.",
+      "status": "Estructura verificada; el número de registros huérfanos no puede establecerse a partir de la definición."
+    },
+    {
+      "rule": "Relación productos-categorías N:M",
+      "evidence": "tbd_products_categories con PK compuesta product_id, category_id y FKs declaradas.",
+      "status": "Estructura verificada."
+    },
+    {
+      "rule": "Auditoría de cambios",
+      "evidence": "69 definiciones de triggers AFTER INSERT/UPDATE/DELETE para 23 tablas operativas.",
+      "status": "Definiciones verificadas; activación en ejecución no comprobada."
+    },
+    {
+      "rule": "Descontinuar el 10% de productos",
+      "evidence": "No se encontró sentencia de actualización atribuible a esa acción en la estructura consultada del dump.",
+      "status": "No comprobable mediante el archivo como fuente única."
+    },
+    {
+      "rule": "Conteo de huérfanos igual a cero",
+      "evidence": "No se incluyen resultados de consultas de huérfanos. FOREIGN_KEY_CHECKS se desactiva en la carga del dump.",
+      "status": "No demostrado."
+    },
+    {
+      "rule": "Cumplimiento del 100% de requisitos",
+      "evidence": "No se incluye matriz de requisitos ni acta de pruebas.",
+      "status": "No demostrable."
+    }
+  ],
+  "integrity_evidence": {
+    "foreign_key_constraints": 19,
+    "orphan_count": null,
+    "orphan_count_reason": "El SQL no contiene un resultado de consulta que permita afirmar cero; no se inventa ese dato."
+  },
+  "role_note": "Varias vistas consultan mysql.role_edges para resolver roles. No se encontró evidencia suficiente para afirmar que todas las vistas están dirigidas exclusivamente a superadmin y seller."
+}
