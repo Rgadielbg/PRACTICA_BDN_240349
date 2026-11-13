@@ -69,3 +69,4 @@ Practica03/
 ```
 
 La publicación se configura mediante [deploy-pages.yml](../.github/workflows/deploy-pages.yml) y se ejecuta al actualizar la rama `Practica03` o manualmente desde la pestaña **Actions** del repositorio.
+
