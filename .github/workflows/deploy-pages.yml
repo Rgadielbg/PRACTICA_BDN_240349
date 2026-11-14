@@ -28,9 +28,9 @@ jobs:
       - name: Preparar el sitio
         run: |
           mkdir -p _site/Docs _site/archify _site/diccionario
-          cp Practica03/Docs/index.html _site/Docs/index.html
-          cp Practica03/archify/modelo_eer_respaldo7.html _site/archify/modelo_eer_respaldo7.html
-          cp Practica03/diccionario/index.html _site/diccionario/index.html
+          cp Practica03/queries/index.html _site/Docs/index.html
+          cp Practica03/Docs/index.html _site/diccionario/index.html
+          cp Practica03/archify/modelo_eer_respaldo8.html _site/archify/modelo_eer_respaldo8.html
           cat > _site/index.html <<'EOF'
           <!doctype html>
           <html lang="es">

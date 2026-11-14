@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Documentación interactiva del modelo entidad-relación de la base de datos db_test.">
+  <meta name="theme-color" content="#101b2d">
+  <title>Modelo entidad-relación | Base de datos e-commerce</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: #edf3fc;
+      background: #0b1220;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      --muted: #a7b5ca;
+      --line: #ffffff1c;
+      --accent: #76a7ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body { margin: 0; min-width: 320px; }
+
+    .hero {
+      padding: 52px max(24px, calc((100vw - 1200px) / 2)) 36px;
+      background:
+        radial-gradient(ellipse at 82% -40%, #315eae 0, transparent 48%),
+        linear-gradient(125deg, #101b2d, #172b49);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      color: #9dbcf2;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 800px;
+      margin: 10px 0 12px;
+      font-size: clamp(32px, 5vw, 54px);
+      letter-spacing: -.045em;
+      line-height: 1.08;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0;
+      color: #c4d0e0;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .hero code {
+      color: #d7e5ff;
+      font: 600 .9em ui-monospace, Consolas, monospace;
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 1px solid #ffffff35;
+      border-radius: 9px;
+      color: #f5f8ff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .18s ease, border-color .18s ease;
+    }
+
+    .button.primary { border-color: #79a8ff; background: #3975df; }
+    .button:hover { border-color: var(--accent); background: #ffffff18; }
+    .button.primary:hover { background: #4a84e9; }
+    .button:focus-visible { outline: 3px solid #9dbcf2; outline-offset: 3px; }
+
+    main { max-width: 1248px; margin: auto; padding: 28px 24px 48px; }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .stat {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #ffffff08;
+    }
+
+    .stat strong { display: block; font-size: 25px; letter-spacing: -.04em; }
+    .stat span { color: var(--muted); font-size: 12px; }
+
+    .model-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 0 0 14px;
+    }
+
+    h2 { margin: 0; font-size: 22px; letter-spacing: -.025em; }
+    .model-heading p { margin: 5px 0 0; color: var(--muted); font-size: 14px; }
+
+    .frame-shell {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #f4f7fb;
+      box-shadow: 0 18px 50px #00000030;
+    }
+
+    iframe { display: block; width: 100%; height: min(82vh, 1100px); min-height: 720px; border: 0; }
+
+    footer {
+      padding: 20px 24px 28px;
+      border-top: 1px solid var(--line);
+      color: #8998ad;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .hero { padding-top: 36px; }
+      .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .model-heading { align-items: start; flex-direction: column; }
+      iframe { height: 78vh; min-height: 620px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="eyebrow">Práctica 03 · Bases de datos en la nube</div>
+    <h1>Modelo entidad-relación de la base de datos</h1>
+    <p>
+      Explora el esquema de <code>db_test</code>: sus entidades, columnas,
+      claves primarias y foráneas, relaciones y documentación complementaria.
+      El modelo corresponde a las tablas y columnas de <code>respaldo8.sql</code>;
+      los conteos de filas indicados provienen de ese respaldo.
+    </p>
+    <div class="actions">
+      <a class="button primary" href="#modelo">Ver modelo</a>
+      <a class="button" href="../archify/modelo_eer_respaldo8.html" target="_blank" rel="noopener">
+        Abrir modelo en otra pestaña
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="summary" aria-label="Resumen del esquema">
+      <div class="stat"><strong>24</strong><span>tablas documentadas</span></div>
+      <div class="stat"><strong>193</strong><span>columnas documentadas</span></div>
+      <div class="stat"><strong>69</strong><span>definiciones de triggers</span></div>
+      <div class="stat"><strong>17</strong><span>vistas únicas</span></div>
+    </section>
+
+    <section id="modelo" aria-labelledby="model-title">
+      <div class="model-heading">
+        <div>
+          <h2 id="model-title">Diagrama y diccionario de datos</h2>
+          <p>Usa las pestañas del modelo para consultar las entidades, las relaciones y la trazabilidad.</p>
+        </div>
+      </div>
+      <div class="frame-shell">
+        <iframe
+          src="../archify/modelo_eer_respaldo8.html"
+          title="Modelo entidad-relación interactivo de la base de datos db_test"
+          loading="eager"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Modelo EER · MySQL 8 · Práctica 03 · Ricardo Gadiel Bobadilla Gabriel
+  </footer>
+</body>
+</html>
