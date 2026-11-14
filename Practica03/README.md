@@ -5,10 +5,10 @@
 | Recurso | Descripción | Enlace |
 |---|---|---|
 | 🏠 **Portada principal** | Página de entrada y navegación de la documentación. | [Abrir portada](https://rgadielbg.github.io/PRACTICA_BDN_240349/Docs/) |
-| 📖 **Diccionario de datos** | Nuevo diccionario interactivo con tablas, columnas, tipos, llaves, relaciones y métricas. | [Abrir diccionario](https://rgadielbg.github.io/PRACTICA_BDN_240349/diccionario/) |
-| 🧩 **Diagrama entidad-relación** | Modelo EER interactivo de la base `db_test`, con entidades, claves y relaciones. | [Abrir diagrama](https://rgadielbg.github.io/PRACTICA_BDN_240349/archify/modelo_eer_respaldo8.html) |
+| 📊 **Modelo EER y diccionario** | Página interactiva combinada con mapa de relaciones, tablas, llaves, rutinas y vistas, basada en `respaldo7.sql`. | [Abrir modelo y diccionario](https://rgadielbg.github.io/PRACTICA_BDN_240349/diccionario/) |
+| 🧩 **Diagrama entidad-relación actualizado** | Modelo EER independiente de `db_test`, generado desde `respaldo8.sql`. | [Abrir diagrama actualizado](https://rgadielbg.github.io/PRACTICA_BDN_240349/archify/modelo_eer_respaldo8.html) |
 
-> **Fuentes:** el nuevo diccionario está en `Docs/index.html` y documenta `respaldo7.sql`; la portada y el diagrama EER corresponden a `respaldo8.sql`. Los conteos de filas del EER describen los datos incluidos en ese respaldo, no una consulta en vivo.
+> **Fuentes:** la página combinada de modelo EER y diccionario se encuentra en `Docs/index.html` y documenta `respaldo7.sql`. El diagrama EER independiente y actualizado corresponde a `respaldo8.sql`. Los conteos de filas describen los datos incluidos en cada respaldo, no una consulta en vivo.
 
 > **Si los enlaces muestran 404:** En GitHub, abre **Settings → Pages**, selecciona **GitHub Actions** en **Build and deployment → Source** y guarda. Después inicia el flujo desde **Actions → Publicar documentación en GitHub Pages → Run workflow**.
 
@@ -49,8 +49,8 @@ El archivo SQL permite verificar qué objetos están declarados en el respaldo. 
 ## 5. Documentación técnica
 
 - **Portada web:** resumen y acceso a los documentos interactivos de la práctica.
-- **Diccionario de datos:** nueva documentación interactiva ubicada en `Docs/index.html`, basada en `respaldo7.sql`.
-- **Diagrama entidad-relación:** modelo interactivo elaborado desde `respaldo8.sql`, con las 24 tablas físicas, sus 193 columnas, claves y 19 relaciones declaradas por FK.
+- **Modelo EER y diccionario:** página interactiva combinada en `Docs/index.html`, basada en `respaldo7.sql`; incluye el mapa de relaciones, el diccionario por tabla y secciones de rutinas y lógica de negocio.
+- **Diagrama entidad-relación actualizado:** modelo independiente elaborado desde `respaldo8.sql`, con las 24 tablas físicas, sus 193 columnas, claves y 19 relaciones declaradas por FK.
 - **Informe técnico:** [informe del respaldo 7](./archify/informe_respaldo7.md), con el resumen de objetos y el alcance de la evidencia.
 
 ## 6. Estructura del proyecto
@@ -59,7 +59,7 @@ El archivo SQL permite verificar qué objetos están declarados en el respaldo. 
 Practica03/
 ├── README.md
 ├── Docs/
-│   └── index.html                 # Nuevo diccionario de datos (respaldo 7)
+│   └── index.html                 # Modelo EER y diccionario combinados (respaldo 7)
 ├── queries/
 │   ├── comprovacion_triggers_vistas.sql
 │   └── index.html                 # Portada publicada
