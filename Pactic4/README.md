@@ -4,48 +4,91 @@
 
 | Recurso | Descripción | Enlace |
 |---|---|---|
-| Diccionario de datos | Búsqueda de tablas y campos, tipos SQL, claves y relaciones. | <a href="diccionario.html" target="_blank" rel="noopener noreferrer">Abrir diccionario</a> |
-| Modelo EER web | Vista por dominios de las tablas y las claves foráneas declaradas. | <a href="modelo_eer.html" target="_blank" rel="noopener noreferrer">Abrir modelo EER</a> |
+| Diccionario de datos | Tablas, atributos, definiciones SQL, identificadores, claves, índices y restricciones. | [Abrir diccionario](diccionario.html) |
+| Respaldo de referencia | Fuente SQL utilizada para esta documentación. | [Abrir respaldo10.sql](backups/respaldo10.sql) |
 
 ## Descripción
 
-Esta práctica documenta el esquema `db_test` a partir del respaldo más reciente, [`backups/respaldo10.sql`](backups/respaldo10.sql). El modelo organiza usuarios y personas, catálogo de productos y categorías, carritos, órdenes, pagos, direcciones, envíos y registros de auditoría.
+Esta práctica documenta el esquema `db_test` para un proyecto de comercio electrónico. La descripción se elaboró a partir de [`backups/respaldo10.sql`](backups/respaldo10.sql), que declara la estructura relacional, restricciones y objetos de base de datos.
 
-El respaldo fue generado con MySQL Server 8.0.45 y contiene definiciones de tablas, relaciones, restricciones, disparadores, vistas y un procedimiento almacenado. Las cifras de esta documentación describen los objetos declarados en ese archivo; no representan una consulta en vivo ni certifican que los objetos estén activos en un servidor.
-
-## Diccionario de datos interactivo
-
-Abre el <a href="diccionario.html" target="_blank" rel="noopener noreferrer">diccionario de datos navideño</a> en un navegador. La página es independiente y responsiva, incluye búsqueda por tabla o campo, filtros por tipo de tabla y muestra las columnas, tipos, nulabilidad, valores predeterminados, claves, relaciones y objetos documentados en el respaldo.
+El archivo indica MySQL Server **8.0.45**. La base de datos declara el juego de caracteres `utf8mb4` y la intercalación `utf8mb4_0900_ai_ci`. Las cifras corresponden a objetos declarados en el respaldo; no son una consulta a una instancia activa.
 
 ## Objetos documentados
 
-| Objeto | Cantidad | Descripción |
+| Objeto | Cantidad | Detalle |
 |---|---:|---|
-| Tablas | 24 | 23 tablas operativas y `tb_logs`, usada para auditoría. |
-| Columnas | 193 | Campos declarados en las tablas del respaldo. |
-| Claves foráneas | 19 | Relaciones declaradas entre las tablas. |
-| Triggers | 69 | Tres por cada una de las 23 tablas operativas (`AFTER INSERT`, `AFTER UPDATE` y `AFTER DELETE`). `tb_logs` no tiene triggers propios. |
-| Vistas | 22 | Vistas de trazabilidad y resumen declaradas en el respaldo. |
+| Tablas | 24 | 193 columnas en total. |
+| Claves foráneas | 19 | Relaciones declaradas entre tablas. |
+| Índices secundarios | 23 | Incluye 9 índices `UNIQUE`. |
+| Restricciones `CHECK` | 8 | Restricciones explícitas en el respaldo. |
+| Triggers | 69 | Triggers declarados en el archivo. |
+| Vistas | 22 | Vistas declaradas en el archivo. |
 | Procedimientos | 1 | `sp_register_new_user`. |
 
-Las entidades siguen principalmente los prefijos `tb_` (tablas principales), `tbd_` (tablas de detalle o asociación) y `tbc_` (catálogos). Por ejemplo, `tbd_products_categories` relaciona productos con categorías.
+## Organización de tablas
 
-## Actividades documentadas
+Las categorías conservan la clasificación del diccionario: tablas principales, tablas de detalle o asociación, catálogo y auditoría.
 
-- Diseño y organización de entidades para las operaciones de comercio electrónico.
-- Definición de claves primarias, claves foráneas, índices y restricciones `CHECK`.
-- Uso de tablas de detalle y asociación para representar relaciones entre productos, categorías, carritos, órdenes y usuarios.
-- Registro de operaciones mediante triggers que escriben en `tb_logs`.
-- Creación de vistas de resumen y trazabilidad.
-- Preparación de consultas de verificación para los casos de la práctica.
+| Categoría | Tablas | Nombres |
+|---|---:|---|
+| Principal | 13 | `tb_buyer_orders`, `tb_carts`, `tb_categories`, `tb_order_cancellations`, `tb_payment_methods`, `tb_payment_transaction`, `tb_payments`, `tb_people`, `tb_products`, `tb_refunds`, `tb_shipments`, `tb_user_addresses`, `tb_users` |
+| Detalle / asociación | 9 | `tbd_address_components`, `tbd_cancellation_items`, `tbd_carts_items`, `tbd_order_items`, `tbd_products_categories`, `tbd_products_users_providers`, `tbd_return_items`, `tbd_user_payment_methods`, `tbd_users_wishlist_products` |
+| Catálogo | 1 | `tbc_payment_methods_types` |
+| Auditoría | 1 | `tb_logs` |
 
-## Archivos de la práctica
+Los prefijos ayudan a ubicar las familias: `tb_` para entidades principales, `tbd_` para detalles y asociaciones, y `tbc_` para catálogos. La bitácora `tb_logs` registra operaciones de auditoría según la estructura documentada.
+
+## Relaciones principales
+
+La siguiente lista refleja las claves foráneas declaradas en el SQL, con sus columnas locales y referenciadas. No se agregan relaciones inferidas.
+
+| Columna(s) local(es) | Referencia | Restricción y acciones |
+|---|---|---|
+| `tb_buyer_orders.seller_ID` | `tb_users.ID` | `tb_buyer_orders_ibfk_1` (ON DELETE CASCADE ON UPDATE CASCADE) |
+| `tb_carts.user_ID` | `tb_users.ID` | `tb_carts_ibfk_1` (ON DELETE CASCADE ON UPDATE CASCADE) |
+| `tb_categories.sup_id_category` | `tb_categories.ID` | `fk_superior_category` |
+| `tb_people.user_ID` | `tb_users.ID` | `fk_people_users` |
+| `tb_user_addresses.user_ID` | `tb_users.ID` | `fk_addresses_users` (ON DELETE CASCADE ON UPDATE CASCADE) |
+| `tbd_address_components.address_ID` | `tb_user_addresses.ID` | `fk_component_address` (ON DELETE RESTRICT) |
+| `tbd_address_components.address_ID, address_sup_ID` | `tbd_address_components.address_ID, ID` | `fk_component_parent` (ON DELETE RESTRICT) |
+| `tbd_carts_items.cart_ID` | `tb_carts.ID` | `tbd_carts_items_ibfk_1` |
+| `tbd_carts_items.provider_ID` | `tbd_products_users_providers.user_id` | `tbd_carts_items_ibfk_2` |
+| `tbd_carts_items.product_ID` | `tbd_products_users_providers.product_id` | `tbd_carts_items_ibfk_3` |
+| `tbd_order_items.seller_order_ID` | `tb_buyer_orders.ID` | `tbd_order_items_ibfk_1` |
+| `tbd_order_items.product_ID` | `tbd_products_users_providers.product_id` | `tbd_order_items_ibfk_2` |
+| `tbd_order_items.provider_ID` | `tbd_products_users_providers.user_id` | `tbd_order_items_ibfk_3` |
+| `tbd_products_categories.category_id` | `tb_categories.ID` | `fk_category_rel` (ON DELETE CASCADE ON UPDATE CASCADE) |
+| `tbd_products_categories.product_id` | `tb_products.ID` | `fk_product_rel` (ON DELETE CASCADE ON UPDATE CASCADE) |
+| `tbd_user_payment_methods.user_ID` | `tb_users.ID` | `tbd_user_payment_methods_ibfk_1` (ON DELETE CASCADE ON UPDATE CASCADE) |
+| `tbd_user_payment_methods.payment_method_type_ID` | `tbc_payment_methods_types.ID` | `tbd_user_payment_methods_ibfk_2` (ON DELETE CASCADE ON UPDATE CASCADE) |
+| `tbd_users_wishlist_products.product_ID` | `tb_products.ID` | `fk_products3` (ON DELETE CASCADE ON UPDATE CASCADE) |
+| `tbd_users_wishlist_products.user_ID` | `tb_users.ID` | `fk_user2` (ON DELETE CASCADE ON UPDATE CASCADE) |
+
+Las claves primarias simples y compuestas, los tipos exactos de columna, `NULL`/`NOT NULL`, valores `DEFAULT`, `AUTO_INCREMENT`, `ENUM`, `BIT`, índices `UNIQUE`, demás índices y `CHECK` se detallan en el diccionario interactivo.
+
+## Diccionario de datos
+
+Abre [diccionario.html](diccionario.html) en un navegador. Cada tabla contiene:
+
+- **ID:** identificador consecutivo `DD-###` asignado a la entrada del diccionario; no es un campo de la base de datos.
+- **Qué significa:** descripción funcional conservada en la documentación de las tablas.
+- **Cómo se compone:** columnas y definiciones SQL, además de la forma simple o compuesta de la clave primaria.
+- **Restricciones:** PK, FK con tabla y columnas referenciadas, índices, `UNIQUE`, `CHECK` y definiciones de columnas, donde constan tipo, nulabilidad, valor predeterminado y propiedades como `AUTO_INCREMENT`.
+
+El filtro permite buscar nombres de tablas y campos o ver las tablas por categoría. La página incluye también los nombres de vistas, triggers y procedimientos tomados del respaldo.
+
+## Comparación con la documentación disponible
+
+Se comparó el inventario versionado del diccionario con `respaldo10.sql`: coinciden las **24 tablas**, las **193 columnas** y sus definiciones, así como las **19 claves foráneas** y los **8 `CHECK`**. No se detectaron tablas o campos nuevos, modificados o ausentes en esa comparación. Esta conclusión describe la diferencia entre el SQL indicado y la documentación versionada disponible; no afirma cambios respecto de un respaldo anterior.
+
+En `origin/Practica03`, el `README.md` disponible es el README general de la asignatura. Se tomó como referencia su organización mediante títulos y tablas, adaptándola al contenido técnico de Práctica 04.
+
+## Archivos de Práctica 04
 
 ```text
 Pactic4/
 ├── README.md
 ├── diccionario.html
-├── modelo_eer.html
 ├── backups/
 │   ├── respaldo09.sql
 │   └── respaldo10.sql
@@ -57,10 +100,4 @@ Pactic4/
     └── remote_users_privileges_creation.sql
 ```
 
-El diccionario refleja la estructura de `respaldo10.sql`. Si ese respaldo cambia, vuelve a generar o actualizar el diccionario para que sus definiciones permanezcan sincronizadas.
-
-## Modelo EER web
-
-Abre el <a href="modelo_eer.html" target="_blank" rel="noopener noreferrer">modelo EER interactivo</a> en un navegador de escritorio. Presenta las 24 tablas y sus 193 columnas organizadas por dominio, con filtros de vista y las 19 claves foráneas declaradas en `respaldo10.sql`.
-
-El respaldo incluye dos claves foráneas autorreferentes. Se documentan en las notas del modelo y en sus campos, pero no se dibujan como líneas porque el visor EER requiere que cada relación conecte dos tablas distintas. Las relaciones no declaradas en el respaldo no se infieren.
+El diccionario y este README se basan en `respaldo10.sql`. Actualízalos cuando cambie esa fuente para mantener sus cifras y definiciones sincronizadas.
