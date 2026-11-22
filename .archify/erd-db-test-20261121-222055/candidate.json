@@ -1,0 +1,1654 @@
+{
+  "schema_version": 1,
+  "diagram_type": "erd",
+  "meta": {
+    "title": "Modelo EER de comercio electrónico | db_test",
+    "locale": "es",
+    "subtitle": "Modelo físico web para escritorio de respaldo10.sql · 24 tablas · 193 columnas",
+    "output": ".archify/erd-db-test-20261121-222055/erd-db-test.html",
+    "quality_profile": "standard",
+    "visual_preset": "editorial",
+    "repository": {
+      "url": "https://github.com/Rgadielbg/PRACTICA_BDN_240349.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "255ff4acef44e2557367993bf3e933f957e428e9"
+    },
+    "views": [
+      {
+        "id": "full",
+        "label": "Modelo completo",
+        "focus": [
+          "tb_buyer_orders",
+          "tb_carts",
+          "tb_categories",
+          "tb_logs",
+          "tb_order_cancellations",
+          "tb_payment_methods",
+          "tb_payment_transaction",
+          "tb_payments",
+          "tb_people",
+          "tb_products",
+          "tb_refunds",
+          "tb_shipments",
+          "tb_user_addresses",
+          "tb_users",
+          "tbc_payment_methods_types",
+          "tbd_address_components",
+          "tbd_cancellation_items",
+          "tbd_carts_items",
+          "tbd_order_items",
+          "tbd_products_categories",
+          "tbd_products_users_providers",
+          "tbd_return_items",
+          "tbd_user_payment_methods",
+          "tbd_users_wishlist_products"
+        ],
+        "note": "Esquema físico: tablas y claves foráneas declaradas."
+      },
+      {
+        "id": "accounts",
+        "label": "Usuarios y direcciónes",
+        "focus": [
+          "tb_users",
+          "tb_people",
+          "tb_user_addresses",
+          "tbd_address_components",
+          "tbd_user_payment_methods",
+          "tbc_payment_methods_types"
+        ],
+        "note": "Cuentas, perfiles, direcciónes y métodos de pago guardados."
+      },
+      {
+        "id": "commerce",
+        "label": "Catalogo y carritos",
+        "focus": [
+          "tb_products",
+          "tb_categories",
+          "tbd_products_categories",
+          "tbd_products_users_providers",
+          "tb_carts",
+          "tbd_carts_items",
+          "tbd_users_wishlist_products"
+        ],
+        "note": "Catalogo, proveedores, carritos y listas de deseos."
+      },
+      {
+        "id": "checkout",
+        "label": "Órdenes y pagos",
+        "focus": [
+          "tb_buyer_orders",
+          "tbd_order_items",
+          "tb_payments",
+          "tb_payment_methods",
+          "tb_payment_transaction",
+          "tb_shipments",
+          "tb_refunds",
+          "tb_order_cancellations",
+          "tbd_cancellation_items",
+          "tbd_return_items"
+        ],
+        "note": "Ciclo de compra y tablas de detalle relaciónadas."
+      },
+      {
+        "id": "audit",
+        "label": "Auditoría",
+        "focus": [
+          "tb_logs"
+        ],
+        "note": "Bitácora de operaciones declarada en el respaldo."
+      }
+    ],
+    "legend": {
+      "mode": "all",
+      "entries": {
+        "pk": {
+          "label": "Clave primaria"
+        },
+        "fk": {
+          "label": "Clave foránea"
+        },
+        "uk": {
+          "label": "Clave única"
+        },
+        "one": {
+          "label": "Uno"
+        },
+        "many": {
+          "label": "Muchos"
+        },
+        "optional": {
+          "label": "Opcional"
+        }
+      }
+    }
+  },
+  "layout": {
+    "mode": "grid",
+    "gapX": 28,
+    "gapY": 34,
+    "entityW": 250
+  },
+  "entities": [
+    {
+      "id": "tb_buyer_orders",
+      "label": "tb_buyer_orders",
+      "sublabel": "Órdenes de compra recibidas por vendedores.",
+      "tag": "Entidades / transacciones",
+      "row": 0,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "seller_ID",
+          "type": "int",
+          "key": "fk",
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "subtotal",
+          "type": "decimal(12,2)"
+        },
+        {
+          "name": "shipping_cost",
+          "type": "decimal(12,2)"
+        },
+        {
+          "name": "fulfillment_status",
+          "type": "enum"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 27,
+          "end_line": 41,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tb_carts",
+      "label": "tb_carts",
+      "sublabel": "Carritos asociados a usuarios.",
+      "tag": "Entidades / transacciones",
+      "row": 1,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "user_ID",
+          "type": "int",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 115,
+          "end_line": 124,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tb_categories",
+      "label": "tb_categories",
+      "sublabel": "Categorías jerárquicas del catálogo.",
+      "tag": "Entidades / transacciones",
+      "row": 2,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "name",
+          "type": "varchar(120)",
+          "key": "uk"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "sup_id_category",
+          "type": "int unsigned",
+          "key": "fk",
+          "references": "tb_categories.ID"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 198,
+          "end_line": 210,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tb_logs",
+      "label": "tb_logs",
+      "sublabel": "Bitácora de operaciones de auditoría.",
+      "tag": "Auditoria",
+      "row": 0,
+      "col": 3,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int",
+          "key": "pk"
+        },
+        {
+          "name": "table_name",
+          "type": "varchar(80)"
+        },
+        {
+          "name": "table_operation",
+          "type": "enum"
+        },
+        {
+          "name": "db_user",
+          "type": "varchar(80)"
+        },
+        {
+          "name": "table_description",
+          "type": "text"
+        },
+        {
+          "name": "operation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "operation_status",
+          "type": "bit(1)"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 284,
+          "end_line": 293,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tb_order_cancellations",
+      "label": "tb_order_cancellations",
+      "sublabel": "Cancelaciones de órdenes.",
+      "tag": "Entidades / transacciones",
+      "row": 3,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "order_ID",
+          "type": "int unsigned"
+        },
+        {
+          "name": "reason",
+          "type": "text"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 319,
+          "end_line": 329,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tb_payment_methods",
+      "label": "tb_payment_methods",
+      "sublabel": "Métodos de pago guardados por usuarios.",
+      "tag": "Entidades / transacciones",
+      "row": 4,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "user_ID",
+          "type": "int"
+        },
+        {
+          "name": "name",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "description",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 403,
+          "end_line": 414,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tb_payment_transaction",
+      "label": "tb_payment_transaction",
+      "sublabel": "Transacciones de pago.",
+      "tag": "Entidades / transacciones",
+      "row": 5,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "payment_ID",
+          "type": "int unsigned"
+        },
+        {
+          "name": "transaction_ref",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "amount",
+          "type": "decimal(12,2)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 487,
+          "end_line": 498,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tb_payments",
+      "label": "tb_payments",
+      "sublabel": "Pagos asociados a órdenes.",
+      "tag": "Entidades / transacciones",
+      "row": 6,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "order_ID",
+          "type": "int unsigned"
+        },
+        {
+          "name": "user_payment_method_ID",
+          "type": "bigint unsigned"
+        },
+        {
+          "name": "amount",
+          "type": "decimal(12,2)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 572,
+          "end_line": 583,
+          "label": "DDL"
+        }
+      ],
+      "width": 310
+    },
+    {
+      "id": "tb_people",
+      "label": "tb_people",
+      "sublabel": "Información personal de los usuarios.",
+      "tag": "Entidades / transacciones",
+      "row": 7,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "person_ID",
+          "type": "bigint unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "user_ID",
+          "type": "int",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "courtesy_title",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "given_names",
+          "type": "varchar(150)"
+        },
+        {
+          "name": "family_names",
+          "type": "varchar(150)"
+        },
+        {
+          "name": "birth_date",
+          "type": "date"
+        },
+        {
+          "name": "gender",
+          "type": "enum"
+        },
+        {
+          "name": "country_code",
+          "type": "char(2)"
+        },
+        {
+          "name": "phone",
+          "type": "varchar(25)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 657,
+          "end_line": 673,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tb_products",
+      "label": "tb_products",
+      "sublabel": "Catalogo de productos.",
+      "tag": "Entidades / transacciones",
+      "row": 8,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int",
+          "key": "pk"
+        },
+        {
+          "name": "SKU",
+          "type": "varchar(50)",
+          "key": "uk"
+        },
+        {
+          "name": "name",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "current_price",
+          "type": "decimal(10,2)"
+        },
+        {
+          "name": "current_stock",
+          "type": "int"
+        },
+        {
+          "name": "status",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 748,
+          "end_line": 760,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tb_refunds",
+      "label": "tb_refunds",
+      "sublabel": "Reembolsos asociados a órdenes.",
+      "tag": "Entidades / transacciones",
+      "row": 9,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "order_ID",
+          "type": "int unsigned"
+        },
+        {
+          "name": "reason",
+          "type": "text"
+        },
+        {
+          "name": "amount",
+          "type": "decimal(12,2)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 835,
+          "end_line": 846,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tb_shipments",
+      "label": "tb_shipments",
+      "sublabel": "Envíos y seguimiento de órdenes.",
+      "tag": "Entidades / transacciones",
+      "row": 10,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "order_ID",
+          "type": "int unsigned"
+        },
+        {
+          "name": "address_ID",
+          "type": "bigint unsigned"
+        },
+        {
+          "name": "carrier",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "tracking_number",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 920,
+          "end_line": 932,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tb_user_addresses",
+      "label": "tb_user_addresses",
+      "sublabel": "Direcciones de entrega de usuarios.",
+      "tag": "Entidades / transacciones",
+      "row": 11,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "bigint unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "user_ID",
+          "type": "int",
+          "key": "fk",
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "address_label",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "recipient_name",
+          "type": "varchar(150)"
+        },
+        {
+          "name": "recipient_phone",
+          "type": "varchar(25)"
+        },
+        {
+          "name": "delivery_instructions",
+          "type": "varchar(500)"
+        },
+        {
+          "name": "latitude",
+          "type": "decimal(10,7)"
+        },
+        {
+          "name": "longitude",
+          "type": "decimal(10,7)"
+        },
+        {
+          "name": "is_default",
+          "type": "tinyint(1)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 1006,
+          "end_line": 1025,
+          "label": "DDL"
+        }
+      ],
+      "width": 280
+    },
+    {
+      "id": "tb_users",
+      "label": "tb_users",
+      "sublabel": "Cuentas de usuario.",
+      "tag": "Entidades / transacciones",
+      "row": 12,
+      "col": 0,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int",
+          "key": "pk"
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "key": "uk"
+        },
+        {
+          "name": "nick",
+          "type": "varchar(50)",
+          "key": "uk"
+        },
+        {
+          "name": "password",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        },
+        {
+          "name": "last_login",
+          "type": "datetime"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 1099,
+          "end_line": 1111,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tbc_payment_methods_types",
+      "label": "tbc_payment_methods_types",
+      "sublabel": "Catalogo de tipos de metodo de pago.",
+      "tag": "Catalogos",
+      "row": 0,
+      "col": 2,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "code",
+          "type": "varchar(50)",
+          "key": "uk"
+        },
+        {
+          "name": "name",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "description",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 1186,
+          "end_line": 1196,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tbd_address_components",
+      "label": "tbd_address_components",
+      "sublabel": "Componentes de una dirección.",
+      "tag": "Detalles / relaciones",
+      "row": 0,
+      "col": 1,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "bigint unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "address_ID",
+          "type": "bigint unsigned",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_user_addresses.ID"
+        },
+        {
+          "name": "value",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "component_type",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "address_sup_ID",
+          "type": "bigint unsigned",
+          "key": "fk",
+          "references": "tbd_address_components.ID"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 1270,
+          "end_line": 1284,
+          "label": "DDL"
+        }
+      ],
+      "width": 280
+    },
+    {
+      "id": "tbd_cancellation_items",
+      "label": "tbd_cancellation_items",
+      "sublabel": "Detalle de productos cancelados.",
+      "tag": "Detalles / relaciones",
+      "row": 1,
+      "col": 1,
+      "attributes": [
+        {
+          "name": "cancellation_ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "quantity",
+          "type": "int unsigned"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 1357,
+          "end_line": 1366,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tbd_carts_items",
+      "label": "tbd_carts_items",
+      "sublabel": "Productos y proveedores de cada carrito.",
+      "tag": "Detalles / relaciones",
+      "row": 2,
+      "col": 1,
+      "attributes": [
+        {
+          "name": "cart_ID",
+          "type": "int unsigned",
+          "key": [
+            "pk",
+            "fk"
+          ],
+          "references": "tb_carts.ID"
+        },
+        {
+          "name": "provider_ID",
+          "type": "int unsigned",
+          "key": [
+            "pk",
+            "fk"
+          ],
+          "references": "tbd_products_users_providers.user_id"
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned",
+          "key": [
+            "pk",
+            "fk"
+          ],
+          "references": "tbd_products_users_providers.product_id"
+        },
+        {
+          "name": "quantity",
+          "type": "int unsigned"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 1440,
+          "end_line": 1453,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tbd_order_items",
+      "label": "tbd_order_items",
+      "sublabel": "Detalle de productos de una orden.",
+      "tag": "Detalles / relaciones",
+      "row": 3,
+      "col": 1,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "seller_order_ID",
+          "type": "int unsigned",
+          "key": "fk",
+          "references": "tb_buyer_orders.ID"
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned",
+          "key": "fk",
+          "references": "tbd_products_users_providers.product_id"
+        },
+        {
+          "name": "provider_ID",
+          "type": "int unsigned",
+          "key": "fk",
+          "references": "tbd_products_users_providers.user_id"
+        },
+        {
+          "name": "product_name",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "quantity",
+          "type": "int unsigned"
+        },
+        {
+          "name": "unit_price",
+          "type": "decimal(12,2)"
+        },
+        {
+          "name": "subtotal",
+          "type": "decimal(12,2)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 1527,
+          "end_line": 1546,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tbd_products_categories",
+      "label": "tbd_products_categories",
+      "sublabel": "Relación entre productos y categorías.",
+      "tag": "Detalles / relaciones",
+      "row": 4,
+      "col": 1,
+      "attributes": [
+        {
+          "name": "product_id",
+          "type": "int",
+          "key": [
+            "pk",
+            "fk"
+          ],
+          "references": "tb_products.ID"
+        },
+        {
+          "name": "category_id",
+          "type": "int unsigned",
+          "key": [
+            "pk",
+            "fk"
+          ],
+          "references": "tb_categories.ID"
+        },
+        {
+          "name": "status",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 1620,
+          "end_line": 1630,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tbd_products_users_providers",
+      "label": "tbd_products_users_providers",
+      "sublabel": "Relación de productos con propietarios y proveedores.",
+      "tag": "Detalles / relaciones",
+      "row": 5,
+      "col": 1,
+      "attributes": [
+        {
+          "name": "user_id",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "product_id",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "type_ownership",
+          "type": "enum"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "available_date",
+          "type": "datetime"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 1704,
+          "end_line": 1714,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tbd_return_items",
+      "label": "tbd_return_items",
+      "sublabel": "Detalle de productos devueltos.",
+      "tag": "Detalles / relaciones",
+      "row": 6,
+      "col": 1,
+      "attributes": [
+        {
+          "name": "return_ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "quantity",
+          "type": "int unsigned"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        },
+        {
+          "name": "created_by",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "last_update",
+          "type": "timestamp"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 1788,
+          "end_line": 1797,
+          "label": "DDL"
+        }
+      ]
+    },
+    {
+      "id": "tbd_user_payment_methods",
+      "label": "tbd_user_payment_methods",
+      "sublabel": "Métodos de pago asociados a usuarios.",
+      "tag": "Detalles / relaciones",
+      "row": 7,
+      "col": 1,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "bigint unsigned",
+          "key": "pk"
+        },
+        {
+          "name": "user_ID",
+          "type": "int",
+          "key": "fk",
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "payment_method_type_ID",
+          "type": "int unsigned",
+          "key": "fk",
+          "references": "tbc_payment_methods_types.ID"
+        },
+        {
+          "name": "provider",
+          "type": "varchar(50)",
+          "key": "uk"
+        },
+        {
+          "name": "provider_method_ref",
+          "type": "varchar(255)",
+          "key": "uk"
+        },
+        {
+          "name": "label",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "last_four",
+          "type": "char(4)"
+        },
+        {
+          "name": "is_default",
+          "type": "tinyint(1)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 1871,
+          "end_line": 1889,
+          "label": "DDL"
+        }
+      ],
+      "width": 285
+    },
+    {
+      "id": "tbd_users_wishlist_products",
+      "label": "tbd_users_wishlist_products",
+      "sublabel": "Productos en listas de deseos de usuarios.",
+      "tag": "Detalles / relaciones",
+      "row": 8,
+      "col": 1,
+      "attributes": [
+        {
+          "name": "user_ID",
+          "type": "int",
+          "key": [
+            "pk",
+            "fk"
+          ],
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "product_ID",
+          "type": "int",
+          "key": [
+            "pk",
+            "fk"
+          ],
+          "references": "tb_products.ID"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "Pactic4/backups/respaldo10.sql",
+          "line": 1963,
+          "end_line": 1973,
+          "label": "DDL"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel_1_tb_buyer_orders_tb_users",
+      "from": "tb_buyer_orders",
+      "to": "tb_users",
+      "label": "seller_ID -> ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": false
+    },
+    {
+      "id": "rel_2_tb_carts_tb_users",
+      "from": "tb_carts",
+      "to": "tb_users",
+      "label": "user_ID -> ID",
+      "fromCardinality": "one",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": false
+    },
+    {
+      "id": "rel_4_tb_people_tb_users",
+      "from": "tb_people",
+      "to": "tb_users",
+      "label": "user_ID -> ID",
+      "fromCardinality": "one",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": false,
+      "toOptional": true
+    },
+    {
+      "id": "rel_5_tb_user_addresses_tb_users",
+      "from": "tb_user_addresses",
+      "to": "tb_users",
+      "label": "user_ID -> ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": false,
+      "labelDy": 15
+    },
+    {
+      "id": "rel_6_tbd_address_components_tb_user_addresses",
+      "from": "tbd_address_components",
+      "to": "tb_user_addresses",
+      "label": "address_ID -> ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": false
+    },
+    {
+      "id": "rel_8_tbd_carts_items_tb_carts",
+      "from": "tbd_carts_items",
+      "to": "tb_carts",
+      "label": "cart_ID -> ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": true
+    },
+    {
+      "id": "rel_9_tbd_carts_items_tbd_products_users_providers",
+      "from": "tbd_carts_items",
+      "to": "tbd_products_users_providers",
+      "label": "provider_ID -> user_id",
+      "fromCardinality": "many",
+      "toCardinality": "many",
+      "fromOptional": true,
+      "identifying": true
+    },
+    {
+      "id": "rel_10_tbd_carts_items_tbd_products_users_providers",
+      "from": "tbd_carts_items",
+      "to": "tbd_products_users_providers",
+      "label": "product_ID -> product_id",
+      "fromCardinality": "many",
+      "toCardinality": "many",
+      "fromOptional": true,
+      "identifying": true
+    },
+    {
+      "id": "rel_11_tbd_order_items_tb_buyer_orders",
+      "from": "tbd_order_items",
+      "to": "tb_buyer_orders",
+      "label": "seller_order_ID -> ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": false
+    },
+    {
+      "id": "rel_12_tbd_order_items_tbd_products_users_providers",
+      "from": "tbd_order_items",
+      "to": "tbd_products_users_providers",
+      "label": "product_ID -> product_id",
+      "fromCardinality": "many",
+      "toCardinality": "many",
+      "fromOptional": true,
+      "identifying": false
+    },
+    {
+      "id": "rel_13_tbd_order_items_tbd_products_users_providers",
+      "from": "tbd_order_items",
+      "to": "tbd_products_users_providers",
+      "label": "provider_ID -> user_id",
+      "fromCardinality": "many",
+      "toCardinality": "many",
+      "fromOptional": true,
+      "identifying": false
+    },
+    {
+      "id": "rel_14_tbd_products_categories_tb_categories",
+      "from": "tbd_products_categories",
+      "to": "tb_categories",
+      "label": "category_id -> ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": true
+    },
+    {
+      "id": "rel_15_tbd_products_categories_tb_products",
+      "from": "tbd_products_categories",
+      "to": "tb_products",
+      "label": "product_id -> ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": true
+    },
+    {
+      "id": "rel_16_tbd_user_payment_methods_tb_users",
+      "from": "tbd_user_payment_methods",
+      "to": "tb_users",
+      "label": "user_ID -> ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": false
+    },
+    {
+      "id": "rel_17_tbd_user_payment_methods_tbc_payment_methods_types",
+      "from": "tbd_user_payment_methods",
+      "to": "tbc_payment_methods_types",
+      "label": "payment_method_type_ID -> ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": false
+    },
+    {
+      "id": "rel_18_tbd_users_wishlist_products_tb_products",
+      "from": "tbd_users_wishlist_products",
+      "to": "tb_products",
+      "label": "product_ID -> ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": true
+    },
+    {
+      "id": "rel_19_tbd_users_wishlist_products_tb_users",
+      "from": "tbd_users_wishlist_products",
+      "to": "tb_users",
+      "label": "user_ID -> ID",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "identifying": true
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Alcance del modelo",
+      "items": [
+        "El diagrama representa las 24 tablas físicas y sus 193 columnas declaradas en respaldo10.sql.",
+        "Las 19 restricciones FOREIGN KEY del respaldo se conservan: 17 relaciones entre tablas distintas se dibujan; dos autorreferencias se describen en Restricciones no declaradas.",
+        "Los triggers, las vistas y el procedimiento almacenado no son entidades; se describen en el diccionario de datos."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Dominios del sitio",
+      "items": [
+        "Entidades y transacciones (tb_); detalles y asociaciones (tbd_); catálogos (tbc_); auditoría (tb_logs).",
+        "Las etiquetas agrupan tablas en columnas web para conservar una lectura de escritorio semejante al ejemplo."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Restricciones y autorreferencias",
+      "items": [
+        "tbd_cancellation_items y tbd_return_items declaran claves primarias compuestas, pero no claves foráneas en este respaldo; no se dibujan relaciónes inferidas.",
+        "tbd_products_users_providers tampoco declara claves foráneas hacia tb_users o tb_products, aunque otras tablas hacen referencia a sus columnas.",
+        "tbd_address_components tiene una relación compuesta autorreferente adicional a la relación con tb_user_addresses; ambas restricciones se conservan.",
+        "tb_categories.sup_id_category referencia tb_categories.ID. tbd_address_components tiene la relacion compuesta (address_ID, address_sup_ID) -> (address_ID, ID), ademas de su FK a tb_user_addresses.ID."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Valores ENUM del respaldo",
+      "items": [
+        "tb_buyer_orders.fulfillment_status: enum('Pending','Accepted','Preparing','Sent','Delivered','Canceled','Returned')",
+        "tb_logs.table_operation: enum('Create','Read','Update','Delete')",
+        "tb_people.gender: enum('Hombre','Mujer','Prefiero no decirlo')",
+        "tbd_products_users_providers.type_ownership: enum('Owner','Reseller','Distributor')"
+      ]
+    }
+  ]
+}

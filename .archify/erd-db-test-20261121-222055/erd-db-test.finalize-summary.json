@@ -1,0 +1,315 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "erd",
+  "quality": "standard",
+  "specification": {
+    "path": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\.archify\\erd-db-test-20261121-222055\\candidate.json",
+    "sha256": "d0fdf5744b5028273b887af6eaf4aa5bd71b2add05fcb927f51721248d10bf9b",
+    "bytes": 39207
+  },
+  "artifact": {
+    "path": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\.archify\\erd-db-test-20261121-222055\\erd-db-test.html",
+    "sha256": "3dac53ade73c7159bda0c490b60772e060768429983660e04c7dd2cafd3be370",
+    "bytes": 997676
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\.archify\\erd-db-test-20261121-222055\\erd-db-test.finalize.json",
+    "summaryReceipt": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\.archify\\erd-db-test-20261121-222055\\erd-db-test.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\RGadiel\\OneDrive\\Documentos\\PRACTICA_BDN_240349\\.archify\\erd-db-test-20261121-222055\\erd-db-test.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-22T04:23:56.280Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 10821,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "routesOverSuggestedBends": 3
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [],
+      "detours": [
+        {
+          "relationship": {
+            "id": "rel_1_tb_buyer_orders_tb_users",
+            "from": "tb_buyer_orders",
+            "to": "tb_users",
+            "label": "seller_ID -&gt; ID",
+            "collectionIndex": 0,
+            "artifactIndex": 1
+          },
+          "bends": 4,
+          "stretch": 1.085,
+          "directCorridorBlockers": [
+            {
+              "id": "tb_carts",
+              "label": "tb_carts",
+              "box": [
+                62,
+                270,
+                250,
+                136
+              ]
+            },
+            {
+              "id": "tb_categories",
+              "label": "tb_categories",
+              "box": [
+                62,
+                480,
+                250,
+                176
+              ]
+            },
+            {
+              "id": "tb_order_cancellations",
+              "label": "tb_order_cancellations",
+              "box": [
+                62,
+                690,
+                250,
+                196
+              ]
+            },
+            {
+              "id": "tb_payment_methods",
+              "label": "tb_payment_methods",
+              "box": [
+                62,
+                940,
+                250,
+                216
+              ]
+            },
+            {
+              "id": "tb_payment_transaction",
+              "label": "tb_payment_transaction",
+              "box": [
+                62,
+                1190,
+                250,
+                216
+              ]
+            },
+            {
+              "id": "tb_payments",
+              "label": "tb_payments",
+              "box": [
+                32,
+                1440,
+                310,
+                216
+              ]
+            },
+            {
+              "id": "tb_people",
+              "label": "tb_people",
+              "box": [
+                62,
+                1690,
+                250,
+                276
+              ]
+            },
+            {
+              "id": "tb_products",
+              "label": "tb_products",
+              "box": [
+                62,
+                2000,
+                250,
+                216
+              ]
+            },
+            {
+              "id": "tb_refunds",
+              "label": "tb_refunds",
+              "box": [
+                62,
+                2250,
+                250,
+                216
+              ]
+            },
+            {
+              "id": "tb_shipments",
+              "label": "tb_shipments",
+              "box": [
+                62,
+                2500,
+                250,
+                236
+              ]
+            },
+            {
+              "id": "tb_user_addresses",
+              "label": "tb_user_addresses",
+              "box": [
+                47,
+                2770,
+                280,
+                276
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "rel_2_tb_carts_tb_users",
+            "from": "tb_carts",
+            "to": "tb_users",
+            "label": "user_ID -&gt; ID",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "bends": 4,
+          "stretch": 1.109,
+          "directCorridorBlockers": [
+            {
+              "id": "tb_categories",
+              "label": "tb_categories",
+              "box": [
+                62,
+                480,
+                250,
+                176
+              ]
+            },
+            {
+              "id": "tb_order_cancellations",
+              "label": "tb_order_cancellations",
+              "box": [
+                62,
+                690,
+                250,
+                196
+              ]
+            },
+            {
+              "id": "tb_payment_methods",
+              "label": "tb_payment_methods",
+              "box": [
+                62,
+                940,
+                250,
+                216
+              ]
+            },
+            {
+              "id": "tb_payment_transaction",
+              "label": "tb_payment_transaction",
+              "box": [
+                62,
+                1190,
+                250,
+                216
+              ]
+            },
+            {
+              "id": "tb_payments",
+              "label": "tb_payments",
+              "box": [
+                32,
+                1440,
+                310,
+                216
+              ]
+            },
+            {
+              "id": "tb_people",
+              "label": "tb_people",
+              "box": [
+                62,
+                1690,
+                250,
+                276
+              ]
+            },
+            {
+              "id": "tb_products",
+              "label": "tb_products",
+              "box": [
+                62,
+                2000,
+                250,
+                216
+              ]
+            },
+            {
+              "id": "tb_refunds",
+              "label": "tb_refunds",
+              "box": [
+                62,
+                2250,
+                250,
+                216
+              ]
+            },
+            {
+              "id": "tb_shipments",
+              "label": "tb_shipments",
+              "box": [
+                62,
+                2500,
+                250,
+                236
+              ]
+            },
+            {
+              "id": "tb_user_addresses",
+              "label": "tb_user_addresses",
+              "box": [
+                47,
+                2770,
+                280,
+                276
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "rel_11_tbd_order_items_tb_buyer_orders",
+            "from": "tbd_order_items",
+            "to": "tb_buyer_orders",
+            "label": "seller_order_ID -&gt; ID",
+            "collectionIndex": 8,
+            "artifactIndex": 9
+          },
+          "bends": 3,
+          "stretch": 1.041
+        }
+      ],
+      "truncated": false
+    },
+    "repair": "Advisory only: this mode places or routes these relationships itself. Report them; do not remove relationships or meaning to reduce crossings."
+  }
+}
