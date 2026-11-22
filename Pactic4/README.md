@@ -4,8 +4,8 @@
 
 | Recurso | Descripción | Enlace |
 |---|---|---|
-| Diccionario de datos | Búsqueda de tablas y campos, tipos SQL, claves y relaciones. | [Abrir diccionario](diccionario.html) |
-| Modelo EER web | Vista por dominios de las tablas y las claves foráneas declaradas. | [Abrir modelo EER](modelo_eer.html) |
+| Diccionario de datos | Búsqueda de tablas y campos, tipos SQL, claves y relaciones. | <a href="diccionario.html" target="_blank" rel="noopener noreferrer">Abrir diccionario</a> |
+| Modelo EER web | Vista por dominios de las tablas y las claves foráneas declaradas. | <a href="modelo_eer.html" target="_blank" rel="noopener noreferrer">Abrir modelo EER</a> |
 
 ## Descripción
 
@@ -15,7 +15,7 @@ El respaldo fue generado con MySQL Server 8.0.45 y contiene definiciones de tabl
 
 ## Diccionario de datos interactivo
 
-Abre el [diccionario de datos navideño](diccionario.html) en un navegador. La página es independiente y responsiva, incluye búsqueda por tabla o campo, filtros por tipo de tabla y muestra las columnas, tipos, nulabilidad, valores predeterminados, claves, relaciones y objetos documentados en el respaldo.
+Abre el <a href="diccionario.html" target="_blank" rel="noopener noreferrer">diccionario de datos navideño</a> en un navegador. La página es independiente y responsiva, incluye búsqueda por tabla o campo, filtros por tipo de tabla y muestra las columnas, tipos, nulabilidad, valores predeterminados, claves, relaciones y objetos documentados en el respaldo.
 
 ## Objetos documentados
 
@@ -61,6 +61,6 @@ El diccionario refleja la estructura de `respaldo10.sql`. Si ese respaldo cambia
 
 ## Modelo EER web
 
-Abre el [modelo EER interactivo](modelo_eer.html) en un navegador de escritorio. Presenta las 24 tablas y sus 193 columnas organizadas por dominio, con filtros de vista y las 19 claves foráneas declaradas en `respaldo10.sql`.
+Abre el <a href="modelo_eer.html" target="_blank" rel="noopener noreferrer">modelo EER interactivo</a> en un navegador de escritorio. Presenta las 24 tablas y sus 193 columnas organizadas por dominio, con filtros de vista y las 19 claves foráneas declaradas en `respaldo10.sql`.
 
 El respaldo incluye dos claves foráneas autorreferentes. Se documentan en las notas del modelo y en sus campos, pero no se dibujan como líneas porque el visor EER requiere que cada relación conecte dos tablas distintas. Las relaciones no declaradas en el respaldo no se infieren.
